@@ -30,6 +30,7 @@
 }
 body {
   overflow: hidden; /* disable native scroll */
+    height: auto;   
 }
  .swiper {
       width: 100%;
