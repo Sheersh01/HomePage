@@ -29,8 +29,8 @@
     font-family: 'Bad';
 }
 body {
-  overflow-x: hidden; /* disable native scroll */
-    height: auto;   
+  overflow: hidden; /* disable native scroll */
+
 }
  .swiper {
       width: 100%;
