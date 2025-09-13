@@ -1,3 +1,4 @@
+import "./script.js";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
@@ -5,6 +6,8 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import GUI from "lil-gui";
+import background from "./assets/background.jpg";
+import planet from "./assets/planet.jpg";
 
 // NEW: Lenis + GSAP
 import Lenis from "@studio-freight/lenis";
@@ -136,9 +139,9 @@ composer.addPass(godraysPass);
 
 // ----- TEXTURES -----
 const textureLoader = new THREE.TextureLoader();
-const bgTexture = textureLoader.load("./src/assets/background.jpg");
+const bgTexture = textureLoader.load(background);
 // bgTexture.colorSpace = THREE.SRGBColorSpace;
-const planetTexture = textureLoader.load("./src/assets/planet.jpg");
+const planetTexture = textureLoader.load(planet);
 planetTexture.colorSpace = THREE.SRGBColorSpace;
 
 // ----- BACKGROUND SPHERE -----
@@ -195,7 +198,6 @@ const lenis = new Lenis({
   wheelMultiplier: 0.25, // makes each wheel step push further
   infinite: false,
 });
-
 
 let scrollProgress = 0;
 let targetProgress = 0;
@@ -275,53 +277,53 @@ window.addEventListener("resize", () => {
 // ------------------ GUI ------------------
 // const gui = new GUI();
 
-// Bloom
-const bloomFolder = gui.addFolder("Bloom");
-bloomFolder.add(bloomPass, "strength", 0, 3, 0.01);
-bloomFolder.add(bloomPass, "radius", 0, 2, 0.01);
-bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01);
+// // Bloom
+// const bloomFolder = gui.addFolder("Bloom");
+// bloomFolder.add(bloomPass, "strength", 0, 3, 0.01);
+// bloomFolder.add(bloomPass, "radius", 0, 2, 0.01);
+// bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01);
 
-// God Rays
-const godraysFolder = gui.addFolder("God Rays");
-godraysFolder
-  .add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01)
-  .name("exposure");
-godraysFolder
-  .add(godraysPass.uniforms.decay, "value", 0.8, 1.0, 0.001)
-  .name("decay");
-godraysFolder
-  .add(godraysPass.uniforms.density, "value", 0, 2, 0.01)
-  .name("density");
-godraysFolder
-  .add(godraysPass.uniforms.weight, "value", 0, 1, 0.01)
-  .name("weight");
-godraysFolder
-  .add(godraysPass.uniforms.sunRadius, "value", 0.05, 1.0, 0.01)
-  .name("sunRadius");
+// // God Rays
+// const godraysFolder = gui.addFolder("God Rays");
+// godraysFolder
+//   .add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01)
+//   .name("exposure");
+// godraysFolder
+//   .add(godraysPass.uniforms.decay, "value", 0.8, 1.0, 0.001)
+//   .name("decay");
+// godraysFolder
+//   .add(godraysPass.uniforms.density, "value", 0, 2, 0.01)
+//   .name("density");
+// godraysFolder
+//   .add(godraysPass.uniforms.weight, "value", 0, 1, 0.01)
+//   .name("weight");
+// godraysFolder
+//   .add(godraysPass.uniforms.sunRadius, "value", 0.05, 1.0, 0.01)
+//   .name("sunRadius");
 
-// Sun
-const sunFolder = gui.addFolder("Sun Light");
-sunFolder.add(sunLight, "intensity", 0, 10, 0.1);
-sunFolder.add(sunLight.position, "x", -30, 30, 0.1).name("sunLight X");
-sunFolder.add(sunLight.position, "y", -30, 30, 0.1).name("sunLight Y");
-sunFolder.add(sunLight.position, "z", -30, 30, 0.1).name("sunLight Z");
-sunFolder
-  .add(sunSphere.material, "emissiveIntensity", 0, 5, 0.1)
-  .name("sun Emissive");
-sunFolder
-  .add(sunSphere.material, "roughness", 0, 1, 0.01)
-  .name("sun Roughness");
-sunFolder
-  .add(sunSphere.material, "metalness", 0, 1, 0.01)
-  .name("sun Metalness");
+// // Sun
+// const sunFolder = gui.addFolder("Sun Light");
+// sunFolder.add(sunLight, "intensity", 0, 10, 0.1);
+// sunFolder.add(sunLight.position, "x", -30, 30, 0.1).name("sunLight X");
+// sunFolder.add(sunLight.position, "y", -30, 30, 0.1).name("sunLight Y");
+// sunFolder.add(sunLight.position, "z", -30, 30, 0.1).name("sunLight Z");
+// sunFolder
+//   .add(sunSphere.material, "emissiveIntensity", 0, 5, 0.1)
+//   .name("sun Emissive");
+// sunFolder
+//   .add(sunSphere.material, "roughness", 0, 1, 0.01)
+//   .name("sun Roughness");
+// sunFolder
+//   .add(sunSphere.material, "metalness", 0, 1, 0.01)
+//   .name("sun Metalness");
 
-// Planet
-const planetFolder = gui.addFolder("Planet");
-planetFolder.add(innerSphere.material, "roughness", 0, 1, 0.01);
-planetFolder.add(innerSphere.material, "metalness", 0, 1, 0.01);
+// // Planet
+// const planetFolder = gui.addFolder("Planet");
+// planetFolder.add(innerSphere.material, "roughness", 0, 1, 0.01);
+// planetFolder.add(innerSphere.material, "metalness", 0, 1, 0.01);
 
-// Renderer
-const rendererFolder = gui.addFolder("Renderer");
-rendererFolder
-  .add(renderer, "toneMappingExposure", 0, 2, 0.01)
-  .name("Exposure");
+// // Renderer
+// const rendererFolder = gui.addFolder("Renderer");
+// rendererFolder
+//   .add(renderer, "toneMappingExposure", 0, 2, 0.01)
+//   .name("Exposure");
