@@ -1,0 +1,23 @@
+{
+  "name": "homepage",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "@tailwindcss/vite": "^4.1.13",
+    "gsap": "^3.13.0",
+    "lil-gui": "^0.20.0",
+    "remixicon": "^4.6.0",
+    "swiper": "^12.0.1",
+    "tailwindcss": "^4.1.13"
+  }
+}

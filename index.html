@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div class="relative h-full w-full text-white">
+    <div class="h-full w-full relative">
+      <nav class="fixed top-0 left-0 w-full h-20 justify-between px-10 py-14 flex items-center">
+        <div class="flex gap-10 text-md items-center">
+          <h1>Logo</h1>
+          <h2>Sound ON</h2>
+        </div>
+        <div class="flex gap-10 text-md items-center">
+          <h1>Sponsors</h1>
+          <h1>Speakers</h1>
+          <h1>Events</h1>
+          <h1 class="border-2 border-white rounded-full px-6 py-2">
+            Contact
+          </h1>
+        </div>
+      </nav>
+
+      <div class="fixed top-0 left-0 h-screen pb-10 w-full flex flex-col justify-end items-center blink">
+        <i class="ri-arrow-down-s-line"></i>
+        <h1>SCROLL TO EXPLORE</h1>
+      </div>
+
+      <div class="fixed top-0 left-0 h-screen fade z-[2] w-full">
+        <div class="h-screen w-full text-center absolute bottom-0 left-0"></div>
+      </div>
+
+      <div class="fixed top-0 left-0 h-screen w-full fade z-[2]">
+        <div class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[43.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <h1>CLICK TO KNOW MORE</h1>
+          <div class="flex flex-col lg:gap-[10vw] md:gap-[20vw]">
+            <i class="ri-arrow-down-s-line"></i>
+            <i class="ri-arrow-up-s-line"></i>
+          </div>
+        </div>
+        <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+          <h1>ABOUT US</h1>
+          <h1 class="text-[5vw]">TANTRAFIESTA</h1>
+        </div>
+        <div class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:text-lg md:text-sm">
+          <p>
+            TantraFiesta is the National Level Annual Technical Fest of the
+            Indian Institute of Information Technology, Nagpur.
+            TantraFiesta'24 is coming back this year with more than 30+
+            interesting events under the theme "Digital Big Bang: Uncharted
+            Realms Await." This theme captures the exponential growth in the
+            evolution of technology in areas concerning breakthroughs in
+            Artificial Intelligenceᅳespecially in Large Language Model
+            developmentᅳand the enormous possibilities of power unleashed
+            through GPUs.
+          </p>
+        </div>
+      </div>
+
+      <div class="fixed top-0 left-0 h-screen w-full fade z-[2]">
+        <div class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <h1>CLICK TO KNOW MORE</h1>
+          <div class="flex flex-col lg:gap-[10vw] md:gap-[12vw]">
+            <i class="ri-arrow-down-s-line"></i>
+            <i class="ri-arrow-up-s-line"></i>
+          </div>
+        </div>
+        <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+          <h1>WATCH OUT</h1>
+          <h1 class="text-[5vw]">Sponsors</h1>
+        </div>
+        <div class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px] ">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+              <div class="swiper-slide">Slide 4</div>
+              <div class="swiper-slide">Slide 5</div>
+              <div class="swiper-slide">Slide 6</div>
+              <div class="swiper-slide">Slide 7</div>
+              <div class="swiper-slide">Slide 8</div>
+              <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixed top-0 left-0 h-screen w-full fade z-[2]">
+        <div class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          <h1>CLICK TO KNOW MORE</h1>
+          <div class="flex flex-col gap-[10vw]">
+            <i class="ri-arrow-down-s-line"></i>
+            <i class="ri-arrow-up-s-line"></i>
+          </div>
+        </div>
+        <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+          <h1>HEAR ME OUT</h1>
+          <h1 class="text-[5vw]">Speakers</h1>
+        </div>
+        <div class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px] ">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+              <div class="swiper-slide">Slide 4</div>
+              <div class="swiper-slide">Slide 5</div>
+              <div class="swiper-slide">Slide 6</div>
+              <div class="swiper-slide">Slide 7</div>
+              <div class="swiper-slide">Slide 8</div>
+              <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 
+      <div class="fixed top-0 left-0 h-screen fade w-full">
+        <div class="h-screen w-full text-center absolute bottom-0 left-0"></div>
+      </div> 
+      
+      <div class="fixed top-0 left-0 h-screen w-full fade flex justify-center items-center">
+        <h1 class="text-[12vw]">TANTRAFIESTA</h1>
+      </div> -->
+
+    </div>
+    <canvas class="fixed top-0 left-0 z-[-1]" id="canvas"></canvas>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/script.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>
