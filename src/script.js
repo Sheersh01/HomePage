@@ -71,7 +71,7 @@ function initBlinkEffect() {
 
 // ✅ Init everything
 function init() {
-  // resetScrollOnReload();
+  resetScrollOnReload();
   initSwiper();
   initFadeSections();
   initBlinkEffect();

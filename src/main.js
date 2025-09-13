@@ -136,9 +136,9 @@ composer.addPass(godraysPass);
 
 // ----- TEXTURES -----
 const textureLoader = new THREE.TextureLoader();
-const bgTexture = textureLoader.load("src/assets/background.jpg");
+const bgTexture = textureLoader.load("./src/assets/background.jpg");
 // bgTexture.colorSpace = THREE.SRGBColorSpace;
-const planetTexture = textureLoader.load("src/assets/planet.jpg");
+const planetTexture = textureLoader.load("./src/assets/planet.jpg");
 planetTexture.colorSpace = THREE.SRGBColorSpace;
 
 // ----- BACKGROUND SPHERE -----
