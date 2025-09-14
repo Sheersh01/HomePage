@@ -1,61 +1,61 @@
 @import "tailwindcss";
-@import 'remixicon/fonts/remixicon.css';
+@import "remixicon/fonts/remixicon.css";
 
 @font-face {
-    font-family: 'Bad';
-    src: url('./fonts/Bad Signal.otf') ;
+  font-family: "Bad";
+  src: url("./fonts/Bad Signal.otf");
 }
 @font-face {
-    font-family: 'Cracked';
-    src: url('./fonts/Cracked Code.ttf') ;
+  font-family: "Cracked";
+  src: url("./fonts/Cracked Code.ttf");
 }
 @font-face {
-    font-family: 'Glitching';
-    src: url('./fonts/GlitchingDemoRegular.ttf') ;
+  font-family: "Glitching";
+  src: url("./fonts/GlitchingDemoRegular.ttf");
 }
 /* @font-face {
     font-family: 'Morvien';
     src: url('./fonts/Morvien-Regular.ttf') ;
 } */
 @font-face {
-    font-family: 'Split On';
-    src: url('./fonts/SplitOn.otf') ;
+  font-family: "Split On";
+  src: url("./fonts/SplitOn.otf");
 }
 /* @font-face {
     font-family: 'Wrong Delivery';
     src: url('./fonts/Wrong Delivery.ttf') ;
 } */
-*{
-    font-family: 'Bad';
+* {
+  font-family: "Bad";
 }
 /* ::-webkit-scrollbar{
   display: none;
 } */
+html,
 body {
-  overflow-y: hidden;
-  max-height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-.move{
+.move {
+  height: 100svh;
+}
+.swiper {
+  width: 100%;
   height: 100%;
-  overflow-y: auto;
 }
- .swiper {
-      width: 100%;
-      height: 100%;
-    }
 
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
