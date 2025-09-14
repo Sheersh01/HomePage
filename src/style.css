@@ -32,8 +32,7 @@
   display: none;
 }
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 100dvh;
 }
  .swiper {
       width: 100%;
