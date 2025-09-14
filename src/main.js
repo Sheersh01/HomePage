@@ -83,10 +83,10 @@ const GodraysShader = {
   `,
 };
 
-// ----- ADD SCROLLABLE CONTAINER -----
-const scrollContainer = document.createElement("div");
-scrollContainer.style.height = "4000px"; // makes the page scrollable
-document.body.appendChild(scrollContainer);
+// // ----- ADD SCROLLABLE CONTAINER -----
+// const scrollContainer = document.createElement("div");
+// scrollContainer.style.height = "4000px"; // makes the page scrollable
+// document.body.appendChild(scrollContainer);
 
 // ----- SCENE -----
 const scene = new THREE.Scene();
