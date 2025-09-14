@@ -32,8 +32,9 @@
   display: none;
 } */
 
-html,body{
+body{
   overflow: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
