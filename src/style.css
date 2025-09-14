@@ -28,9 +28,14 @@
 *{
     font-family: 'Bad';
 }
+::-webkit-scrollbar{
+  display: none;
+}
 body {
   overflow: hidden; /* disable native scroll */
-
+}
+.move{
+  overflow-y: auto;
 }
  .swiper {
       width: 100%;
