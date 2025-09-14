@@ -32,12 +32,9 @@
   display: none;
 } */
 
-body {
-  max-height: 100svh;
+html{
+  overflow: hidden;
   box-sizing: border-box;
-}
-.move {
-  height: 100%;
 }
 .swiper {
   width: 100%;
