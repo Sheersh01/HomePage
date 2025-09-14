@@ -31,13 +31,13 @@
 /* ::-webkit-scrollbar{
   display: none;
 } */
-html,
+
 body {
-  overflow: hidden;
+  max-height: 100svh;
   box-sizing: border-box;
 }
 .move {
-  height: 100svh;
+  height: 100%;
 }
 .swiper {
   width: 100%;
