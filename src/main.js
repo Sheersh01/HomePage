@@ -173,7 +173,7 @@ const lenis = new Lenis({
   smoothWheel: true,
   smoothTouch: true,
   wheelMultiplier: 0.2, // desktop scroll
-  touchMultiplier: 0.6, // keep natural mobile scroll
+  touchMultiplier: 0.4, // keep natural mobile scroll
   infinite: false,
 });
 
@@ -188,7 +188,7 @@ lenis.on("scroll", ({ scroll }) => {
 // ----- INTERPOLATION (desktop vs mobile) -----
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.03 : 0.1; // slower on mobile
+  const lerpSpeed = isMobile ? 0.01 : 0.1; // slower on mobile
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
