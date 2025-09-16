@@ -16,12 +16,10 @@
 
   <body>
     <div id="root">
-      <!-- Overlay Menu -->
-      <aside
+ <aside
         class="menu overlay fixed top-0 left-0 z-[99] h-screen w-screen bg-white text-black px-4 pt-4 translate-x-full transition-transform duration-500 ease-in-out"
         role="dialog"
       >
-        <!-- Header -->
         <div class="flex justify-between items-center w-full">
           <h2 class="text-3xl font-bold">Menu</h2>
           <button
@@ -32,7 +30,6 @@
           </button>
         </div>
 
-        <!-- Navigation Links -->
         <nav class="mt-8">
           <ul class="flex flex-col gap-6 text-xl font-medium">
             <li><a href="#sponsors" class="hover:underline">Sponsors</a></li>
@@ -46,7 +43,6 @@
       <nav
         class="navbar fixed top-0 left-0 z-[98] w-full h-20 flex items-center justify-between bg-transparent text-white px-6 md:px-10 py-8 md:py-14"
       >
-        <!-- Brand -->
         <div class="navbar-brand flex items-center gap-6 md:gap-10 text-md">
           <a href="/" class="navbar-logo font-bold text-lg">Logo</a>
           <button
@@ -57,7 +53,6 @@
           </button>
         </div>
 
-        <!-- Desktop Menu -->
         <ul
           class="navbar-menu hidden md:flex items-center gap-6 md:gap-10 text-md"
         >
@@ -73,18 +68,16 @@
             </a>
           </li>
         </ul>
-
-        <!-- Mobile Menu Button -->
         <button
           class="toggle md:hidden text-2xl cursor-pointer"
           aria-label="Open menu"
         >
           <i class="ri-menu-3-fill"></i>
         </button>
-      </nav>
+      </nav> 
 
-      <div class="relative w-full text-white">
-        <div class="h-full w-full relative">
+      <div class=" w-full text-white scroll-box">
+             <div class="h-full w-full relative">
           <section class="fixed top-0 left-0 h-svh pb-10 w-full flex flex-col justify-end items-center blink">
             <i class="ri-arrow-down-s-line"></i>
             <h1>SCROLL TO EXPLORE</h1>
@@ -160,7 +153,7 @@
                   <div class="swiper-slide">Slide 8</div>
                   <div class="swiper-slide">Slide 9</div>
                 </div>
-                <!-- <div class="swiper-pagination"></div> -->
+              
               </div>
             </div>
           </section>
@@ -196,7 +189,6 @@
                   <div class="swiper-slide">Slide 8</div>
                   <div class="swiper-slide">Slide 9</div>
                 </div>
-                <!-- <div class="swiper-pagination"></div> -->
               </div>
             </div>
           </section>
@@ -206,6 +198,7 @@
               class="h-svh w-full text-center absolute bottom-0 left-0"
             ></div>
           </section>
+
           <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
             <div
               class="h-svh w-full text-center absolute bottom-0 left-0"
@@ -220,7 +213,9 @@
             </h1>
           </section>
         </div>
+
         <canvas class="fixed top-0 left-0 z-[-1]" id="canvas"></canvas>
+        <div class="content"></div>
       </div>
     </div>
     <script type="module" src="./src/main.js"></script>

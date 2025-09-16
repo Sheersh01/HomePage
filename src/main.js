@@ -5,11 +5,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import GUI from "lil-gui";
 import background from "./assets/background.jpg";
 import planet from "./assets/planet.jpg";
-
-// NEW: Lenis + GSAP
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 
@@ -22,7 +19,7 @@ const GodraysShader = {
     decay: { value: 0.95 },
     density: { value: 0.8 },
     weight: { value: 0.4 },
-    sunRadius: { value: 0.4 }, // NEW mask radius
+    sunRadius: { value: 0.4 },
   },
   vertexShader: `
     varying vec2 vUv;
@@ -40,65 +37,39 @@ const GodraysShader = {
     uniform float weight;
     uniform float sunRadius;
     varying vec2 vUv;
-
     const int NUM_SAMPLES = 60;
-
     void main() {
       vec4 original = texture2D(tDiffuse, vUv);
-
-      // Restrict rays only near the sun
       float distToSun = distance(vUv, lightPosition);
       if(distToSun > sunRadius) {
         gl_FragColor = original;
         return;
       }
-
       vec2 deltaTextCoord = (vUv - lightPosition.xy);
       vec2 textCoo = vUv;
       deltaTextCoord *= 1.0 / float(NUM_SAMPLES) * density;
       float illuminationDecay = 1.0;
       vec4 godRays = vec4(0.0);
-
       for(int i = 0; i < NUM_SAMPLES; i++) {
         textCoo -= deltaTextCoord;
-
-        if(textCoo.x < 0.0 || textCoo.x > 1.0 || textCoo.y < 0.0 || textCoo.y > 1.0) {
-          break;
-        }
-
+        if(textCoo.x < 0.0 || textCoo.x > 1.0 || textCoo.y < 0.0 || textCoo.y > 1.0) break;
         vec4 texSample = texture2D(tDiffuse, textCoo);
-
-        float brightness = dot(texSample.rgb, vec3(0.299, 0.587, 0.114));
-        if(brightness > 0.5) {
-          texSample *= illuminationDecay * weight;
-          godRays += texSample;
-        }
-
+        float brightness = dot(texSample.rgb, vec3(0.299,0.587,0.114));
+        if(brightness > 0.5) texSample *= illuminationDecay * weight, godRays += texSample;
         illuminationDecay *= decay;
       }
-
       godRays *= exposure;
       gl_FragColor = original + godRays;
     }
   `,
 };
 
-// // ----- ADD SCROLLABLE CONTAINER -----
-const scrollContainer = document.createElement("div");
-scrollContainer.style.height = "5000px"; // makes the page scrollable
-document.body.appendChild(scrollContainer);
-
 // ----- SCENE -----
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
-let fov;
-if (window.innerWidth < 768) {
-  fov=100
-} else {
-  fov=75
-}
 
 // ----- CAMERA -----
+const fov = window.innerWidth < 768 ? 100 : 75;
 const camera = new THREE.PerspectiveCamera(
   fov,
   window.innerWidth / window.innerHeight,
@@ -129,8 +100,6 @@ controls.enableDamping = true;
 // ----- POSTPROCESSING -----
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-
-// Bloom
 const bloomPass = new UnrealBloomPass(
   new THREE.Vector2(window.innerWidth, window.innerHeight),
   0.8,
@@ -138,15 +107,12 @@ const bloomPass = new UnrealBloomPass(
   0.95
 );
 composer.addPass(bloomPass);
-
-// God Rays
 const godraysPass = new ShaderPass(GodraysShader);
 composer.addPass(godraysPass);
 
 // ----- TEXTURES -----
 const textureLoader = new THREE.TextureLoader();
 const bgTexture = textureLoader.load(background);
-// bgTexture.colorSpace = THREE.SRGBColorSpace;
 const planetTexture = textureLoader.load(planet);
 planetTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -158,7 +124,7 @@ const bgSphere = new THREE.Mesh(
 scene.add(bgSphere);
 bgSphere.rotateY(1.3);
 
-// ----- INNER SPHERE (PLANET) -----
+// ----- INNER SPHERE -----
 const innerSphere = new THREE.Mesh(
   new THREE.SphereGeometry(1, 64, 64),
   new THREE.MeshStandardMaterial({
@@ -197,29 +163,30 @@ const pathPoints = [
 ];
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 
+// ----- LENIS SCROLL -----
+const scrollContainer = document.querySelector(".scroll-box");
 const lenis = new Lenis({
-  duration: 1.2, // make easing a little longer (default ~1.2)
-  easing: (t) => 1 - Math.pow(1 - t, 4), // slower ease-out tail
+  duration: 1.2,
+  easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
   wheelMultiplier: 0.25,
-  touchMultiplier: 0.25,
+  touchMultiplier: 0.15,
   infinite: false,
+  wrapper: scrollContainer,
+  content: document.querySelector(".content"),
 });
 
 let scrollProgress = 0;
 let targetProgress = 0;
 
-function updateScrollProgress() {
-  const maxScroll = document.body.scrollHeight - window.innerHeight;
-  const rawProgress = window.scrollY / maxScroll;
-  targetProgress = Math.min(Math.max(rawProgress, 0), 1);
-
+lenis.on("scroll", ({ scroll }) => {
+  const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+  targetProgress = Math.min(Math.max(scroll / maxScroll, 0), 1);
   gsap.to(
     {},
     {
       duration: 0.5,
-      ease: "power3.out",
       onUpdate: () => {
         scrollProgress = gsap.utils.interpolate(
           scrollProgress,
@@ -229,8 +196,7 @@ function updateScrollProgress() {
       },
     }
   );
-}
-lenis.on("scroll", updateScrollProgress);
+});
 
 function raf(time) {
   lenis.raf(time);
@@ -242,7 +208,6 @@ requestAnimationFrame(raf);
 function getArcPoint(t) {
   return arcCurve.getPoint(t);
 }
-
 function worldToScreen(worldPos, camera) {
   const vector = worldPos.clone();
   vector.project(camera);
@@ -263,9 +228,10 @@ function animate() {
   camera.lookAt(innerSphere.position);
 
   const sunScreenPos = worldToScreen(sunSphere.position, camera);
-  sunScreenPos.x = Math.max(0, Math.min(1, sunScreenPos.x));
-  sunScreenPos.y = Math.max(0, Math.min(1, sunScreenPos.y));
-  godraysPass.uniforms.lightPosition.value = sunScreenPos;
+  godraysPass.uniforms.lightPosition.value = new THREE.Vector2(
+    Math.max(0, Math.min(1, sunScreenPos.x)),
+    Math.max(0, Math.min(1, sunScreenPos.y))
+  );
 
   controls.update();
   composer.render();
@@ -281,57 +247,3 @@ window.addEventListener("resize", () => {
   composer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
-
-// ------------------ GUI ------------------
-// const gui = new GUI();
-
-// // Bloom
-// const bloomFolder = gui.addFolder("Bloom");
-// bloomFolder.add(bloomPass, "strength", 0, 3, 0.01);
-// bloomFolder.add(bloomPass, "radius", 0, 2, 0.01);
-// bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01);
-
-// // God Rays
-// const godraysFolder = gui.addFolder("God Rays");
-// godraysFolder
-//   .add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01)
-//   .name("exposure");
-// godraysFolder
-//   .add(godraysPass.uniforms.decay, "value", 0.8, 1.0, 0.001)
-//   .name("decay");
-// godraysFolder
-//   .add(godraysPass.uniforms.density, "value", 0, 2, 0.01)
-//   .name("density");
-// godraysFolder
-//   .add(godraysPass.uniforms.weight, "value", 0, 1, 0.01)
-//   .name("weight");
-// godraysFolder
-//   .add(godraysPass.uniforms.sunRadius, "value", 0.05, 1.0, 0.01)
-//   .name("sunRadius");
-
-// // Sun
-// const sunFolder = gui.addFolder("Sun Light");
-// sunFolder.add(sunLight, "intensity", 0, 10, 0.1);
-// sunFolder.add(sunLight.position, "x", -30, 30, 0.1).name("sunLight X");
-// sunFolder.add(sunLight.position, "y", -30, 30, 0.1).name("sunLight Y");
-// sunFolder.add(sunLight.position, "z", -30, 30, 0.1).name("sunLight Z");
-// sunFolder
-//   .add(sunSphere.material, "emissiveIntensity", 0, 5, 0.1)
-//   .name("sun Emissive");
-// sunFolder
-//   .add(sunSphere.material, "roughness", 0, 1, 0.01)
-//   .name("sun Roughness");
-// sunFolder
-//   .add(sunSphere.material, "metalness", 0, 1, 0.01)
-//   .name("sun Metalness");
-
-// // Planet
-// const planetFolder = gui.addFolder("Planet");
-// planetFolder.add(innerSphere.material, "roughness", 0, 1, 0.01);
-// planetFolder.add(innerSphere.material, "metalness", 0, 1, 0.01);
-
-// // Renderer
-// const rendererFolder = gui.addFolder("Renderer");
-// rendererFolder
-//   .add(renderer, "toneMappingExposure", 0, 2, 0.01)
-//   .name("Exposure");
