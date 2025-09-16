@@ -14,11 +14,27 @@ function resetScrollOnReload() {
 // ✅ Initialize Swiper
 function initSwiper() {
   return new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 2,
+    spaceBetween: 20,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    observer: true,
+    observeParents: true,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
     },
   });
 }
@@ -78,3 +94,19 @@ function init() {
 }
 
 init();
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.querySelector(".toggle");
+  const closeBtn = document.querySelector(".toggle2");
+  const menu = document.querySelector(".menu.overlay");
+
+  openBtn.addEventListener("click", () => {
+    console.log("clicked");
+    menu.classList.remove("translate-x-[100vw]");
+    menu.classList.add("translate-x-0");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("translate-x-0");
+    menu.classList.add("translate-x-[100vw]");
+  });
+});

@@ -84,17 +84,23 @@ const GodraysShader = {
 };
 
 // // ----- ADD SCROLLABLE CONTAINER -----
-// const scrollContainer = document.createElement("div");
-// scrollContainer.style.height = "4000px"; // makes the page scrollable
-// document.body.appendChild(scrollContainer);
+const scrollContainer = document.createElement("div");
+scrollContainer.style.height = "5000px"; // makes the page scrollable
+document.body.appendChild(scrollContainer);
 
 // ----- SCENE -----
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
+let fov;
+if (window.innerWidth < 768) {
+  fov=100
+} else {
+  fov=75
+}
 
 // ----- CAMERA -----
 const camera = new THREE.PerspectiveCamera(
-  75,
+  fov,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -178,7 +184,7 @@ sunSphere.position.set(0, 15, 15);
 scene.add(sunSphere);
 
 // ----- SUN LIGHT -----
-const sunLight = new THREE.DirectionalLight(0xffffff, 5.0);
+const sunLight = new THREE.DirectionalLight(0xffffff, 6.5);
 sunLight.position.copy(sunSphere.position);
 scene.add(sunLight);
 
@@ -187,6 +193,7 @@ const pathPoints = [
   new THREE.Vector3(0.0, 0.0, 2.8),
   new THREE.Vector3(8.0, -5.9, 1.8),
   new THREE.Vector3(0.0, -9.0, -9.0),
+  new THREE.Vector3(-6.0, -4.0, -3.0),
 ];
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 

@@ -16,56 +16,105 @@
 
   <body>
     <div id="root">
-      <nav
-        class="fixed top-0 left-0 w-full h-20 justify-between px-10 py-14 flex items-center text-white"
+      <!-- Overlay Menu -->
+      <aside
+        class="menu overlay fixed top-0 left-0 z-[99] h-screen w-screen bg-white text-black px-4 pt-4 translate-x-full transition-transform duration-500 ease-in-out"
+        role="dialog"
+        aria-hidden="true"
       >
-        <div class="flex md:gap-10 gap-6 text-md items-center">
-          <h1>Logo</h1>
-          <h2>Sound ON</h2>
-        </div>
-        <div class="md:flex gap-10 text-md items-center hidden">
-          <h1>Sponsors</h1>
-          <h1>Speakers</h1>
-          <h1>Events</h1>
-          <h1 class="border-2 border-white rounded-full px-6 py-2">Contact</h1>
-        </div>
-        <div class="md:hidden text-2xl">
-          <i class="ri-menu-3-fill"></i>
-        </div>
-      </nav>
-      <canvas class="fixed top-0 left-0 z-[1]" id="canvas"></canvas>
-      
-      <!-- <div class="fixed h-[100svh] w-full overflow-hidden text-white">
-        <!-- <div class="h-full w-full relative">
-          <div
-            class="fixed top-0 left-0 h-svh pb-10 w-full flex flex-col justify-end items-center blink"
+        <!-- Header -->
+        <div class="flex justify-between items-center w-full">
+          <h2 class="text-3xl font-bold">Menu</h2>
+          <button
+            class="toggle2 text-[8vw] cursor-pointer"
+            aria-label="Close menu"
           >
+            <i class="ri-menu-3-fill"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="mt-8">
+          <ul class="flex flex-col gap-6 text-xl font-medium">
+            <li><a href="#sponsors" class="hover:underline">Sponsors</a></li>
+            <li><a href="#speakers" class="hover:underline">Speakers</a></li>
+            <li><a href="#events" class="hover:underline">Events</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <nav
+        class="navbar fixed top-0 left-0 z-[98] w-full h-20 flex items-center justify-between bg-transparent text-white px-6 md:px-10 py-8 md:py-14"
+      >
+        <!-- Brand -->
+        <div class="navbar-brand flex items-center gap-6 md:gap-10 text-md">
+          <a href="/" class="navbar-logo font-bold text-lg">Logo</a>
+          <button
+            aria-label="Toggle sound"
+            class="sound-toggle text-sm md:text-md"
+          >
+            Sound ON
+          </button>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul
+          class="navbar-menu hidden md:flex items-center gap-6 md:gap-10 text-md"
+        >
+          <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+          <li><a href="#speakers" class="nav-link">Speakers</a></li>
+          <li><a href="#events" class="nav-link">Events</a></li>
+          <li>
+            <a
+              href="#contact"
+              class="nav-link border-2 border-white rounded-full px-6 py-2"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="navbar-toggle md:hidden text-2xl cursor-pointer"
+          aria-label="Open menu"
+        >
+          <i class="ri-menu-3-fill"></i>
+        </button>
+      </nav>
+
+      <div class="relative w-full text-white">
+        <div class="h-full w-full relative">
+          <section class="fixed top-0 left-0 h-svh pb-10 w-full flex flex-col justify-end items-center blink">
             <i class="ri-arrow-down-s-line"></i>
             <h1>SCROLL TO EXPLORE</h1>
-          </div>
+          </section>
 
-          <div class="fixed top-0 left-0 h-svh fade z-[2] w-full">
+          <section class="fixed top-0 left-0 h-svh fade z-[2] w-full">
             <div
               class="h-svh w-full text-center absolute bottom-0 left-0"
             ></div>
-          </div>
+          </section>
 
-          <div class="fixed top-0 left-0 h-svh w-full fade z-[2]">
+          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
             <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[43.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[43.5%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
             >
-              <h1>CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col lg:gap-[10vw] md:gap-[20vw]">
+              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
+              <div class="flex flex-col lg:gap-[10vw] md:gap-[20vw] gap-[25vw]">
                 <i class="ri-arrow-down-s-line"></i>
                 <i class="ri-arrow-up-s-line"></i>
               </div>
             </div>
-            <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+            <div
+              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
+            >
               <h1>ABOUT US</h1>
               <h1 class="text-[5vw]">TANTRAFIESTA</h1>
             </div>
             <div
-              class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:text-lg md:text-sm"
+              class="absolute right-0 bottom-0 md:mr-10 pb-10 md:px-0 px-4 lg:w-[40vw] md:w-[60vw] w-full lg:text-lg md:text-sm text-[3vw]"
             >
               <p>
                 TantraFiesta is the National Level Annual Technical Fest of the
@@ -79,24 +128,26 @@
                 through GPUs.
               </p>
             </div>
-          </div>
+          </section>
 
-          <div class="fixed top-0 left-0 h-svh w-full fade z-[2]">
+          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
             <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
             >
-              <h1>CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col lg:gap-[10vw] md:gap-[12vw]">
+              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
+              <div class="flex flex-col lg:gap-[10vw] md:gap-[12vw] gap-[20vw]">
                 <i class="ri-arrow-down-s-line"></i>
                 <i class="ri-arrow-up-s-line"></i>
               </div>
             </div>
-            <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+            <div
+              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
+            >
               <h1>WATCH OUT</h1>
               <h1 class="text-[5vw]">Sponsors</h1>
             </div>
             <div
-              class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px]"
+              class="absolute right-0 bottom-0 lg:mr-10 md:mr-4 md:px-0 px-4 md:pb-10 pb-4 lg:w-[40vw] md:w-[60vw] w-full lg:h-[250px] md:h-[200px] h-[150px]"
             >
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -110,27 +161,29 @@
                   <div class="swiper-slide">Slide 8</div>
                   <div class="swiper-slide">Slide 9</div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <!-- <div class="swiper-pagination"></div> -->
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="fixed top-0 left-0 h-svh w-full fade z-[2]">
+          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
             <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
             >
-              <h1>CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col gap-[10vw]">
+              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
+              <div class="flex flex-col md:gap-[10vw] gap-[15vw]">
                 <i class="ri-arrow-down-s-line"></i>
                 <i class="ri-arrow-up-s-line"></i>
               </div>
             </div>
-            <div class="absolute left-0 top-0 lg:mt-40 md:mt-30 ml-10">
+            <div
+              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
+            >
               <h1>HEAR ME OUT</h1>
               <h1 class="text-[5vw]">Speakers</h1>
             </div>
             <div
-              class="absolute right-0 bottom-0 mr-10 pb-10 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px]"
+              class="absolute right-0 bottom-0 lg:mr-10 md:mr-4 md:px-0 px-4 md:pb-10 pb-4 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px] h-[150px] w-full"
             >
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -144,23 +197,32 @@
                   <div class="swiper-slide">Slide 8</div>
                   <div class="swiper-slide">Slide 9</div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <!-- <div class="swiper-pagination"></div> -->
               </div>
             </div>
-          </div>
- 
-      <div class="fixed top-0 left-0 h-svh fade w-full">
-        <div class="h-svh w-full text-center absolute bottom-0 left-0"></div>
-      </div> 
-      
-      <div class="fixed top-0 left-0 h-svh w-full fade flex justify-center items-center">
-        <h1 class="text-[12vw]">TANTRAFIESTA</h1>
-      </div> 
-        </div> -->
-       <div class="relative w-full h-full"> 
-         </div>
-      </div> -->
-      <div class="h-[700vh]"></div>
+          </section>
+
+          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
+            <div
+              class="h-svh w-full text-center absolute bottom-0 left-0"
+            ></div>
+          </section>
+          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
+            <div
+              class="h-svh w-full text-center absolute bottom-0 left-0"
+            ></div>
+          </section>
+
+          <section
+            class="fixed top-0 left-0 h-svh w-full fade z-[2] flex justify-center items-center text-white"
+          >
+            <h1 class="lg:text-[12vw] md:text-[15vw] text-[20vw]">
+              TANTRAFIESTA
+            </h1>
+          </section>
+        </div>
+        <canvas class="fixed top-0 left-0 z-[-1]" id="canvas"></canvas>
+      </div>
     </div>
     <script type="module" src="./src/main.js"></script>
     <!-- Swiper JS -->
