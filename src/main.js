@@ -13,7 +13,7 @@ import gsap from "gsap";
 // ------------------ TUNABLES ------------------
 const SCROLL_SCALE = 1.0; // 0.0 - 1.0 (lower = camera moves less for the same scroll)
 const INTERP_FACTOR = 0.01; // 0.01 - 0.2 (lower = smoother/slower follow)
-const LENIS_TOUCH_MULTIPLIER = 0.03; // tweak for mobile swipe sensitivity
+const LENIS_TOUCH_MULTIPLIER = 0.005; // tweak for mobile swipe sensitivity
 const LENIS_WHEEL_MULTIPLIER = 0.2; // tweak for desktop wheel sensitivity
 
 // ------------------ GODRAYS SHADER ------------------
