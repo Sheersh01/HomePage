@@ -202,7 +202,8 @@ const lenis = new Lenis({
   easing: (t) => 1 - Math.pow(1 - t, 4), // slower ease-out tail
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.25, // makes each wheel step push further
+  wheelMultiplier: 0.25,
+  touchMultiplier: 0.5,
   infinite: false,
 });
 
