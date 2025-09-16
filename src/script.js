@@ -101,12 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openBtn.addEventListener("click", () => {
     console.log("clicked");
-    menu.classList.remove("translate-x-[100vw]");
+    menu.classList.remove("translate-x-full");
     menu.classList.add("translate-x-0");
   });
 
   closeBtn.addEventListener("click", () => {
     menu.classList.remove("translate-x-0");
-    menu.classList.add("translate-x-[100vw]");
+    menu.classList.add("translate-x-full");
   });
 });
