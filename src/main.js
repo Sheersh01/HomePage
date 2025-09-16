@@ -203,7 +203,7 @@ const lenis = new Lenis({
   smoothWheel: true,
   smoothTouch: true,
   wheelMultiplier: 0.25,
-  touchMultiplier: 0.5,
+  touchMultiplier: 0.25,
   infinite: false,
 });
 
