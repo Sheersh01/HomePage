@@ -10,12 +10,6 @@ import planet from "./assets/planet.jpg";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 
-// ------------------ TUNABLES ------------------
-const SCROLL_SCALE = 1.0; // 0.0 - 1.0 (lower = camera moves less for the same scroll)
-const INTERP_FACTOR = 0.01; // 0.01 - 0.2 (lower = smoother/slower follow)
-const LENIS_TOUCH_MULTIPLIER = 0.005; // tweak for mobile swipe sensitivity
-const LENIS_WHEEL_MULTIPLIER = 0.2; // tweak for desktop wheel sensitivity
-
 // ------------------ GODRAYS SHADER ------------------
 const GodraysShader = {
   uniforms: {
@@ -61,10 +55,7 @@ const GodraysShader = {
         if(textCoo.x < 0.0 || textCoo.x > 1.0 || textCoo.y < 0.0 || textCoo.y > 1.0) break;
         vec4 texSample = texture2D(tDiffuse, textCoo);
         float brightness = dot(texSample.rgb, vec3(0.299,0.587,0.114));
-        if(brightness > 0.5) {
-          texSample *= illuminationDecay * weight;
-          godRays += texSample;
-        }
+        if(brightness > 0.5) texSample *= illuminationDecay * weight, godRays += texSample;
         illuminationDecay *= decay;
       }
       godRays *= exposure;
@@ -173,53 +164,39 @@ const pathPoints = [
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 
 // ----- LENIS SCROLL -----
-// Ensure these selectors exist in the DOM
 const scrollContainer = document.querySelector(".scroll-box");
-const contentEl = document.querySelector(".content");
-
 const lenis = new Lenis({
   wrapper: scrollContainer,
-  content: contentEl,
+  content: document.querySelector(".content"),
   duration: 1.2,
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: LENIS_WHEEL_MULTIPLIER,
-  touchMultiplier: LENIS_TOUCH_MULTIPLIER,
+  wheelMultiplier: 0.2, // desktop scroll
+  touchMultiplier: 0.6, // keep natural mobile scroll
   infinite: false,
 });
 
 let scrollProgress = 0;
 let targetProgress = 0;
 
-// Use Lenis scroll values and apply SCROLL_SCALE to reduce effect on camera
 lenis.on("scroll", ({ scroll }) => {
-  const maxScroll = Math.max(
-    scrollContainer.scrollHeight - scrollContainer.clientHeight,
-    1
-  );
-  const rawProgress = scroll / maxScroll; // 0..1
-  // scale the raw progress so camera moves less for same scroll
-  targetProgress = Math.min(Math.max(rawProgress * SCROLL_SCALE, 0), 1);
-
-  // smooth interpolation using GSAP (we only tween an empty object to trigger onUpdate)
-  gsap.to(
-    {},
-    {
-      duration: 0.5,
-      onUpdate: () => {
-        // interpolate scrollProgress toward targetProgress using INTERP_FACTOR
-        scrollProgress = gsap.utils.interpolate(
-          scrollProgress,
-          targetProgress,
-          INTERP_FACTOR
-        );
-      },
-    }
-  );
+  const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+  targetProgress = Math.min(Math.max(scroll / maxScroll, 0), 1);
 });
 
-// Required Lenis animation frame loop
+// ----- INTERPOLATION (desktop vs mobile) -----
+function updateProgress() {
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const lerpSpeed = isMobile ? 0.03 : 0.1; // slower on mobile
+  scrollProgress = gsap.utils.interpolate(
+    scrollProgress,
+    targetProgress,
+    lerpSpeed
+  );
+}
+
+// ----- RAF LOOP -----
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
@@ -228,9 +205,7 @@ requestAnimationFrame(raf);
 
 // ----- HELPERS -----
 function getArcPoint(t) {
-  // be safe if t is NaN or undefined
-  const u = isFinite(t) ? t : 0;
-  return arcCurve.getPoint(u);
+  return arcCurve.getPoint(t);
 }
 function worldToScreen(worldPos, camera) {
   const vector = worldPos.clone();
@@ -247,14 +222,14 @@ function animate() {
   innerSphere.rotation.y += delta * 0.03;
   bgSphere.rotation.y += delta * -0.008;
 
-  // camera follows the arc according to scrollProgress (already smoothed)
+  updateProgress();
+
   const arcPos = getArcPoint(scrollProgress);
   camera.position.copy(arcPos);
   camera.lookAt(innerSphere.position);
 
-  // update godrays light position in screen space
   const sunScreenPos = worldToScreen(sunSphere.position, camera);
-  godraysPass.uniforms.lightPosition.value = new THREE.Vector2(
+  godraysPass.uniforms.lightPosition.value.set(
     Math.max(0, Math.min(1, sunScreenPos.x)),
     Math.max(0, Math.min(1, sunScreenPos.y))
   );
