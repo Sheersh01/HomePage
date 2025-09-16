@@ -166,16 +166,17 @@ const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 // ----- LENIS SCROLL -----
 const scrollContainer = document.querySelector(".scroll-box");
 const lenis = new Lenis({
+  wrapper: document.querySelector(".scroll-box"),
+  content: document.querySelector(".content"),
   duration: 1.2,
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.25,
-  touchMultiplier: 0.15,
+  wheelMultiplier: 0.20, // good for desktop
+  touchMultiplier: 0.05, // slower for mobile
   infinite: false,
-  wrapper: scrollContainer,
-  content: document.querySelector(".content"),
 });
+
 
 let scrollProgress = 0;
 let targetProgress = 0;
