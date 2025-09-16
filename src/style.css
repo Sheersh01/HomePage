@@ -50,6 +50,8 @@ html, body {
   -webkit-overflow-scrolling: touch; /* VERY IMPORTANT for smooth mobile scrolling */
   touch-action: pan-y;               /* allow vertical touch scroll */
 }
+.fade { opacity: 0; pointer-events: none; }
+.fade.active { opacity: 1; pointer-events: auto; }
 
      .content {
       height: 5000px; 
