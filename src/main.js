@@ -1,4 +1,3 @@
-import "./script.js";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
@@ -22,46 +21,46 @@ const GodraysShader = {
     sunRadius: { value: 0.4 },
   },
   vertexShader: `
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
   fragmentShader: `
-    uniform sampler2D tDiffuse;
-    uniform vec2 lightPosition;
-    uniform float exposure;
-    uniform float decay;
-    uniform float density;
-    uniform float weight;
-    uniform float sunRadius;
-    varying vec2 vUv;
-    const int NUM_SAMPLES = 60;
-    void main() {
-      vec4 original = texture2D(tDiffuse, vUv);
-      float distToSun = distance(vUv, lightPosition);
-      if(distToSun > sunRadius) {
-        gl_FragColor = original;
-        return;
-      }
-      vec2 deltaTextCoord = (vUv - lightPosition.xy);
-      vec2 textCoo = vUv;
-      deltaTextCoord *= 1.0 / float(NUM_SAMPLES) * density;
-      float illuminationDecay = 1.0;
-      vec4 godRays = vec4(0.0);
-      for(int i = 0; i < NUM_SAMPLES; i++) {
-        textCoo -= deltaTextCoord;
-        if(textCoo.x < 0.0 || textCoo.x > 1.0 || textCoo.y < 0.0 || textCoo.y > 1.0) break;
-        vec4 texSample = texture2D(tDiffuse, textCoo);
-        float brightness = dot(texSample.rgb, vec3(0.299,0.587,0.114));
-        if(brightness > 0.5) texSample *= illuminationDecay * weight, godRays += texSample;
-        illuminationDecay *= decay;
-      }
-      godRays *= exposure;
-      gl_FragColor = original + godRays;
-    }
-  `,
+          uniform sampler2D tDiffuse;
+          uniform vec2 lightPosition;
+          uniform float exposure;
+          uniform float decay;
+          uniform float density;
+          uniform float weight;
+          uniform float sunRadius;
+          varying vec2 vUv;
+          const int NUM_SAMPLES = 60;
+          void main() {
+            vec4 original = texture2D(tDiffuse, vUv);
+            float distToSun = distance(vUv, lightPosition);
+            if(distToSun > sunRadius) {
+              gl_FragColor = original;
+              return;
+            }
+            vec2 deltaTextCoord = (vUv - lightPosition.xy);
+            vec2 textCoo = vUv;
+            deltaTextCoord *= 1.0 / float(NUM_SAMPLES) * density;
+            float illuminationDecay = 1.0;
+            vec4 godRays = vec4(0.0);
+            for(int i = 0; i < NUM_SAMPLES; i++) {
+              textCoo -= deltaTextCoord;
+              if(textCoo.x < 0.0 || textCoo.x > 1.0 || textCoo.y < 0.0 || textCoo.y > 1.0) break;
+              vec4 texSample = texture2D(tDiffuse, textCoo);
+              float brightness = dot(texSample.rgb, vec3(0.299,0.587,0.114));
+              if(brightness > 0.5) texSample *= illuminationDecay * weight, godRays += texSample;
+              illuminationDecay *= decay;
+            }
+            godRays *= exposure;
+            gl_FragColor = original + godRays;
+          }
+        `,
 };
 
 // ----- SCENE -----
@@ -172,8 +171,8 @@ const lenis = new Lenis({
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.3, // desktop scroll
-  touchMultiplier: 0.4, // keep natural mobile scroll
+  wheelMultiplier: 0.3,
+  touchMultiplier: 0.4,
   infinite: false,
 });
 
@@ -185,23 +184,16 @@ lenis.on("scroll", ({ scroll }) => {
   targetProgress = Math.min(Math.max(scroll / maxScroll, 0), 1);
 });
 
-// ----- INTERPOLATION (desktop vs mobile) -----
+// ----- INTERPOLATION -----
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.01 : 0.1; // slower on mobile
+  const lerpSpeed = isMobile ? 0.01 : 0.1;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
     lerpSpeed
   );
 }
-
-// ----- RAF LOOP -----
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
 
 // ----- HELPERS -----
 function getArcPoint(t) {
@@ -216,8 +208,10 @@ function worldToScreen(worldPos, camera) {
 // ----- CLOCK -----
 const clock = new THREE.Clock();
 
-// ----- ANIMATION LOOP -----
-function animate() {
+// ----- UNIFIED ANIMATION LOOP -----
+function animate(time) {
+  lenis.raf(time);
+
   const delta = clock.getDelta();
   innerSphere.rotation.y += delta * 0.03;
   bgSphere.rotation.y += delta * -0.008;
@@ -236,9 +230,10 @@ function animate() {
 
   controls.update();
   composer.render();
+
   requestAnimationFrame(animate);
 }
-animate();
+requestAnimationFrame(animate);
 
 // ----- RESIZE -----
 window.addEventListener("resize", () => {

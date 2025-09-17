@@ -28,44 +28,33 @@
 * {
   font-family: "Bad";
 }
-::-webkit-scrollbar {
-  /* display: none; */
-}
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 html,
 body {
-  height: 100%;
-  margin: 0;
   overflow: hidden;
 }
 #root {
-  height: 100vh;
-  width: 100vw;
-}
+        height: 100vh;
+        width: 100vw;
+      }
 
-/* Scrollable box */
-.scroll-box {
-  width: 100%;
-  position: fixed;
-pointer-events: auto;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;            
-}
-.fade {
-  opacity: 0;
-  pointer-events: auto;
-}
-.fade.active {
-  opacity: 1;
-  pointer-events: auto;
-}
+      .scroll-box {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100svh;
+        overflow-y: auto; /* ✅ allow scrolling */
+        -webkit-overflow-scrolling: touch;
+        pointer-events: auto;
+        z-index: 1;
+      }
 
-.content {
-  height: 5000px;
-  width: 100%;
-}
+      .content {
+        height: 4000px; /* enough height to scroll */
+        width: 100%;
+      }
 
 .swiper {
   width: 100%;
@@ -87,14 +76,19 @@ pointer-events: auto;
   height: 100%;
   object-fit: cover;
 }
-
-/* style.css */
-section {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+.animated-text.visible, .animated-main.visible {
+    opacity: 1;
+    filter: blur();
+    pointer-events: none;
 }
-
-section.active {
-  opacity: 1;
-  z-index: 10;
+.animated-text, .animated-step, .animated-form, .animated-main {
+    z-index: 2;
+    pointer-events: none;
+    width: 100%;
+    transition: opacity .6s, filter .6s;
+    position: fixed;
+}
+.animated-main {
+    opacity: 0;
+    bottom: 0;
 }
