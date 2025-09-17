@@ -46,11 +46,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const end = (i + 1) * sectionSize;
 
       if (scrollPercent >= start && scrollPercent <= end) {
-        // Normalized 0 → 1 fade within section
+        // Normalized 0 → 1 progress within section
         const localProgress = (scrollPercent - start) / sectionSize;
-        step.style.opacity = 1 - Math.abs(localProgress - 0.5) * 2; // fade in/out
+
+        let opacity = 0;
+
+        // Fade in first 20% of section
+        if (localProgress <= 0.2) {
+          opacity = localProgress / 0.2; // 0 → 1
+        }
+        // Stay at full opacity for middle 60% of section
+        else if (localProgress <= 0.8) {
+          opacity = 1; // Full opacity
+        }
+        // Fade out last 20% of section
+        else {
+          opacity = 1 - (localProgress - 0.8) / 0.2; // 1 → 0
+        }
+
+        step.style.opacity = opacity;
+        step.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
       } else {
         step.style.opacity = 0;
+        step.style.pointerEvents = "none";
       }
     });
   }
@@ -58,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
   updateFadeOnScroll();
 });
-
 
 // Init everything
 function init() {
