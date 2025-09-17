@@ -1,81 +1,89 @@
 @import "tailwindcss";
-@import 'remixicon/fonts/remixicon.css';
+@import "remixicon/fonts/remixicon.css";
 
 @font-face {
-    font-family: 'Bad';
-    src: url('./fonts/Bad Signal.otf') ;
+  font-family: "Bad";
+  src: url("./fonts/Bad Signal.otf");
 }
 @font-face {
-    font-family: 'Cracked';
-    src: url('./fonts/Cracked Code.ttf') ;
+  font-family: "Cracked";
+  src: url("./fonts/Cracked Code.ttf");
 }
 @font-face {
-    font-family: 'Glitching';
-    src: url('./fonts/GlitchingDemoRegular.ttf') ;
+  font-family: "Glitching";
+  src: url("./fonts/GlitchingDemoRegular.ttf");
 }
 /* @font-face {
     font-family: 'Morvien';
     src: url('./fonts/Morvien-Regular.ttf') ;
 } */
 @font-face {
-    font-family: 'Split On';
-    src: url('./fonts/SplitOn.otf') ;
+  font-family: "Split On";
+  src: url("./fonts/SplitOn.otf");
 }
 /* @font-face {
     font-family: 'Wrong Delivery';
     src: url('./fonts/Wrong Delivery.ttf') ;
 } */
-*{
-    font-family: 'Bad';
+* {
+  font-family: "Bad";
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-html, body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden; 
-    }
-      #root {
-      height: 100vh;
-      width: 100vw;
-    }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+#root {
+  height: 100vh;
+  width: 100vw;
+}
 
-    /* Scrollable box */
-   .scroll-box {
+/* Scrollable box */
+.scroll-box {
+  width: 100%;
+  position: fixed;
+pointer-events: auto;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;            
+}
+.fade {
+  opacity: 0;
+  pointer-events: auto;
+}
+.fade.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.content {
+  height: 5000px;
+  width: 100%;
+}
+
+.swiper {
   width: 100%;
   height: 100%;
-  overflow-y: auto;      /* enable scroll */
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; /* VERY IMPORTANT for smooth mobile scrolling */
-  /* touch-action: pan-y;               allow vertical touch scroll */
 }
-.fade { opacity: 0; pointer-events: auto; }
-.fade.active { opacity: 1; pointer-events: auto; }
 
-     .content {
-      height: 5000px; 
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
   width: 100%;
-  /* background: linear-gradient(to bottom, #111, #333, #666, #999);  */
-    }
-
- .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  height: 100%;
+  object-fit: cover;
+}
