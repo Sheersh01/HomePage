@@ -40,7 +40,6 @@ body {
 #root {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 }
 
 .scroll-box {
@@ -48,7 +47,7 @@ body {
   inset: 0;
   width: 100vw;
   height: 100svh;
- pointer-events: auto;
+  pointer-events: auto;
   z-index: 1;
 }
 
