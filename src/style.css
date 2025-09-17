@@ -29,7 +29,7 @@
   font-family: "Bad";
 }
 ::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 html,
 body {
@@ -133,4 +133,14 @@ pointer-events: auto;
     width: 100%;
     transition: opacity .6s, filter .6s;
     position: fixed;
+}
+/* style.css */
+section {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+section.active {
+  opacity: 1;
+  z-index: 10;
 }
