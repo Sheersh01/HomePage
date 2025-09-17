@@ -48,9 +48,7 @@ body {
   inset: 0;
   width: 100vw;
   height: 100svh;
-  overflow-y: auto; /* ✅ allow scrolling */
-  -webkit-overflow-scrolling: touch;
-  pointer-events: auto;
+ pointer-events: auto;
   z-index: 1;
 }
 
