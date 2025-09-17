@@ -77,12 +77,6 @@ body {
   object-fit: cover;
 }
 
-.animated-text.visible,
-.animated-main.visible {
-  opacity: 1;
-  filter: blur();
-  pointer-events: none;
-}
 .animated-text,
 .animated-step,
 .animated-form,
@@ -97,10 +91,10 @@ body {
   opacity: 0;
   bottom: 0;
 }
-.animated-step.visible
- {
-    opacity: 1;
-    pointer-events: none;
+
+.animated-step.visible {
+  opacity: 1;
+  pointer-events: auto; /* enable interactions when visible */
 }
 
 .animated-text, .animated-step {
