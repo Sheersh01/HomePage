@@ -30,13 +30,14 @@ function initSwiper() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBox = document.querySelector(".scroll-box");
-  const steps = document.querySelectorAll(".animated-step, .animated-main");
+  const steps = document.querySelectorAll(".animated-main, .animated-step");
 
   function updateFadeOnScroll() {
     const scrollTop = scrollBox.scrollTop;
     const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
-    const scrollPercent = scrollTop / maxScroll; // 0 → 1
+    const scrollPercent = scrollTop / maxScroll;
 
+    // Each section gets equal scroll range
     const sectionCount = steps.length;
     const sectionSize = 1 / sectionCount;
 
@@ -45,19 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const end = (i + 1) * sectionSize;
 
       if (scrollPercent >= start && scrollPercent <= end) {
-        const localProgress = (scrollPercent - start) / sectionSize; // 0 → 1 inside section
-        let opacity = 0;
-
-        // fade in 0–15%, full opacity 15–85%, fade out 85–100%
-        if (localProgress <= 0.15) opacity = localProgress / 0.15;
-        else if (localProgress <= 0.85) opacity = 1;
-        else opacity = 1 - (localProgress - 0.85) / 0.15;
-
-        step.style.opacity = opacity;
-        step.style.pointerEvents = opacity > 0.5 ? "auto" : "none"; // enable interaction when mostly visible
+        // Normalized 0 → 1 fade within section
+        const localProgress = (scrollPercent - start) / sectionSize;
+        step.style.opacity = 1 - Math.abs(localProgress - 0.5) * 2; // fade in/out
       } else {
         step.style.opacity = 0;
-        step.style.pointerEvents = "none";
       }
     });
   }
@@ -65,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
   updateFadeOnScroll();
 });
+
 
 // Init everything
 function init() {
