@@ -40,7 +40,6 @@ body {
 #root {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 }
 
 /* Scrollable box */
@@ -89,51 +88,6 @@ pointer-events: auto;
   object-fit: cover;
 }
 
-
-.animated-text.visible, .animated-main.visible {
-    opacity: 1;
-    filter: blur();
-    pointer-events: none;
-}
-
-.animated-main {
-    opacity: 0;
-    bottom: 0;
-}
-.animated-step.visible {
-    opacity: 1;
-    pointer-events: none;
-}
-
-.animated-text, .animated-step {
-    opacity: 0;
-    height: 100vh;
-    top: 0;
-}
-.animated-text, .animated-step, .animated-form, .animated-main {
-    z-index: 2;
-    pointer-events: none;
-    width: 100%;
-    transition: opacity .6s, filter .6s;
-    position: fixed;
-}
-.animated-text, .animated-main{
-    filter: blur(20px);
-    opacity: 0;
-}
-
-.animated-text, .animated-step {
-    opacity: 0;
-    height: 100vh;
-    top: 0;
-}
-.animated-text, .animated-step, .animated-form, .animated-main {
-    z-index: 2;
-    pointer-events: none;
-    width: 100%;
-    transition: opacity .6s, filter .6s;
-    position: fixed;
-}
 /* style.css */
 section {
   opacity: 0;
