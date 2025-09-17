@@ -164,9 +164,9 @@ function initBlinkEffect() {
 // Init everything
 function init() {
   resetScrollOnReload();
-  // initSwiper();
-  // initFadeSections();
-  // initBlinkEffect();
+  initSwiper();
+  initFadeSections();
+  initBlinkEffect();
 }
 
 init();
