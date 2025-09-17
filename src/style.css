@@ -97,3 +97,14 @@ body {
   opacity: 0;
   bottom: 0;
 }
+.animated-step.visible
+ {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.animated-text, .animated-step {
+    opacity: 0;
+    height: 100vh;
+    top: 0;
+}
