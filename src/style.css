@@ -33,28 +33,30 @@
 } */
 html,
 body {
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 #root {
-        height: 100vh;
-        width: 100vw;
-      }
+  height: 100vh;
+  width: 100vw;
+}
 
-      .scroll-box {
-        position: fixed;
-        inset: 0;
-        width: 100vw;
-        height: 100svh;
-        overflow-y: auto; /* ✅ allow scrolling */
-        -webkit-overflow-scrolling: touch;
-        pointer-events: auto;
-        z-index: 1;
-      }
+.scroll-box {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow-y: auto; /* ✅ allow scrolling */
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+  z-index: 1;
+}
 
-      .content {
-        height: 4000px; /* enough height to scroll */
-        width: 100%;
-      }
+.content {
+  height: 4000px; /* enough height to scroll */
+  width: 100%;
+}
 
 .swiper {
   width: 100%;
@@ -76,19 +78,23 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.animated-text.visible, .animated-main.visible {
-    opacity: 1;
-    filter: blur();
-    pointer-events: none;
+.animated-text.visible,
+.animated-main.visible {
+  opacity: 1;
+  filter: blur();
+  pointer-events: none;
 }
-.animated-text, .animated-step, .animated-form, .animated-main {
-    z-index: 2;
-    pointer-events: none;
-    width: 100%;
-    transition: opacity .6s, filter .6s;
-    position: fixed;
+.animated-text,
+.animated-step,
+.animated-form,
+.animated-main {
+  z-index: 2;
+  pointer-events: none;
+  width: 100%;
+  transition: opacity 0.6s, filter 0.6s;
+  position: fixed;
 }
 .animated-main {
-    opacity: 0;
-    bottom: 0;
+  opacity: 0;
+  bottom: 0;
 }
