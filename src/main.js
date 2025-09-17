@@ -188,7 +188,7 @@ lenis.on("scroll", ({ scroll }) => {
 // ----- INTERPOLATION -----
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.08 : 0.1;
+  const lerpSpeed = isMobile ? 0.2 : 0.1;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
