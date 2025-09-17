@@ -31,14 +31,10 @@
 /* ::-webkit-scrollbar {
   display: none;
 } */
-
+html,
 body {
-    height: 100vh;
-    height: 100dvh;
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    left: 0;
+  height: 100%;
+  width: 100%;
 }
 #root {
   height: 100vh;

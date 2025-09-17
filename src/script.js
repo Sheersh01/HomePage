@@ -27,6 +27,7 @@ function initSwiper() {
     },
   });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBox = document.querySelector(".scroll-box");
   const steps = document.querySelectorAll(".animated-step, .animated-main");
@@ -43,36 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const start = i * sectionSize;
       const end = (i + 1) * sectionSize;
 
-      if (step.classList.contains("animated-main")) {
-        // Animated main: always visible until the end of its section, then fade out
-        if (scrollPercent <= end) {
-          let opacity = 1;
-          const fadeOutStart = end - 0.15 * sectionSize; // last 15% of its section
-          if (scrollPercent >= fadeOutStart) {
-            opacity = 1 - (scrollPercent - fadeOutStart) / (end - fadeOutStart);
-          }
-          step.style.opacity = opacity;
-          step.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
-        } else {
-          step.style.opacity = 0;
-          step.style.pointerEvents = "none";
-        }
+      if (scrollPercent >= start && scrollPercent <= end) {
+        const localProgress = (scrollPercent - start) / sectionSize; // 0 → 1 inside section
+        let opacity = 0;
+
+        // fade in 0–15%, full opacity 15–85%, fade out 85–100%
+        if (localProgress <= 0.15) opacity = localProgress / 0.15;
+        else if (localProgress <= 0.85) opacity = 1;
+        else opacity = 1 - (localProgress - 0.85) / 0.15;
+
+        step.style.opacity = opacity;
+        step.style.pointerEvents = opacity > 0.5 ? "auto" : "none"; // enable interaction when mostly visible
       } else {
-        // Other steps: fade in → stay → fade out
-        if (scrollPercent >= start && scrollPercent <= end) {
-          const localProgress = (scrollPercent - start) / sectionSize; // 0 → 1 inside section
-          let opacity = 0;
-
-          if (localProgress <= 0.15) opacity = localProgress / 0.15;
-          else if (localProgress <= 0.85) opacity = 1;
-          else opacity = 1 - (localProgress - 0.85) / 0.15;
-
-          step.style.opacity = opacity;
-          step.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
-        } else {
-          step.style.opacity = 0;
-          step.style.pointerEvents = "none";
-        }
+        step.style.opacity = 0;
+        step.style.pointerEvents = "none";
       }
     });
   }
@@ -80,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
   updateFadeOnScroll();
 });
-
 
 // Init everything
 function init() {
