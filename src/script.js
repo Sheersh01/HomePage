@@ -48,27 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
       if (scrollPercent >= start && scrollPercent <= end) {
         // Normalized 0 → 1 progress within section
         const localProgress = (scrollPercent - start) / sectionSize;
-        
+
         let opacity = 0;
-        
-        // Fade in first 20% of section
-        if (localProgress <= 0.2) {
-          opacity = localProgress / 0.2; // 0 → 1
+
+        // Fade in first 15% of section
+        if (localProgress <= 0.15) {
+          opacity = localProgress / 0.15; // 0 → 1
         }
-        // Stay at full opacity for middle 60% of section
-        else if (localProgress <= 0.8) {
+        // Stay at full opacity for middle 70% of section
+        else if (localProgress <= 0.85) {
           opacity = 1; // Full opacity
         }
-        // Fade out last 20% of section
+        // Fade out last 15% of section
         else {
-          opacity = 1 - ((localProgress - 0.8) / 0.2); // 1 → 0
+          opacity = 1 - (localProgress - 0.85) / 0.15; // 1 → 0
         }
-        
+
         step.style.opacity = opacity;
-        step.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
       } else {
         step.style.opacity = 0;
-        step.style.pointerEvents = "none";
       }
     });
   }
