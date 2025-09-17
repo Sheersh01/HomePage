@@ -48,7 +48,7 @@ html, body {
   overflow-y: auto;      /* enable scroll */
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* VERY IMPORTANT for smooth mobile scrolling */
-  touch-action: pan-y;               /* allow vertical touch scroll */
+  /* touch-action: pan-y;               allow vertical touch scroll */
 }
 .fade { opacity: 0; pointer-events: auto; }
 .fade.active { opacity: 1; pointer-events: auto; }
