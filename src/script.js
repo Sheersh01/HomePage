@@ -107,7 +107,6 @@ function initFadeSections() {
   });
 }
 
-
 // Blink effect
 function initBlinkEffect() {
   const blinkElement = document.querySelector(".blink");
