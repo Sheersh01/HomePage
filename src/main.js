@@ -172,7 +172,7 @@ const lenis = new Lenis({
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.2, // desktop scroll
+  wheelMultiplier: 0.3, // desktop scroll
   touchMultiplier: 0.4, // keep natural mobile scroll
   infinite: false,
 });
