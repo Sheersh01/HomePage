@@ -215,8 +215,8 @@ function animate(time) {
   lenis.raf(time);
 
   const delta = clock.getDelta();
-  innerSphere.rotation.y += delta * settings.planetSpeed;
-  bgSphere.rotation.y += delta * settings.bgSpeed;
+  innerSphere.rotation.y += delta * 0.01;
+  bgSphere.rotation.y += delta * 0.005;
 
   updateProgress();
 
@@ -247,32 +247,32 @@ window.addEventListener("resize", () => {
 });
 
 
-// ----- GUI PANEL -----
-const gui = new GUI();
+// // ----- GUI PANEL -----
+// const gui = new GUI();
 
-// Bloom controls
-const bloomFolder = gui.addFolder("Bloom");
-bloomFolder.add(bloomPass, "strength", 0, 3, 0.01).name("Strength");
-bloomFolder.add(bloomPass, "radius", 0, 1, 0.01).name("Radius");
-bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01).name("Threshold");
+// // Bloom controls
+// const bloomFolder = gui.addFolder("Bloom");
+// bloomFolder.add(bloomPass, "strength", 0, 3, 0.01).name("Strength");
+// bloomFolder.add(bloomPass, "radius", 0, 1, 0.01).name("Radius");
+// bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01).name("Threshold");
 
-// Godrays controls
-const godraysFolder = gui.addFolder("Godrays");
-godraysFolder.add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01).name("Exposure");
-godraysFolder.add(godraysPass.uniforms.decay, "value", 0.8, 1, 0.001).name("Decay");
-godraysFolder.add(godraysPass.uniforms.density, "value", 0, 2, 0.01).name("Density");
-godraysFolder.add(godraysPass.uniforms.weight, "value", 0, 1, 0.01).name("Weight");
-godraysFolder.add(godraysPass.uniforms.sunRadius, "value", 0, 1, 0.01).name("Sun Radius");
+// // Godrays controls
+// const godraysFolder = gui.addFolder("Godrays");
+// godraysFolder.add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01).name("Exposure");
+// godraysFolder.add(godraysPass.uniforms.decay, "value", 0.8, 1, 0.001).name("Decay");
+// godraysFolder.add(godraysPass.uniforms.density, "value", 0, 2, 0.01).name("Density");
+// godraysFolder.add(godraysPass.uniforms.weight, "value", 0, 1, 0.01).name("Weight");
+// godraysFolder.add(godraysPass.uniforms.sunRadius, "value", 0, 1, 0.01).name("Sun Radius");
 
-// Sun light controls
-const lightFolder = gui.addFolder("Sun Light");
-lightFolder.add(sunLight, "intensity", 0, 10, 0.1).name("Intensity");
-lightFolder.addColor({ color: sunLight.color.getHex() }, "color")
-  .onChange((val) => sunLight.color.set(val))
-  .name("Color");
+// // Sun light controls
+// const lightFolder = gui.addFolder("Sun Light");
+// lightFolder.add(sunLight, "intensity", 0, 10, 0.1).name("Intensity");
+// lightFolder.addColor({ color: sunLight.color.getHex() }, "color")
+//   .onChange((val) => sunLight.color.set(val))
+//   .name("Color");
 
-// Planet rotation speed
-const settings = { planetSpeed: 0.03, bgSpeed: -0.008 };
-const planetFolder = gui.addFolder("Planet Rotation");
-planetFolder.add(settings, "planetSpeed", 0, 0.2, 0.001).name("Planet Speed");
-planetFolder.add(settings, "bgSpeed", -0.05, 0.05, 0.001).name("BG Speed");
+// // Planet rotation speed
+// const setti01s 0.03: 0.03, bgSpeed: -0.008 };
+// const 0.02.05ddFolder("Planet Rotation");
+// planetFolder.add(settings, "planetSpeed", 0, 0.2, 0.001).name("Planet Speed");
+// planetFolder.add(settings, "bgSpeed", -0.05, 0.05, 0.001).name("BG Speed");
