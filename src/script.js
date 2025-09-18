@@ -175,3 +175,9 @@ button.addEventListener("click", () => {
   }
   isPlaying = !isPlaying;
 });
+
+const div = document.getElementById("myDiv");
+
+div.addEventListener("click", () => {
+  alert("Div clicked!");
+});

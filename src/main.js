@@ -131,7 +131,7 @@ const innerSphere = new THREE.Mesh(
   new THREE.MeshStandardMaterial({
     map: planetTexture,
     roughness: 1.0,
-    metalness: 0.0,
+    metalness: 0.1,
   })
 );
 scene.add(innerSphere);
