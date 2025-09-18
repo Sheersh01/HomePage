@@ -40,41 +40,63 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionCount = steps.length;
     const sectionSize = 1 / sectionCount;
 
-    steps.forEach((step, i) => {
-      const start = i * sectionSize;
-      const end = (i + 1) * sectionSize;
+   steps.forEach((step, i) => {
+     const start = i * sectionSize;
+     const end = (i + 1) * sectionSize;
+     const isMain = step.classList.contains("animated-main");
 
-      if (scrollPercent >= start && scrollPercent <= end) {
-        const localProgress = (scrollPercent - start) / sectionSize;
+     if (isMain) {
+       // Find the first animated-step
+       const firstStep = Array.from(steps).find((s) =>
+         s.classList.contains("animated-step")
+       );
+       const firstStepIndex = Array.from(steps).indexOf(firstStep);
+       const fadeStart = firstStepIndex * sectionSize;
+       const fadeEnd = fadeStart * sectionSize; // fade only over first step section
 
-        let opacity = 0;
-        let blur = 5; // default blur while fading
+       if (scrollPercent < fadeStart) {
+         step.style.opacity = 1;
+         step.style.filter = "blur(0px)";
+       } else if (scrollPercent >= fadeStart && scrollPercent <= fadeEnd) {
+         const fadeProgress =
+           (scrollPercent - fadeStart) / (fadeEnd - fadeStart);
+         step.style.opacity = 1 - fadeProgress;
+         step.style.filter = `blur(${fadeProgress * 5}px)`;
+       } else {
+         step.style.opacity = 0;
+         step.style.filter = "blur(5px)";
+       }
+     } else {
+       // Existing fade in/out for animated-step
+       if (scrollPercent >= start && scrollPercent <= end) {
+         const localProgress = (scrollPercent - start) / sectionSize;
+         let opacity = 0;
+         let blur = 5;
 
-        if (localProgress <= 0.15) {
-          opacity = localProgress / 0.15; // 0 → 1
-          blur = 5 - opacity * 5; // blur → 0 as it fades in
-        } else if (localProgress <= 0.85 || i === sectionCount - 1) {
-          // ✅ keep last step fully visible
-          opacity = 1;
-          blur = 0;
-        } else {
-          opacity = 1 - (localProgress - 0.85) / 0.15; // 1 → 0
-          blur = (1 - opacity) * 5; // add blur as it fades out
-        }
+         if (localProgress <= 0.15) {
+           opacity = localProgress / 0.15;
+           blur = 5 - opacity * 5;
+         } else if (localProgress <= 0.85 || i === steps.length - 1) {
+           opacity = 1;
+           blur = 0;
+         } else {
+           opacity = 1 - (localProgress - 0.85) / 0.15;
+           blur = (1 - opacity) * 5;
+         }
 
-        step.style.opacity = opacity;
-        step.style.filter = `blur(${blur}px)`;
-      } else {
-        // ✅ last step stays visible beyond its scroll range
-        if (i === sectionCount - 1 && scrollPercent > end) {
-          step.style.opacity = 1;
-          step.style.filter = "blur(0px)";
-        } else {
-          step.style.opacity = 0;
-          step.style.filter = "blur(5px)";
-        }
-      }
-    });
+         step.style.opacity = opacity;
+         step.style.filter = `blur(${blur}px)`;
+       } else {
+         step.style.opacity =
+           i === steps.length - 1 && scrollPercent > end ? 1 : 0;
+         step.style.filter =
+           i === steps.length - 1 && scrollPercent > end
+             ? "blur(0px)"
+             : "blur(5px)";
+       }
+     }
+   });
+
   }
 
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
@@ -104,4 +126,52 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.remove("translate-x-0");
     menu.classList.add("translate-x-full");
   });
+});
+const button = document.querySelector(".sound-toggle");
+const audio = document.getElementById("myAudio");
+
+let isPlaying = false;
+let fadeInterval;
+
+// Function to fade in audio
+function fadeIn(audio, duration = 1000) {
+  clearInterval(fadeInterval);
+  audio.volume = 0;
+  audio.play();
+  const step = 0.05;
+  const intervalTime = duration * step;
+  fadeInterval = setInterval(() => {
+    if (audio.volume < 1) {
+      audio.volume = Math.min(audio.volume + step, 1);
+    } else {
+      clearInterval(fadeInterval);
+    }
+  }, intervalTime);
+}
+
+// Function to fade out audio
+function fadeOut(audio, duration = 1000) {
+  clearInterval(fadeInterval);
+  const step = 0.05;
+  const intervalTime = duration * step;
+  fadeInterval = setInterval(() => {
+    if (audio.volume > 0) {
+      audio.volume = Math.max(audio.volume - step, 0);
+    } else {
+      audio.pause();
+      clearInterval(fadeInterval);
+    }
+  }, intervalTime);
+}
+
+// Toggle button click
+button.addEventListener("click", () => {
+  if (isPlaying) {
+    fadeOut(audio, 1000); // fade out over 1 sec
+    button.textContent = "Sound OFF";
+  } else {
+    fadeIn(audio, 1000); // fade in over 1 sec
+    button.textContent = "Sound ON";
+  }
+  isPlaying = !isPlaying;
 });
