@@ -53,9 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (localProgress <= 0.15) {
           opacity = localProgress / 0.15; // 0 → 1
           blur = 5 - opacity * 5; // blur → 0 as it fades in
-        } else if (localProgress <= 0.85) {
+        } else if (localProgress <= 0.85 || i === sectionCount - 1) {
+          // ✅ keep last step fully visible
           opacity = 1;
-          blur = 0; // crisp when fully visible
+          blur = 0;
         } else {
           opacity = 1 - (localProgress - 0.85) / 0.15; // 1 → 0
           blur = (1 - opacity) * 5; // add blur as it fades out
@@ -64,8 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
         step.style.opacity = opacity;
         step.style.filter = `blur(${blur}px)`;
       } else {
-        step.style.opacity = 0;
-        step.style.filter = "blur(5px)"; // hidden but softly blurred
+        // ✅ last step stays visible beyond its scroll range
+        if (i === sectionCount - 1 && scrollPercent > end) {
+          step.style.opacity = 1;
+          step.style.filter = "blur(0px)";
+        } else {
+          step.style.opacity = 0;
+          step.style.filter = "blur(5px)";
+        }
       }
     });
   }
@@ -73,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
   updateFadeOnScroll(); // run once on load
 });
-
 
 // Init everything
 function init() {

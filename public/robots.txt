@@ -1,0 +1,12 @@
+# robots.txt for TantraFiesta 2025
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive or unused directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Sitemap location (important for SEO)
+Sitemap: https://tantrafiesta.in/sitemap.xml

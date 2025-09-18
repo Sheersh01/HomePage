@@ -21,12 +21,16 @@
   font-family: "Split On";
   src: url("./fonts/SplitOn.otf");
 }
+@font-face {
+  font-family: "phi";
+  src: url("./fonts/Philosopher-Regular.ttf");
+}
 /* @font-face {
     font-family: 'Wrong Delivery';
     src: url('./fonts/Wrong Delivery.ttf') ;
 } */
 * {
-  font-family: "Bad";
+  font-family: "phi";
 }
 /* ::-webkit-scrollbar {
   display: none;
@@ -88,6 +92,7 @@ body {
   width: 100%;
   transition: opacity 0.6s, filter 0.6s;
   position: fixed;
+  mix-blend-mode: difference;
 }
 .animated-main {
   opacity: 0;
