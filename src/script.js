@@ -175,66 +175,32 @@ button.addEventListener("click", () => {
   }
   isPlaying = !isPlaying;
 });
-
-const scrollBox = document.querySelector(".scroll-box");
-
-// Map section IDs to their corresponding animated-step indexes
-const sections = [
-  { id: "about", stepIndex: 0 },
-  { id: "sponsors", stepIndex: 1 },
-  { id: "speakers", stepIndex: 2 },
-];
-
-function getVisibleSection() {
-  const steps = document.querySelectorAll(".animated-step");
-  let visibleSection = null;
-
-  sections.forEach((section) => {
-    const step = steps[section.stepIndex];
-    if (!step) return;
-
-    const opacity = parseFloat(window.getComputedStyle(step).opacity);
-
-    if (opacity > 0.5) {
-      visibleSection = section.id;
-    }
-  });
-
-  return visibleSection;
-}
-
-// Click handler for all three buttons
-sections.forEach((section) => {
-  const element = document.getElementById(section.id);
-  element.addEventListener("click", () => {
-    const visibleSection = getVisibleSection();
-
-    if (visibleSection === section.id) {
-      alert(
-        `${
-          section.id.charAt(0).toUpperCase() + section.id.slice(1)
-        } clicked and visible!`
-      );
-    } else {
-      console.log(`${section.id} clicked but not visible enough.`);
-    }
-  });
-});
+const about = document.getElementById("about");
 const steps = document.querySelectorAll(".animated-step");
 
-function updatePointerEvents() {
-  steps.forEach((step) => {
+// Utility: get currently visible section
+function getVisibleSection() {
+  let visibleIndex = -1;
+
+  steps.forEach((step, i) => {
     const opacity = parseFloat(window.getComputedStyle(step).opacity);
-    if (opacity > 0.5) {
-      step.style.pointerEvents = "auto"; // clickable
-    } else {
-      step.style.pointerEvents = "none"; // won't block clicks
-    }
+    if (opacity > 0.5) visibleIndex = i;
   });
+
+  return visibleIndex;
 }
 
-// Run once on load
-updatePointerEvents();
+// Click handler just on "about"
+about.addEventListener("click", () => {
+  const index = getVisibleSection();
 
-// Update on scroll
-scrollBox.addEventListener("scroll", updatePointerEvents);
+  if (index === 0) {
+    window.location.href = "about.html"; // 🔗 About page
+  } else if (index === 1) {
+    window.location.href = "sponsors.html"; // 🔗 Sponsors page
+  } else if (index === 2) {
+    window.location.href = "speakers.html"; // 🔗 Speakers page
+  } else {
+    console.log("No section visible enough.");
+  }
+});
