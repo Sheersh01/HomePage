@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Swiper from "swiper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,27 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 function resetScrollOnReload() {
   window.history.scrollRestoration = "manual";
   window.onbeforeunload = () => window.scrollTo(0, 0);
-}
-
-/* ------------------------------
-   Swiper
------------------------------- */
-function initSwiper() {
-  return new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    observer: true,
-    observeParents: true,
-    breakpoints: {
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      768: { slidesPerView: 3, spaceBetween: 20 },
-      1024: { slidesPerView: 3, spaceBetween: 30 },
-    },
-  });
 }
 
 /* ------------------------------
@@ -219,7 +197,6 @@ function initAboutClick() {
 ------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
   resetScrollOnReload();
-  initSwiper();
   initFadeScroll();
   initMenuToggle();
   initSoundToggle();
