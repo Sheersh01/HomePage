@@ -5,10 +5,11 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import background from "./assets/background.jpg";
-import planet from "./assets/planet.jpg";
+import background from "./assets/background.webp";
+import planet from "./assets/planet.webp";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
+import GUI from "lil-gui";
 
 // ------------------ GODRAYS SHADER ------------------
 const GodraysShader = {
@@ -19,7 +20,7 @@ const GodraysShader = {
     decay: { value: 0.95 },
     density: { value: 0.8 },
     weight: { value: 0.4 },
-    sunRadius: { value: 0.4 },
+    sunRadius: { value: 0.35 },
   },
   vertexShader: `
           varying vec2 vUv;
@@ -102,7 +103,7 @@ const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
 const bloomPass = new UnrealBloomPass(
   new THREE.Vector2(window.innerWidth, window.innerHeight),
-  0.8,
+  0.0,
   0.8,
   0.95
 );
@@ -118,7 +119,7 @@ planetTexture.colorSpace = THREE.SRGBColorSpace;
 
 // ----- BACKGROUND SPHERE -----
 const bgSphere = new THREE.Mesh(
-  new THREE.SphereGeometry(100, 64, 64),
+  new THREE.SphereGeometry(120, 64, 64),
   new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide })
 );
 scene.add(bgSphere);
@@ -150,7 +151,7 @@ sunSphere.position.set(0, 15, 15);
 scene.add(sunSphere);
 
 // ----- SUN LIGHT -----
-const sunLight = new THREE.DirectionalLight(0xffffff, 6.5);
+const sunLight = new THREE.DirectionalLight(0xffffff, 8.5);
 sunLight.position.copy(sunSphere.position);
 scene.add(sunLight);
 
@@ -214,8 +215,8 @@ function animate(time) {
   lenis.raf(time);
 
   const delta = clock.getDelta();
-  innerSphere.rotation.y += delta * 0.03;
-  bgSphere.rotation.y += delta * -0.008;
+  innerSphere.rotation.y += delta * settings.planetSpeed;
+  bgSphere.rotation.y += delta * settings.bgSpeed;
 
   updateProgress();
 
@@ -244,3 +245,34 @@ window.addEventListener("resize", () => {
   composer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
+
+
+// ----- GUI PANEL -----
+const gui = new GUI();
+
+// Bloom controls
+const bloomFolder = gui.addFolder("Bloom");
+bloomFolder.add(bloomPass, "strength", 0, 3, 0.01).name("Strength");
+bloomFolder.add(bloomPass, "radius", 0, 1, 0.01).name("Radius");
+bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01).name("Threshold");
+
+// Godrays controls
+const godraysFolder = gui.addFolder("Godrays");
+godraysFolder.add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01).name("Exposure");
+godraysFolder.add(godraysPass.uniforms.decay, "value", 0.8, 1, 0.001).name("Decay");
+godraysFolder.add(godraysPass.uniforms.density, "value", 0, 2, 0.01).name("Density");
+godraysFolder.add(godraysPass.uniforms.weight, "value", 0, 1, 0.01).name("Weight");
+godraysFolder.add(godraysPass.uniforms.sunRadius, "value", 0, 1, 0.01).name("Sun Radius");
+
+// Sun light controls
+const lightFolder = gui.addFolder("Sun Light");
+lightFolder.add(sunLight, "intensity", 0, 10, 0.1).name("Intensity");
+lightFolder.addColor({ color: sunLight.color.getHex() }, "color")
+  .onChange((val) => sunLight.color.set(val))
+  .name("Color");
+
+// Planet rotation speed
+const settings = { planetSpeed: 0.03, bgSpeed: -0.008 };
+const planetFolder = gui.addFolder("Planet Rotation");
+planetFolder.add(settings, "planetSpeed", 0, 0.2, 0.001).name("Planet Speed");
+planetFolder.add(settings, "bgSpeed", -0.05, 0.05, 0.001).name("BG Speed");

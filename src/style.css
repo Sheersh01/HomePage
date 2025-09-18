@@ -82,7 +82,6 @@ body {
 .animated-main.visible {
   opacity: 1;
   filter: blur();
-  pointer-events: none;
 }
 .animated-text,
 .animated-step,

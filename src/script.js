@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
     const scrollPercent = scrollTop / maxScroll;
 
-    // Each section gets equal scroll range
     const sectionCount = steps.length;
     const sectionSize = 1 / sectionCount;
 
@@ -46,34 +45,37 @@ document.addEventListener("DOMContentLoaded", () => {
       const end = (i + 1) * sectionSize;
 
       if (scrollPercent >= start && scrollPercent <= end) {
-        // Normalized 0 → 1 progress within section
         const localProgress = (scrollPercent - start) / sectionSize;
 
         let opacity = 0;
+        let blur = 5; // default blur while fading
 
-        // Fade in first 15% of section
         if (localProgress <= 0.15) {
           opacity = localProgress / 0.15; // 0 → 1
-        }
-        // Stay at full opacity for middle 70% of section
-        else if (localProgress <= 0.85) {
-          opacity = 1; // Full opacity
-        }
-        // Fade out last 15% of section
-        else {
+          blur = 5 - opacity * 5; // blur → 0 as it fades in
+        } else if (localProgress <= 0.85) {
+          opacity = 1;
+          blur = 0; // crisp when fully visible
+        } else {
           opacity = 1 - (localProgress - 0.85) / 0.15; // 1 → 0
+          blur = (1 - opacity) * 5; // add blur as it fades out
         }
 
         step.style.opacity = opacity;
+        step.style.filter = `blur(${blur}px)`;
+          step.style.pointerEvents = "auto";
       } else {
         step.style.opacity = 0;
+        step.style.filter = "blur(5px)"; // hidden but softly blurred
+          step.style.pointerEvents = "none";
       }
     });
   }
 
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
-  updateFadeOnScroll();
+  updateFadeOnScroll(); // run once on load
 });
+
 
 // Init everything
 function init() {

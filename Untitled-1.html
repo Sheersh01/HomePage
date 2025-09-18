@@ -2,229 +2,717 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <title>News | Sanctuary On The Moon</title>
 
-    <title>TantraFiesta 2025</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+      body {
+        /* background-color: #0b1533; */
+        /* New background styles */
+        background-image: url("https://assets.fyd.agency/mission/sky/nebula-zneg.png");
+        background-size: cover;
+        background-attachment: fixed; /* Ensures the background stays in place while you scroll */
+        background-position: center;
+        color: #fff;
+        font-family: Rustica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .Site-page {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .AppWrapper-1120 {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        position: relative;
+      }
+
+      @media screen and (min-width: 992px) {
+        .AppWrapper-1120 {
+          padding: 0 3rem;
+        }
+      }
+
+      .NewsList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .NewsList-list {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .NewsList-listItem {
+        border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+        /* Add initial opacity and transform for scroll-in animation */
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .NewsList-listItem:last-child {
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+      }
+
+      .NewsItem-link {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-link {
+          padding: 4rem 0;
+          flex-direction: row;
+        }
+      }
+
+      .NewsItem-imageContainer {
+        width: 100%;
+        aspect-ratio: 56 / 36;
+        position: relative;
+        border-radius: 0.5rem 0 3rem 0.5rem;
+        overflow: hidden;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-imageContainer {
+          flex: 0 0 30rem;
+          width: 56rem;
+        }
+      }
+
+      .NewsItem-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .NewsItem-link:hover .NewsItem-image {
+        transform: scale(1);
+      }
+
+      .NewsItem-content {
+        position: relative;
+        margin-left: 0;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-content {
+          margin-top: 0;
+          margin-left: 8rem;
+          padding: 0;
+        }
+      }
+
+      .NewsItem-date,
+      .NewsItem-category,
+      .NewsItem-title,
+      .NewsDetailHero-author,
+      .NewsItem-shortText {
+        font-weight: 500;
+        line-height: auto;
+        opacity: 0;
+        transform: translate3d(-40px, 0, 0);
+      }
+
+      .NewsItem-date {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-date {
+          font-size: 16px;
+        }
+      }
+
+      .NewsDetailHero-author {
+        border: 1px solid #c3073f;
+        border-radius: 9999px; /* Use a high value for a pill shape */
+        color: #c3073f;
+        font-size: 14px; /* Reduced font size for better fit */
+        margin-bottom: 0.8rem;
+        padding: 0.2rem 0.8rem; /* Add padding to give the border some space */
+        display: inline-block; /* Crucial change to make the width fit the content */
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsDetailHero-author {
+          font-size: 20px;
+        }
+      }
+
+      .NewsItem-category {
+        display: block;
+        color: #ea6d15;
+        margin-top: 2rem;
+        font-size: 14px;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-category {
+          margin-top: 3rem;
+          font-size: 16px;
+        }
+      }
+
+      .NewsItem-title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 1rem;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-title {
+          font-size: 3rem;
+        }
+      }
+
+      .NewsItem-shortText {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #fff;
+        margin-top: 1rem;
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-shortText {
+          font-size: 18px;
+        }
+      }
+
+      .NewsItem-icon {
+        margin-top: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        fill: #fff;
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+          fill 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      @media screen and (min-width: 992px) {
+        .NewsItem-icon {
+          margin-top: auto;
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+      }
+
+      .NewsItem-link:hover .NewsItem-icon {
+        transform: translateX(20px);
+        fill: #c3073f;
+      }
+      .NewsItem-register {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between the icon and the text */
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+.NewsItem-register span {
+    font-size: 16px;
+    color: #fff;
+    transition: color 0.5s ease;
+}
+
+.NewsItem-link:hover .NewsItem-register span {
+    color: #C3073F;
+}
+
+      .--copper {
+        color: #c3073f;
+      }
+
+      .--white {
+        color: #fff;
+      }
+
+      /* Added featured news specific styles for hover effect */
+      .FeaturedNews-wrapper {
+        transition: all 0.5s ease-in-out;
+      }
+      .FeaturedNews-wrapper:hover .FeaturedNews-icon {
+        transform: translateX(20px);
+      }
+      .FeaturedNews-wrapper:hover .FeaturedNews-image {
+        transform: scale(1.05);
+      }
+      .FeaturedNews-image {
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .p4-top {
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .p4-top h2 {
+        font-size: clamp(3rem, 7vw, 5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .p4-top h2 span {
+        color: var(--crimson);
+        font-style: italic;
+        letter-spacing: -0.05em;
+      }
+      .space {
+        height: 32vh;
+      }
+    </style>
   </head>
-
   <body>
-    <div id="root">
-      <aside
-        class="menu overlay fixed top-0 left-0 z-[99] h-screen w-screen bg-white text-black px-4 pt-4 translate-x-full transition-transform duration-500 ease-in-out"
-        role="dialog"
-      >
-        <div class="flex justify-between items-center w-full">
-          <h2 class="text-3xl font-bold">Menu</h2>
-          <button
-            class="toggle2 text-[8vw] cursor-pointer"
-            aria-label="Close menu"
-          >
-            <i class="ri-menu-3-fill"></i>
-          </button>
+    <div class="Site-container">
+      <div id="page-content" class="News Site-page">
+        <div class="space"></div>
+        <div class="p4-top">
+          <h2><span>EVENTS</span></h2>
         </div>
-
-        <nav class="mt-8">
-          <ul class="flex flex-col gap-6 text-xl font-medium">
-            <li><a href="#sponsors" class="hover:underline">Sponsors</a></li>
-            <li><a href="#speakers" class="hover:underline">Speakers</a></li>
-            <li><a href="#events" class="hover:underline">Events</a></li>
-            <li><a href="#contact" class="hover:underline">Contact</a></li>
+        <div class="space"></div>
+        <div class="space"></div>
+        <section class="NewsList News-newsList">
+          <ul class="NewsList-list AppWrapper-1120">
+            <li class="NewsItem NewsList-listItem">
+              <a
+                href="/news/the-olympics-reach-for-the-moon"
+                class="NewsItem-link"
+              >
+                <div class="NewsItem-imageContainer">
+                  <img
+                    src="game jam.png"
+                    alt="Paris 2024 astronaut mascots"
+                    class="NewsItem-image"
+                  />
+                </div>
+                <div class="NewsItem-content">
+                  <div class="NewsItem-contentTop">
+                    <div class="NewsDetailHero-author NewsItem-contentAnim">
+                      Elevate
+                    </div>
+                    <div class="NewsItem-date NewsItem-contentAnim">
+                      Registration Date: [13.10.23] - From 08-09-2023 To -
+                      24-09-2023
+                    </div>
+                    <span class="NewsItem-category NewsItem-contentAnim"></span>
+                    <h2 class="NewsItem-title NewsItem-contentAnim">
+                      Gen-A-Thon
+                    </h2>
+                    <p class="NewsItem-shortText NewsItem-contentAnim">
+                      Elevate your skills and imagination at Gen-A-Thon: an
+                      exciting AI, ML, Web Development, and App Development
+                      Hackathon!
+                    </p>
+                  </div>
+                  <div class="NewsItem-register NewsItem-contentAnim">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 34 34"
+                      class="NewsItem-icon"
+                    >
+                      <path
+                        d="M1 34c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L30.6 2H2.8c-.6 0-1-.4-1-1s.4-1 1-1H33c.1 0 .3 0 .4.1.1 0 .2.1.3.2s.2.2.2.3c.1.1.1.3.1.4v30.2c0 .6-.4 1-1 1s-1-.4-1-1V3.4L1.7 33.7c-.2.2-.4.3-.7.3z"
+                      ></path>
+                    </svg>
+                    <span>Register</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="NewsItem NewsList-listItem">
+              <a
+                href="/news/the-olympics-reach-for-the-moon"
+                class="NewsItem-link"
+              >
+                <div class="NewsItem-imageContainer">
+                  <img
+                    src="game jam.png"
+                    alt="Paris 2024 astronaut mascots"
+                    class="NewsItem-image"
+                  />
+                </div>
+                <div class="NewsItem-content">
+                  <div class="NewsItem-contentTop">
+                    <div class="NewsDetailHero-author NewsItem-contentAnim">
+                      Elevate
+                    </div>
+                    <div class="NewsItem-date NewsItem-contentAnim">
+                      Registration Date: [13.10.23] - From 08-09-2023 To -
+                      24-09-2023
+                    </div>
+                    <span class="NewsItem-category NewsItem-contentAnim"></span>
+                    <h2 class="NewsItem-title NewsItem-contentAnim">
+                      Gen-A-Thon
+                    </h2>
+                    <p class="NewsItem-shortText NewsItem-contentAnim">
+                      Elevate your skills and imagination at Gen-A-Thon: an
+                      exciting AI, ML, Web Development, and App Development
+                      Hackathon!
+                    </p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 34 34"
+                      class="NewsItem-icon"
+                    >
+                      <path
+                        d="M1 34c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L30.6 2H2.8c-.6 0-1-.4-1-1s.4-1 1-1H33c.1 0 .3 0 .4.1.1 0 .2.1.3.2s.2.2.2.3c.1.1.1.3.1.4v30.2c0 .6-.4 1-1 1s-1-.4-1-1V3.4L1.7 33.7c-.2.2-.4.3-.7.3z"
+                      ></path>
+                    </svg>
+                    <span>Register</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="NewsItem NewsList-listItem">
+              <a
+                href="/news/the-olympics-reach-for-the-moon"
+                class="NewsItem-link"
+              >
+                <div class="NewsItem-imageContainer">
+                  <img
+                    src="game jam.png"
+                    alt="Paris 2024 astronaut mascots"
+                    class="NewsItem-image"
+                  />
+                </div>
+                <div class="NewsItem-content">
+                  <div class="NewsItem-contentTop">
+                    <div class="NewsDetailHero-author NewsItem-contentAnim">
+                      Elevate
+                    </div>
+                    <div class="NewsItem-date NewsItem-contentAnim">
+                      Registration Date: [13.10.23] - From 08-09-2023 To -
+                      24-09-2023
+                    </div>
+                    <span class="NewsItem-category NewsItem-contentAnim"></span>
+                    <h2 class="NewsItem-title NewsItem-contentAnim">
+                      Gen-A-Thon
+                    </h2>
+                    <p class="NewsItem-shortText NewsItem-contentAnim">
+                      Elevate your skills and imagination at Gen-A-Thon: an
+                      exciting AI, ML, Web Development, and App Development
+                      Hackathon!
+                    </p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 34 34"
+                      class="NewsItem-icon"
+                    >
+                      <path
+                        d="M1 34c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L30.6 2H2.8c-.6 0-1-.4-1-1s.4-1 1-1H33c.1 0 .3 0 .4.1.1 0 .2.1.3.2s.2.2.2.3c.1.1.1.3.1.4v30.2c0 .6-.4 1-1 1s-1-.4-1-1V3.4L1.7 33.7c-.2.2-.4.3-.7.3z"
+                      ></path>
+                    </svg>
+                    <span>Register</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="NewsItem NewsList-listItem">
+              <a
+                href="/news/the-olympics-reach-for-the-moon"
+                class="NewsItem-link"
+              >
+                <div class="NewsItem-imageContainer">
+                  <img
+                    src="game jam.png"
+                    alt="Paris 2024 astronaut mascots"
+                    class="NewsItem-image"
+                  />
+                </div>
+                <div class="NewsItem-content">
+                  <div class="NewsItem-contentTop">
+                    <div class="NewsDetailHero-author NewsItem-contentAnim">
+                      Elevate
+                    </div>
+                    <div class="NewsItem-date NewsItem-contentAnim">
+                      Registration Date: [13.10.23] - From 08-09-2023 To -
+                      24-09-2023
+                    </div>
+                    <span class="NewsItem-category NewsItem-contentAnim"></span>
+                    <h2 class="NewsItem-title NewsItem-contentAnim">
+                      Gen-A-Thon
+                    </h2>
+                    <p class="NewsItem-shortText NewsItem-contentAnim">
+                      Elevate your skills and imagination at Gen-A-Thon: an
+                      exciting AI, ML, Web Development, and App Development
+                      Hackathon!
+                    </p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 34 34"
+                      class="NewsItem-icon"
+                    >
+                      <path
+                        d="M1 34c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L30.6 2H2.8c-.6 0-1-.4-1-1s.4-1 1-1H33c.1 0 .3 0 .4.1.1 0 .2.1.3.2s.2.2.2.3c.1.1.1.3.1.4v30.2c0 .6-.4 1-1 1s-1-.4-1-1V3.4L1.7 33.7c-.2.2-.4.3-.7.3z"
+                      ></path>
+                    </svg>
+                    <span>Register</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="NewsItem NewsList-listItem">
+              <a
+                href="/news/the-olympics-reach-for-the-moon"
+                class="NewsItem-link"
+              >
+                <div class="NewsItem-imageContainer">
+                  <img
+                    src="game jam.png"
+                    alt="Paris 2024 astronaut mascots"
+                    class="NewsItem-image"
+                  />
+                </div>
+                <div class="NewsItem-content">
+                  <div class="NewsItem-contentTop">
+                    <div class="NewsDetailHero-author NewsItem-contentAnim">
+                      Elevate
+                    </div>
+                    <div class="NewsItem-date NewsItem-contentAnim">
+                      Registration Date: [13.10.23] - From 08-09-2023 To -
+                      24-09-2023
+                    </div>
+                    <span class="NewsItem-category NewsItem-contentAnim"></span>
+                    <h2 class="NewsItem-title NewsItem-contentAnim">
+                      Gen-A-Thon
+                    </h2>
+                    <p class="NewsItem-shortText NewsItem-contentAnim">
+                      Elevate your skills and imagination at Gen-A-Thon: an
+                      exciting AI, ML, Web Development, and App Development
+                      Hackathon!
+                    </p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 34 34"
+                      class="NewsItem-icon"
+                    >
+                      <path
+                        d="M1 34c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L30.6 2H2.8c-.6 0-1-.4-1-1s.4-1 1-1H33c.1 0 .3 0 .4.1.1 0 .2.1.3.2s.2.2.2.3c.1.1.1.3.1.4v30.2c0 .6-.4 1-1 1s-1-.4-1-1V3.4L1.7 33.7c-.2.2-.4.3-.7.3z"
+                      ></path>
+                    </svg>
+                    <span>Register</span>
+                  </div>
+                </div>
+              </a>
+            </li>
           </ul>
-        </nav>
-      </aside>
-
-      <nav
-        class="navbar fixed top-0 left-0 z-[98] w-full h-20 flex items-center justify-between bg-transparent text-white px-6 md:px-10 py-8 md:py-14"
-      >
-        <div class="navbar-brand flex items-center gap-6 md:gap-10 text-md">
-          <a href="/" class="navbar-logo font-bold text-lg">Logo</a>
-          <button
-            aria-label="Toggle sound"
-            class="sound-toggle text-sm md:text-md"
-          >
-            Sound ON
-          </button>
-        </div>
-
-        <ul
-          class="navbar-menu hidden md:flex items-center gap-6 md:gap-10 text-md"
-        >
-          <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
-          <li><a href="#speakers" class="nav-link">Speakers</a></li>
-          <li><a href="#events" class="nav-link">Events</a></li>
-          <li>
-            <a
-              href="#contact"
-              class="nav-link border-2 border-white rounded-full px-6 py-2"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-        <button
-          class="toggle md:hidden text-2xl cursor-pointer"
-          aria-label="Open menu"
-        >
-          <i class="ri-menu-3-fill"></i>
-        </button>
-      </nav>
-
-      <div class="w-full text-white scroll-box">
-      <div class="w-full h-full ">
-          <canvas class="fixed top-0 left-0 z-[1] block" id="canvas"></canvas>
-      </div>
-
-        <div class="content">
-    
-            <section
-              class="fixed top-0 left-0 h-svh pb-10 w-full flex flex-col justify-end items-center blink z-[2]"
-            >
-              <i class="ri-arrow-down-s-line"></i>
-              <h1 class="text-[#dadada]">SCROLL TO EXPLORE</h1>
-            </section>
-
-            <section class="fixed top-0 left-0 h-svh fade z-[2] w-full">
-              <div
-                class="h-svh w-full text-center absolute bottom-0 left-0"
-              ></div>
-            </section>
-
-                <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
-            <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[43.5%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
-            >
-              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col lg:gap-[12vw] md:gap-[20vw] gap-[25vw]">
-                <i class="ri-arrow-down-s-line"></i>
-                <i class="ri-arrow-up-s-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
-            >
-              <h1>ABOUT US</h1>
-              <h1 class="text-[5vw]">TANTRAFIESTA</h1>
-            </div>
-            <div
-              class="absolute right-0 bottom-0 md:mr-10 pb-10 md:px-0 px-4 lg:w-[40vw] md:w-[60vw] w-full lg:text-lg md:text-sm text-[3vw]"
-            >
-              <p>
-                TantraFiesta is the National Level Annual Technical Fest of the
-                Indian Institute of Information Technology, Nagpur.
-                TantraFiesta'24 is coming back this year with more than 30+
-                interesting events under the theme "Digital Big Bang: Uncharted
-                Realms Await." This theme captures the exponential growth in the
-                evolution of technology in areas concerning breakthroughs in
-                Artificial Intelligenceᅳespecially in Large Language Model
-                developmentᅳand the enormous possibilities of power unleashed
-                through GPUs.
-              </p>
-            </div>
-          </section>
-
-          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
-            <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
-            >
-              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col lg:gap-[10vw] md:gap-[12vw] gap-[20vw]">
-                <i class="ri-arrow-down-s-line"></i>
-                <i class="ri-arrow-up-s-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
-            >
-              <h1>WATCH OUT</h1>
-              <h1 class="text-[5vw]">Sponsors</h1>
-            </div>
-            <div
-              class="absolute right-0 bottom-0 lg:mr-10 md:mr-4 md:px-0 px-4 md:pb-10 pb-4 lg:w-[40vw] md:w-[60vw] w-full lg:h-[250px] md:h-[200px] h-[150px]"
-            >
-              <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">Slide 1</div>
-                  <div class="swiper-slide">Slide 2</div>
-                  <div class="swiper-slide">Slide 3</div>
-                  <div class="swiper-slide">Slide 4</div>
-                  <div class="swiper-slide">Slide 5</div>
-                  <div class="swiper-slide">Slide 6</div>
-                  <div class="swiper-slide">Slide 7</div>
-                  <div class="swiper-slide">Slide 8</div>
-                  <div class="swiper-slide">Slide 9</div>
-                </div>
-              
-              </div>
-            </div>
-          </section>
-
-          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
-            <div
-              class="lg:h-[15vw] md:h-[20vw] lg:w-[15vw] md:w-[20vw] absolute lg:top-[48%] md:top-[48%] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
-            >
-              <h1 class="md:block hidden">CLICK TO KNOW MORE</h1>
-              <div class="flex flex-col md:gap-[10vw] gap-[15vw]">
-                <i class="ri-arrow-down-s-line"></i>
-                <i class="ri-arrow-up-s-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute left-0 top-0 lg:mt-40 md:mt-30 mt-20 md:ml-10 ml-4"
-            >
-              <h1>HEAR ME OUT</h1>
-              <h1 class="text-[5vw]">Speakers</h1>
-            </div>
-            <div
-              class="absolute right-0 bottom-0 lg:mr-10 md:mr-4 md:px-0 px-4 md:pb-10 pb-4 lg:w-[40vw] md:w-[60vw] lg:h-[250px] md:h-[200px] h-[150px] w-full"
-            >
-              <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">Slide 1</div>
-                  <div class="swiper-slide">Slide 2</div>
-                  <div class="swiper-slide">Slide 3</div>
-                  <div class="swiper-slide">Slide 4</div>
-                  <div class="swiper-slide">Slide 5</div>
-                  <div class="swiper-slide">Slide 6</div>
-                  <div class="swiper-slide">Slide 7</div>
-                  <div class="swiper-slide">Slide 8</div>
-                  <div class="swiper-slide">Slide 9</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
-            <div
-              class="h-svh w-full text-center absolute bottom-0 left-0"
-            ></div>
-          </section>
-
-          <section class="fixed top-0 left-0 h-svh w-full fade z-[2]">
-            <div
-              class="h-svh w-full text-center absolute bottom-0 left-0"
-            ></div>
-          </section>
-
-          <section
-            class="fixed top-0 left-0 h-svh w-full fade z-[2] flex justify-center items-center text-white"
-          >
-            <h1 class="lg:text-[12vw] md:text-[15vw] text-[20vw]">
-              TANTRAFIESTA
-            </h1>
-          </section> 
-      
-        </div>
+        </section>
       </div>
     </div>
-    <script type="module" src="./src/main.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      // Ensure the DOM is fully loaded before running the script
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Featured News Animations ---
+        const featuredNewsElement = document.querySelector(
+          ".FeaturedNews-wrapper"
+        );
+        if (featuredNewsElement) {
+          const image = featuredNewsElement.querySelector(
+            ".FeaturedNews-image"
+          );
+          const content = featuredNewsElement.querySelector(
+            ".FeaturedNews-content"
+          );
+          const title = featuredNewsElement.querySelector(
+            ".FeaturedNews-title"
+          );
+          const contentElements = [
+            content.querySelector(".FeaturedNews-date"),
+            content.querySelector(".FeaturedNews-author"),
+            content.querySelector(".FeaturedNews-category"),
+            content.querySelector(".FeaturedNews-title"),
+            content.querySelector(".FeaturedNews-shortText"),
+          ];
+          const icon = featuredNewsElement.querySelector(".FeaturedNews-icon");
+
+          // Initial state for GSAP
+          gsap.set(image, { scale: 1.1 });
+          gsap.set(contentElements, { opacity: 0, x: -40 });
+          gsap.set(icon, { opacity: 0, x: -20 });
+
+          // Create the scroll-triggered animation for the featured article
+          ScrollTrigger.create({
+            trigger: featuredNewsElement,
+            start: "top 80%", // Adjust this value to trigger the animation earlier or later
+            once: true,
+            onEnter: () => {
+              const enterTl = gsap.timeline();
+
+              // Animate image scale and opacity
+              enterTl.to(image, {
+                duration: 0.8,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out",
+              });
+
+              // Animate text content with a stagger
+              enterTl.to(
+                contentElements,
+                {
+                  duration: 0.6,
+                  opacity: 1,
+                  x: 0,
+                  stagger: 0.1,
+                  ease: "power2.out",
+                },
+                "<0.2"
+              ); // Start this animation slightly after the image animation begins
+
+              // Animate arrow icon
+              enterTl.to(
+                icon,
+                {
+                  duration: 0.5,
+                  opacity: 1,
+                  x: 0,
+                  ease: "power2.out",
+                },
+                "<0.4"
+              );
+            },
+          });
+
+          // Hover animation for the featured news arrow icon
+          featuredNewsElement.addEventListener("mouseenter", () => {
+            gsap.to(icon, {
+              duration: 0.5,
+              x: 20,
+              fill: "#ea6d15",
+              ease: "power2.out",
+            });
+          });
+
+          featuredNewsElement.addEventListener("mouseleave", () => {
+            gsap.to(icon, {
+              duration: 0.5,
+              x: 0,
+              fill: "#fff",
+              ease: "power2.out",
+            });
+          });
+        }
+
+        // --- News List Item Animations ---
+        const newsListItems = document.querySelectorAll(".NewsList-listItem");
+        if (newsListItems.length > 0) {
+          newsListItems.forEach((item) => {
+            const image = item.querySelector(".NewsItem-image");
+            const contentElements = item.querySelectorAll(
+              ".NewsItem-content .NewsItem-contentTop > div, .NewsItem-content .NewsItem-contentTop > span, .NewsItem-content .NewsItem-contentTop > h2, .NewsItem-content .NewsItem-contentTop > p, .NewsItem-icon, .NewsItem-register"
+            );
+            // const contentElements = item.querySelectorAll(".NewsItem-content .NewsItem-contentTop > *, .NewsItem-register");
+
+            // Initial state for GSAP (overrides CSS for GSAP control)
+            gsap.set(image, { scale: 1.1 });
+            gsap.set(contentElements, { opacity: 0, x: -40 });
+            gsap.set(item, { opacity: 0, y: 20 });
+
+            // Create the scroll-triggered animation for each news item
+            ScrollTrigger.create({
+              trigger: item,
+              start: "top 85%", // Adjust this value to trigger the animation earlier or later
+              once: true,
+              onEnter: () => {
+                const enterTl = gsap.timeline();
+
+                // Animate the list item container itself
+                enterTl.to(item, {
+                  duration: 0.6,
+                  opacity: 1,
+                  y: 0,
+                  ease: "power2.out",
+                });
+
+                // Animate image scale
+                enterTl.to(
+                  image,
+                  {
+                    duration: 0.8,
+                    scale: 1,
+                    ease: "power2.out",
+                  },
+                  0
+                ); // Animate image at the same time as the container slides in
+
+                // Animate text content with a stagger
+                enterTl.to(
+                  contentElements,
+                  {
+                    duration: 0.6,
+                    opacity: 1,
+                    x: 0,
+                    stagger: 0.05,
+                    ease: "power2.out",
+                  },
+                  "<0.2"
+                ); // Start this animation slightly after the container/image animation begins
+
+                // Hover animation for news list item arrow icon
+                item.addEventListener("mouseenter", () => {
+                  gsap.to(image, { scale: 1.05, duration: 0.3 });
+                });
+
+                item.addEventListener("mouseleave", () => {
+                  gsap.to(image, { scale: 1.1, duration: 0.3 });
+                });
+              },
+            });
+
+            // Hover animation for list item arrow icon
+            const icon = item.querySelector(".NewsItem-icon");
+            item.addEventListener("mouseenter", () => {
+              gsap.to(icon, {
+                duration: 0.5,
+                x: 20,
+                fill: "#ea6d15",
+                ease: "power2.out",
+              });
+            });
+
+            item.addEventListener("mouseleave", () => {
+              gsap.to(icon, {
+                duration: 0.5,
+                x: 0,
+                fill: "#fff",
+                ease: "power2.out",
+              });
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
