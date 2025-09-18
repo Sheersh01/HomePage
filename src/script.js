@@ -63,11 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         step.style.opacity = opacity;
         step.style.filter = `blur(${blur}px)`;
-          step.style.pointerEvents = "auto";
       } else {
         step.style.opacity = 0;
         step.style.filter = "blur(5px)"; // hidden but softly blurred
-          step.style.pointerEvents = "none";
       }
     });
   }
