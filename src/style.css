@@ -2,33 +2,9 @@
 @import "remixicon/fonts/remixicon.css";
 
 @font-face {
-  font-family: "Bad";
-  src: url("./fonts/Bad Signal.otf");
-}
-@font-face {
-  font-family: "Cracked";
-  src: url("./fonts/Cracked Code.ttf");
-}
-@font-face {
-  font-family: "Glitching";
-  src: url("./fonts/GlitchingDemoRegular.ttf");
-}
-/* @font-face {
-    font-family: 'Morvien';
-    src: url('./fonts/Morvien-Regular.ttf') ;
-} */
-@font-face {
-  font-family: "Split On";
-  src: url("./fonts/SplitOn.otf");
-}
-@font-face {
   font-family: "phi";
   src: url("./fonts/Philosopher-Regular.ttf");
 }
-/* @font-face {
-    font-family: 'Wrong Delivery';
-    src: url('./fonts/Wrong Delivery.ttf') ;
-} */
 * {
   font-family: "phi";
 }
@@ -81,12 +57,13 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
+/* 
 .animated-main.visible {
   opacity: 1;
-}
+} */
 .animated-step,
 .animated-main {
+  opacity: 0;
   z-index: 2;
   pointer-events: none;
   width: 100%;
@@ -95,17 +72,17 @@ body {
   mix-blend-mode: difference;
 }
 .animated-main {
-  opacity: 0;
+  /* opacity: 0; */
   bottom: 0;
 }
 
 .animated-step.visible {
-  opacity: 1;
+  /* opacity: 1; */
   pointer-events: auto; /* enable interactions when visible */
 }
 
 .animated-step {
-    opacity: 0;
+    /* opacity: 0; */
     height: 100vh;
     top: 0;
 }

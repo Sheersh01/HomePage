@@ -176,8 +176,65 @@ button.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-const div = document.getElementById("myDiv");
+const scrollBox = document.querySelector(".scroll-box");
 
-div.addEventListener("click", () => {
-  alert("Div clicked!");
+// Map section IDs to their corresponding animated-step indexes
+const sections = [
+  { id: "about", stepIndex: 0 },
+  { id: "sponsors", stepIndex: 1 },
+  { id: "speakers", stepIndex: 2 },
+];
+
+function getVisibleSection() {
+  const steps = document.querySelectorAll(".animated-step");
+  let visibleSection = null;
+
+  sections.forEach((section) => {
+    const step = steps[section.stepIndex];
+    if (!step) return;
+
+    const opacity = parseFloat(window.getComputedStyle(step).opacity);
+
+    if (opacity > 0.5) {
+      visibleSection = section.id;
+    }
+  });
+
+  return visibleSection;
+}
+
+// Click handler for all three buttons
+sections.forEach((section) => {
+  const element = document.getElementById(section.id);
+  element.addEventListener("click", () => {
+    const visibleSection = getVisibleSection();
+
+    if (visibleSection === section.id) {
+      alert(
+        `${
+          section.id.charAt(0).toUpperCase() + section.id.slice(1)
+        } clicked and visible!`
+      );
+    } else {
+      console.log(`${section.id} clicked but not visible enough.`);
+    }
+  });
 });
+const steps = document.querySelectorAll(".animated-step");
+
+function updatePointerEvents() {
+  steps.forEach((step) => {
+    const opacity = parseFloat(window.getComputedStyle(step).opacity);
+    if (opacity > 0.5) {
+      step.style.pointerEvents = "auto"; // clickable
+    } else {
+      step.style.pointerEvents = "none"; // won't block clicks
+    }
+  });
+}
+
+// Run once on load
+updatePointerEvents();
+
+// Update on scroll
+scrollBox.addEventListener("scroll", updatePointerEvents);
