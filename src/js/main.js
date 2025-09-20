@@ -85,8 +85,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 0, 2.5);
 
-const canvas =
-  document.querySelector("#canvas") 
+const canvas = document.querySelector("#canvas");
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -94,12 +93,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 2.0;
 renderer.outputEncoding = THREE.sRGBEncoding;
-
-/* -----------------------
-   Controls
------------------------ */
-// const controls = new OrbitControls(camera, renderer.domElement);
-// controls.enableDamping = true;
 
 /* -----------------------
    Postprocessing
@@ -190,7 +183,34 @@ const lenis = new Lenis({
 let scrollProgress = 0;
 let targetProgress = 0;
 
+/* -----------------------
+   Mobile Scroll Limit + Throttle
+----------------------- */
+let lastScrollTime = 0;
+const SCROLL_COOLDOWN = 1000; // 1 second
+const MAX_MOBILE_SCROLL = 4000; // max scroll in pixels
+
 lenis.on("scroll", ({ scroll }) => {
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const now = performance.now();
+
+  if (isMobile) {
+    // Throttle: only allow one scroll per second
+    if (now - lastScrollTime < SCROLL_COOLDOWN) {
+      lenis.scrollTo(lenis.scroll.instance.scroll); // revert
+      return;
+    }
+    lastScrollTime = now;
+
+    // Clamp: prevent scrolling past MAX_MOBILE_SCROLL
+    if (scroll > MAX_MOBILE_SCROLL) {
+      lenis.scrollTo(MAX_MOBILE_SCROLL);
+      targetProgress = 1;
+      return;
+    }
+  }
+
+  // Update scroll progress normally
   const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
   targetProgress = Math.min(Math.max(scroll / maxScroll, 0), 1);
 });
@@ -268,7 +288,6 @@ function animate(time) {
     Math.max(0, Math.min(1, sunScreenPos.y))
   );
 
-  // controls.update();
   composer.render();
 
   requestAnimationFrame(animate);
@@ -287,26 +306,4 @@ function onResize() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 }
 
-// window.addEventListener("resize", onResize);
-
-/* -----------------------
-   Optional GUI (commented out by default)
------------------------ */
-// const gui = new GUI();
-// const bloomFolder = gui.addFolder("Bloom");
-// bloomFolder.add(bloomPass, "strength", 0, 3, 0.01).name("Strength");
-// bloomFolder.add(bloomPass, "radius", 0, 1, 0.01).name("Radius");
-// bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01).name("Threshold");
-
-// const godraysFolder = gui.addFolder("Godrays");
-// godraysFolder.add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01).name("Exposure");
-// godraysFolder.add(godraysPass.uniforms.decay, "value", 0.8, 1, 0.001).name("Decay");
-// godraysFolder.add(godraysPass.uniforms.density, "value", 0, 2, 0.01).name("Density");
-// godraysFolder.add(godraysPass.uniforms.weight, "value", 0, 1, 0.01).name("Weight");
-// godraysFolder.add(godraysPass.uniforms.sunRadius, "value", 0, 1, 0.01).name("Sun Radius");
-
-// const lightFolder = gui.addFolder("Sun Light");
-// lightFolder.add(sunLight, "intensity", 0, 10, 0.1).name("Intensity");
-// lightFolder.addColor({ color: sunLight.color.getHex() }, "color")
-//   .onChange((val) => sunLight.color.set(val))
-//   .name("Color");
+window.addEventListener("resize", onResize);
