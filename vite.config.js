@@ -1,3 +1,7 @@
+import { defineConfig } from "vite";
+import tailwindcss from "tailwindcss";
+import { resolve } from "path";
+
 export default defineConfig({
   base: "./", // ensures relative asset resolution
   plugins: [tailwindcss()],
