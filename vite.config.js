@@ -15,6 +15,8 @@ export default defineConfig({
         about: resolve(__dirname, "src/about.html"),
         contact: resolve(__dirname, "src/contact.html"),
         speakers: resolve(__dirname, "src/speakers.html"),
+        sponsors: resolve(__dirname, "src/sponsors.html"),
+        events: resolve(__dirname, "src/events.html"),
         team: resolve(__dirname, "src/team.html"),
       },
     },
