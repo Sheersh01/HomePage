@@ -24,6 +24,7 @@ body {
 
 .scroll-box {
   position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
@@ -32,7 +33,6 @@ body {
 }
 
 .content {
-  overflow: hidden;
   width: 100%;
   height: 5000px;
 }
