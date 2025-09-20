@@ -21,6 +21,9 @@ function initFadeScroll() {
   const MAX_SCROLL_MOBILE = 4300; // max scroll for mobile
   const MOBILE_WIDTH = 768;
 
+  /* ------------------------------
+     Mobile Scroll Limiter
+  ------------------------------ */
   function clampScroll() {
     if (window.innerWidth < MOBILE_WIDTH) {
       if (scrollBox.scrollTop > MAX_SCROLL_MOBILE)
@@ -133,7 +136,6 @@ function initMenuToggle() {
   });
 }
 
-
 /* ------------------------------
    Sound Toggle with Fade
 ------------------------------ */
@@ -225,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMenuToggle();
   initSoundToggle();
   initAboutClick();
-    // Fade in #root after 5 seconds
+  // Fade in #root after 5 seconds
   setTimeout(() => {
     gsap.to("#root", { duration: 1, opacity: 1 });
   }, 5000);
