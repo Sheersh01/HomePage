@@ -18,7 +18,21 @@ function initFadeScroll() {
   const scrollBox = document.querySelector(".scroll-box");
   const steps = document.querySelectorAll(".animated-main, .animated-step");
 
+  const MAX_SCROLL_MOBILE = 4000; // max scroll for mobile
+  const MOBILE_WIDTH = 768;
+
+  function clampScroll() {
+    if (
+      window.innerWidth < MOBILE_WIDTH &&
+      scrollBox.scrollTop > MAX_SCROLL_MOBILE
+    ) {
+      scrollBox.scrollTop = MAX_SCROLL_MOBILE;
+    }
+  }
+
   function updateFadeOnScroll() {
+    clampScroll(); // prevent overscroll on mobile
+
     const scrollTop = scrollBox.scrollTop;
     const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
     const scrollPercent = scrollTop / maxScroll;
@@ -82,9 +96,44 @@ function initFadeScroll() {
     });
   }
 
+  // Scroll event
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
+
+  // Touch scroll prevention for mobile
+  scrollBox.addEventListener(
+    "touchmove",
+    (e) => {
+      if (
+        window.innerWidth < MOBILE_WIDTH &&
+        scrollBox.scrollTop >= MAX_SCROLL_MOBILE
+      ) {
+        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
+        e.preventDefault(); // prevent further scroll
+      }
+    },
+    { passive: false }
+  );
+
+  // Wheel scroll prevention for mobile
+  scrollBox.addEventListener(
+    "wheel",
+    (e) => {
+      if (
+        window.innerWidth < MOBILE_WIDTH &&
+        scrollBox.scrollTop >= MAX_SCROLL_MOBILE &&
+        e.deltaY > 0
+      ) {
+        e.preventDefault();
+        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
+      }
+    },
+    { passive: false }
+  );
+
+  // Initial fade
   updateFadeOnScroll();
 }
+
 
 /* ------------------------------
    Menu Toggle
