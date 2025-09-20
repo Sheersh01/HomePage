@@ -203,7 +203,7 @@ setTimeout(() => {
       },
     }
   );
-}, 5500);
+}, 5000);
 
 // ----- ANIMATION LOOP -----
 const clock = new THREE.Clock();
