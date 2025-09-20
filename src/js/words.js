@@ -33,7 +33,7 @@ function getResponsiveSettings() {
   } else if (window.innerWidth >= 768) {
     return { positions: [-0.8, 0.0, 1.0], font: 50 };
   } else {
-    return { positions: [-0.7, -0.13, 0.6], font: 32 }; // smaller for phones
+    return { positions: [-0.6, -0.13, 0.4], font: 20 }; // smaller for phones
   }
 }
 ({ positions: positionsX, font: fontSize } = getResponsiveSettings());
