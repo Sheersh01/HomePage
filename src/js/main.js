@@ -5,8 +5,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import background from "../assets/home/background.webp";
-import planet from "../assets/home/planet.webp";
+import background from "../assets/background.webp";
+import planet from "../assets/planet.webp";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import GUI from "lil-gui";

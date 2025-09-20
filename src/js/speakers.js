@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cardsContainer = document.getElementById('speaker-cards-container');
 
-  fetch('speakers.json')
+  fetch('../json/speakers.json')
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="${speaker.linkedin}" rel="noreferrer" target="_blank">
                   <img
                     alt="LinkedIn profile link"
-                    src="../assets/speakers/linkedin-box-fill.svg"
+                    src="../assets/linkedin-box-fill.svg"
                     class="w-8 h-8 rounded-md transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="${speaker.instagram}" rel="noreferrer" target="_blank">
                   <img
                     alt="Instagram profile link"
-                    src="../assets/speakers/instagram-line.svg"
+                    src="../assets/instagram-line.svg"
                     class="w-8 h-8 rounded-md transition-transform duration-300 hover:scale-110"
                   />
                 </a>
