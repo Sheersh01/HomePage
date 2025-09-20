@@ -10,7 +10,7 @@ const eventListContainer = document.getElementById("event-list-container");
 // Load data from JSON file
 async function loadData() {
   try {
-    const response = await fetch('../json/data.json');
+    const response = await fetch("../json/data.json");
     const data = await response.json();
     
     // Set Tailwind config
