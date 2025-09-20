@@ -1,38 +1,56 @@
 [
   {
-    "name": "ALEX JOHNSON",
-    "title": "Tech Innovation Lead at Google",
-    "achievements": "AI Researcher, Product Strategist, Innovation Catalyst. Expert in machine learning and user experience design.",
-    "imageSrc": "https://cbx-prod.b-cdn.net/COLOURBOX64958834.jpg?width=800&height=800&quality=70",
-    "linkedin": "https://www.linkedin.com/in/alexjohnson",
-    "instagram": "https://www.instagram.com/alexjohnson",
+    "name": "Dr. Sanjay Arora",
+    "title": "Founder & CEO at Shells Advertising",
+    "achievements": "9x TEDx & keynote speaker, CEO of Shells Advertising Inc.,and renowned marketing consultant featured on CNN-IBN & NDTV.",
+    "imageSrc": "../assets/speakers/Sanjay_Arora.png",
+    "linkedin": "https://www.linkedin.com/in/sanjaynagpur/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/sanjayarora/?hl=en",
     "website": ""
   },
   {
-    "name": "SARAH CHEN",
-    "title": "Senior Data Scientist at Microsoft",
-    "achievements": "Data Analytics Expert, Machine Learning Specialist, Research Pioneer. Leading big data initiatives and AI solutions.",
-    "imageSrc": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    "linkedin": "https://www.linkedin.com/in/sarahchen",
-    "instagram": "https://www.instagram.com/alexjohnson",
+    "name": "Dr. Gajendra Purohit",
+    "title": "Founder and CEO of Mathscare",
+    "achievements": "Dr Gajendra Purohit Known as GP Sir (M.Sc., NET, PhD (Pure Mathematics)) across the Udaipur, Rajasthan has excellent 20-year Teaching Experience in Mathematics.",
+    "imageSrc": "../assets/speakers/Gajendra_purohit.jpeg",
+    "linkedin": "https://www.linkedin.com/in/dr-gajendra-purohit/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/dr.gajendrapurohit/?hl=en",
     "website": ""
   },
   {
-    "name": "MICHAEL RODRIGUEZ",
-    "title": "Blockchain Architect at Ethereum Foundation",
-    "achievements": "Blockchain Pioneer, Smart Contract Developer, DeFi Innovator. Building the future of decentralized finance.",
-    "imageSrc": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    "linkedin": "https://www.linkedin.com/in/michaelrodriguez",
-    "instagram": "https://www.instagram.com/michaelrodriguez",
+    "name": "Ms. Roshni Chhabra",
+    "title": "Senior Success Manager at Sprinklr",
+    "achievements": "TEDx speaker and CMO of BITSAA Intl, driving success partnerships at Autodesk while empowering communities with strategic leadership expertise.",
+    "imageSrc": "../assets/speakers/Roshni_Chhabra.png",
+    "linkedin": "https://www.linkedin.com/in/roshni-chhabra/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/p/DBgCF18t4AI/",
     "website": ""
   },
   {
-    "name": "EMMA WILSON",
-    "title": "UX Design Director at Apple",
-    "achievements": "Design Thinking Expert, User Experience Leader, Creative Visionary. Crafting intuitive digital experiences.",
-    "imageSrc": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    "linkedin": "https://www.linkedin.com/in/emmawilson",
-    "instagram": "https://www.instagram.com/emmawilson_ux",
+    "name": "Ms. Keerti Purswani",
+    "title": "Founder of Educosys",
+    "achievements": "Founder of Educosys, LinkedIn Top Voice 2022, and influential teacher & YouTuber with 200K+ subscribers empowering learners through education.",
+    "imageSrc": "../assets/speakers/Keerti_Purswani.jpg",
+    "linkedin": "https://www.linkedin.com/in/keertipurswani/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/keerti.purswani/?hl=en",
+    "website": ""
+  },
+  {
+    "name": "Mr. Abhishek Mungoli",
+    "title": "Data Scientist at InMobi, an AdTech firm",
+    "achievements": "Staff Applied Scientist with experience at InMobi, Meesho, Walmart & DataTrek, and alumnus of IIIT-Hyderabad.",
+    "imageSrc": "../assets/speakers/Abhishek_Mungoli.jpg",
+    "linkedin": "https://www.linkedin.com/in/mungoliabhishek81/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/abhishekmungoli/reels/",
+    "website": ""
+  },
+  {
+    "name": "Ashish Kumar Patel",
+    "title": "Director at AppXBuild Technologies",
+    "achievements": "Advocate specializing in Cyber & IT Law with 20+ years in software and mobile solutions, also serving as an IT trainer and instructor.",
+    "imageSrc": "../assets/speakers/Ashish_Patel.jpeg",
+    "linkedin": "https://www.linkedin.com/in/ashishkumarpatel/?originalSubdomain=in",
+    "instagram": "https://www.instagram.com/tantrafiesta/p/DBgDMT6NdzQ/?locale=es_us&hl=tl",
     "website": ""
   }
 ]
