@@ -22,16 +22,15 @@ function initFadeScroll() {
   const MOBILE_WIDTH = 768;
 
   function clampScroll() {
-    if (
-      window.innerWidth < MOBILE_WIDTH &&
-      scrollBox.scrollTop > MAX_SCROLL_MOBILE
-    ) {
-      scrollBox.scrollTop = MAX_SCROLL_MOBILE;
+    if (window.innerWidth < MOBILE_WIDTH) {
+      if (scrollBox.scrollTop > MAX_SCROLL_MOBILE)
+        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
+      if (scrollBox.scrollTop < 0) scrollBox.scrollTop = 0;
     }
   }
 
   function updateFadeOnScroll() {
-    clampScroll(); // prevent overscroll on mobile
+    clampScroll(); // keep scroll within limits
 
     const scrollTop = scrollBox.scrollTop;
     const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
@@ -99,36 +98,13 @@ function initFadeScroll() {
   // Scroll event
   scrollBox.addEventListener("scroll", updateFadeOnScroll);
 
-  // Touch scroll prevention for mobile
-  scrollBox.addEventListener(
-    "touchmove",
-    (e) => {
-      if (
-        window.innerWidth < MOBILE_WIDTH &&
-        scrollBox.scrollTop >= MAX_SCROLL_MOBILE
-      ) {
-        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
-        e.preventDefault(); // prevent further scroll
-      }
-    },
-    { passive: false }
-  );
+  // Touch scroll for mobile (clamp)
+  scrollBox.addEventListener("touchmove", () => clampScroll(), {
+    passive: false,
+  });
 
-  // Wheel scroll prevention for mobile
-  scrollBox.addEventListener(
-    "wheel",
-    (e) => {
-      if (
-        window.innerWidth < MOBILE_WIDTH &&
-        scrollBox.scrollTop >= MAX_SCROLL_MOBILE &&
-        e.deltaY > 0
-      ) {
-        e.preventDefault();
-        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
-      }
-    },
-    { passive: false }
-  );
+  // Wheel scroll for mobile (clamp)
+  scrollBox.addEventListener("wheel", () => clampScroll(), { passive: false });
 
   // Initial fade
   updateFadeOnScroll();
