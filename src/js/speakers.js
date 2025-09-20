@@ -1,6 +1,6 @@
 // Import JSON (Vite supports importing JSON directly)
 import speakersData from "../assets/json/speakers.json";
-
+import linkIcon from "../assets/linkedin-box-fill.svg"
 // DOM element
 const cardsContainer = document.getElementById("speaker-cards-container");
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${speaker.linkedin}" rel="noreferrer" target="_blank">
               <img
                 alt="LinkedIn profile link"
-                src="../assets/linkedin-box-fill.svg"
+                src=${linkIcon}
                 class="w-8 h-8 rounded-md transition-transform duration-300 hover:scale-110"
               />
             </a>
