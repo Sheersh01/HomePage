@@ -101,6 +101,9 @@
   </head>
 
   <body>
+    <div class="h-screen w-screen absolute top-0 left-0 z-[999]">
+      <canvas id="preloader"></canvas>
+    </div>
     <div id="root">
       <aside
         class="menu overlay fixed top-0 left-0 z-[99] h-screen w-screen bg-white text-black px-4 pt-4 translate-x-full transition-transform duration-500 ease-in-out"
@@ -131,9 +134,9 @@
       >
         <div class="navbar-brand flex items-center gap-6 md:gap-10 text-xl">
           <a href="/" class="navbar-logo font-bold">
-            <img class="h-10 w-10" src="./src/assets/Logo.png" alt="" />
+            <img class="h-10 w-10" src="./src/assets/home/Logo.png" alt="" />
           </a>
-          <audio id="myAudio" src="./src/assets/audio.mp3" loop></audio>
+          <audio id="myAudio" src="./src/assets/home/audio.mp3" loop></audio>
           <button
             aria-label="Toggle sound"
             class="sound-toggle text-sm md:text-md lg:text-lg"
@@ -221,7 +224,14 @@
                 class="absolute right-0 bottom-0 md:mr-10 pb-10 md:px-0 px-4 lg:w-[40vw] md:w-[60vw] w-full lg:text-lg md:text-sm text-[3vw]"
               >
                 <p>
-               TantraFiesta is the National Level Annual Technical Fest of the Indian Institute of Information Technology, Nagpur. TantraFiesta'25 is coming back this year with more than 30+ interesting events under the theme "Dark Matter Eclipse: Exploring the Unexplored." This theme symbolizes venturing into the unknown realms of technology, innovation, and imagination — pushing boundaries to discover what lies beyond the visible horizon.
+                  TantraFiesta is the National Level Annual Technical Fest of
+                  the Indian Institute of Information Technology, Nagpur.
+                  TantraFiesta'25 is coming back this year with more than 30+
+                  interesting events under the theme "Dark Matter Eclipse:
+                  Exploring the Unexplored." This theme symbolizes venturing
+                  into the unknown realms of technology, innovation, and
+                  imagination — pushing boundaries to discover what lies beyond
+                  the visible horizon.
                 </p>
               </div>
             </main>
@@ -261,7 +271,11 @@
                 class="absolute right-0 bottom-0 md:mr-10 pb-10 md:px-0 px-4 lg:w-[40vw] md:w-[60vw] w-full lg:text-lg md:text-sm text-[3vw]"
               >
                 <p>
-                  Tantrafiesta 2025 is associated with a diverse range of companies, startups, and institutions. From the prize pool to the services offered to attendees and participants, this stellar lineup of sponsors ensures we maintain a high level of competition and camaraderie for everyone.
+                  Tantrafiesta 2025 is associated with a diverse range of
+                  companies, startups, and institutions. From the prize pool to
+                  the services offered to attendees and participants, this
+                  stellar lineup of sponsors ensures we maintain a high level of
+                  competition and camaraderie for everyone.
                 </p>
               </div>
             </main>
@@ -301,7 +315,15 @@
                 class="absolute right-0 bottom-0 md:mr-10 pb-10 md:px-0 px-4 lg:w-[40vw] md:w-[60vw] w-full lg:text-lg md:text-sm text-[3vw]"
               >
                 <p>
-                 Share your expertise, inspire young minds, and shape the future at TantraFiesta’s Guest Lectures. As a speaker, you will have the opportunity to engage with some of the brightest students, innovators, and professionals from across the country. Showcase your vision, share your journey, and spark curiosity in areas of technology, management, and innovation. Your insights will not only broaden perspectives but also empower the next generation to explore the unexplored and drive meaningful change in the world of emerging trends.
+                  Share your expertise, inspire young minds, and shape the
+                  future at TantraFiesta’s Guest Lectures. As a speaker, you
+                  will have the opportunity to engage with some of the brightest
+                  students, innovators, and professionals from across the
+                  country. Showcase your vision, share your journey, and spark
+                  curiosity in areas of technology, management, and innovation.
+                  Your insights will not only broaden perspectives but also
+                  empower the next generation to explore the unexplored and
+                  drive meaningful change in the world of emerging trends.
                 </p>
               </div>
             </main>
@@ -320,5 +342,6 @@
       </div>
     </div>
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/prealoader.js"></script>
   </body>
 </html>

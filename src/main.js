@@ -5,8 +5,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import background from "./assets/background.webp";
-import planet from "./assets/planet.webp";
+import background from "./assets/home/background.webp";
+import planet from "./assets/home/planet.webp";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import GUI from "lil-gui";
@@ -86,12 +86,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 0, 2.5);
 
 const canvas =
-  document.querySelector("canvas") ||
-  (() => {
-    const c = document.createElement("canvas");
-    document.body.appendChild(c);
-    return c;
-  })();
+  document.querySelector("#canvas") 
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -187,7 +182,7 @@ const lenis = new Lenis({
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.3,
+  wheelMultiplier: 0.35,
   touchMultiplier: 0.08,
   infinite: false,
 });
@@ -205,7 +200,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.08 : 0.15;
+  const lerpSpeed = isMobile ? 0.08 : 0.2;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
