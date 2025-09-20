@@ -70,11 +70,10 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/src/style.css" />
 
-
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind (browser build) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -106,12 +105,15 @@
     </script>
   </head>
 
-  <body >
-  <div id="words" class="h-screen w-screen absolute top-0 left-0 z-[100]"></div>
-    <div class="text-white h-screen w-screen absolute top-0 left-0 z-[99]">
+  <body>
+    <div
+      id="words"
+      class="h-screen w-screen absolute top-0 left-0 z-[100]"
+    ></div>
+    <div class="text-white h-screen w-screen fixed top-0 left-0 z-[99]">
       <canvas id="preloader" class="w-full h-full"></canvas>
     </div>
-    <div id="root">
+    <div id="root" class="opacity-0">
       <aside
         class="menu overlay fixed top-0 left-0 z-[99] h-screen w-screen bg-white text-black px-4 pt-4 translate-x-full transition-transform duration-500 ease-in-out"
         role="dialog"

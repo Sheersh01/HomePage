@@ -2,8 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import gsap from "gsap";
 
-// ----- MAIN SCENE (unchanged) -----
-
+// ----- MAIN SCENE -----
 const canvas = document.querySelector("canvas");
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
@@ -41,7 +40,6 @@ const maskMaterial = new THREE.ShaderMaterial({
     uniform float u_progress;
     uniform float u_time;
     uniform vec2 u_resolution;
-
     uniform float u_noiseStrength;
     uniform float u_distortionStrength;
     uniform float u_edgeSoftness;
@@ -160,13 +158,32 @@ const maskMaterial = new THREE.ShaderMaterial({
 const maskQuad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), maskMaterial);
 maskScene.add(maskQuad);
 
-// Animation settings (no GUI now)
-const settings = {
-  progress: 0.0,
-};
+// ----- BLOCK SCROLL/TOUCH -----
+function preventDefault(e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
 
-// Transition
-function playTransition() {
+function disableInteraction() {
+  window.addEventListener("wheel", preventDefault, { passive: false });
+  window.addEventListener("touchmove", preventDefault, { passive: false });
+  window.addEventListener("scroll", preventDefault, { passive: false });
+}
+
+function enableInteraction() {
+  window.removeEventListener("wheel", preventDefault, { passive: false });
+  window.removeEventListener("touchmove", preventDefault, { passive: false });
+  window.removeEventListener("scroll", preventDefault, { passive: false });
+}
+
+// ----- ANIMATION SETTINGS -----
+const settings = { progress: 0.0 };
+
+// Disable interactions before starting animation
+disableInteraction();
+
+// Transition with 6.5s delay
+setTimeout(() => {
   gsap.fromTo(
     settings,
     { progress: 0 },
@@ -180,13 +197,11 @@ function playTransition() {
       onComplete: () => {
         document.querySelector("#preloader").parentElement.style.display =
           "none";
+        enableInteraction(); // Re-enable scroll/touch
       },
     }
   );
-}
-setTimeout(() => {
-  playTransition();
-}, 5500);
+}, 6500);
 
 // ----- ANIMATION LOOP -----
 const clock = new THREE.Clock();
@@ -204,6 +219,7 @@ function animate() {
 }
 animate();
 
+// ----- RESIZE -----
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   maskMaterial.uniforms.u_resolution.value.set(
@@ -211,5 +227,3 @@ window.addEventListener("resize", () => {
     window.innerHeight
   );
 });
-
-
