@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import vertex from "../src/shaders/vertex.glsl?raw";
-import fragment from "../src/shaders/fragment.glsl?raw";
+import vertex from "../shaders/vertex.glsl?raw";
+import fragment from "../shaders/fragment.glsl?raw";
 import gsap from "gsap";
 
 // ----- SCENE & CAMERA -----
