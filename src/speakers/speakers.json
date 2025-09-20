@@ -1,0 +1,38 @@
+[
+  {
+    "name": "ALEX JOHNSON",
+    "title": "Tech Innovation Lead at Google",
+    "achievements": "AI Researcher, Product Strategist, Innovation Catalyst. Expert in machine learning and user experience design.",
+    "imageSrc": "https://cbx-prod.b-cdn.net/COLOURBOX64958834.jpg?width=800&height=800&quality=70",
+    "linkedin": "https://www.linkedin.com/in/alexjohnson",
+    "instagram": "https://www.instagram.com/alexjohnson",
+    "website": ""
+  },
+  {
+    "name": "SARAH CHEN",
+    "title": "Senior Data Scientist at Microsoft",
+    "achievements": "Data Analytics Expert, Machine Learning Specialist, Research Pioneer. Leading big data initiatives and AI solutions.",
+    "imageSrc": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://www.linkedin.com/in/sarahchen",
+    "instagram": "https://www.instagram.com/alexjohnson",
+    "website": ""
+  },
+  {
+    "name": "MICHAEL RODRIGUEZ",
+    "title": "Blockchain Architect at Ethereum Foundation",
+    "achievements": "Blockchain Pioneer, Smart Contract Developer, DeFi Innovator. Building the future of decentralized finance.",
+    "imageSrc": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://www.linkedin.com/in/michaelrodriguez",
+    "instagram": "https://www.instagram.com/michaelrodriguez",
+    "website": "https://www.michaelrodriguez.com"
+  },
+  {
+    "name": "EMMA WILSON",
+    "title": "UX Design Director at Apple",
+    "achievements": "Design Thinking Expert, User Experience Leader, Creative Visionary. Crafting intuitive digital experiences.",
+    "imageSrc": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://www.linkedin.com/in/emmawilson",
+    "instagram": "https://www.instagram.com/emmawilson_ux",
+    "website": ""
+  }
+]

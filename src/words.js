@@ -15,7 +15,7 @@ camera.position.z = 5;
 
 // ----- RENDERER -----
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 3));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // limit to 2 for mobile perf
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("words").appendChild(renderer.domElement);
 
@@ -25,20 +25,28 @@ const textMaterials = [];
 const textMeshes = [];
 let fontSize;
 let positionsX;
-if (window.innerWidth >= 768) {
-    positionsX = [-0.8, 0.0, 1.0]; // X positions
-    fontSize=50
-} else {
-    positionsX = [-0.7, -0.13, 0.6]; // X positions
-    fontSize=40
+
+// responsive positions & font size
+function getResponsiveSettings() {
+  if (window.innerWidth >= 1200) {
+    return { positions: [-1.0, 0.0, 1.2], font: 60 };
+  } else if (window.innerWidth >= 768) {
+    return { positions: [-0.8, 0.0, 1.0], font: 50 };
+  } else {
+    return { positions: [-0.7, -0.13, 0.6], font: 32 }; // smaller for phones
+  }
 }
+({ positions: positionsX, font: fontSize } = getResponsiveSettings());
 
 // ----- CREATE TEXT -----
 function createTextMesh(text, xPos, color = "white") {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.width = 512;
-  canvas.height = 128;
+
+  // reduce resolution for mobile (faster uploads to GPU)
+  canvas.width = window.innerWidth < 768 ? 256 : 512;
+  canvas.height = window.innerWidth < 768 ? 64 : 128;
+
   ctx.fillStyle = color;
   ctx.font = `bold ${fontSize}px Philosopher`;
   ctx.textAlign = "center";
@@ -49,9 +57,12 @@ function createTextMesh(text, xPos, color = "white") {
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;
   texture.generateMipmaps = false;
-  texture.needsUpdate = true;
 
-  const geometry = new THREE.PlaneGeometry(2.5, 0.625);
+  // Scale geometry based on text size & screen width
+  const aspect = canvas.width / canvas.height;
+  const geoWidth = window.innerWidth < 768 ? 1.6 : 2.5;
+  const geometry = new THREE.PlaneGeometry(geoWidth, geoWidth / aspect);
+
   const material = new THREE.ShaderMaterial({
     vertexShader: vertex,
     fragmentShader: fragment,
@@ -81,10 +92,9 @@ texts.forEach((txt, i) => {
 // ----- GSAP FADE TIMELINE -----
 const timeline = gsap.timeline({
   onComplete: () => {
-    // Fade out #words layer and hide it
     gsap.to("#words", {
       opacity: 0,
-      duration: 1.5,
+      duration: 1.2,
       onComplete: () => {
         const wordsLayer = document.getElementById("words");
         if (wordsLayer) wordsLayer.style.display = "none";
@@ -95,11 +105,11 @@ const timeline = gsap.timeline({
 
 timeline.to(
   textMaterials.map((m) => m.uniforms.uOpacity),
-  { value: 1, duration: 1.5, ease: "power2.inOut", stagger: 0.2 }
+  { value: 1, duration: 1.2, ease: "power2.inOut", stagger: 0.15 }
 );
 timeline.to(
   textMaterials.map((m) => m.uniforms.uOpacity),
-  { value: 0, duration: 1.5, ease: "power2.inOut", delay: 1 }
+  { value: 0, duration: 1.2, ease: "power2.inOut", delay: 0.8 }
 );
 
 // ----- ANIMATE LOOP -----
@@ -121,6 +131,12 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Update responsive values
+  ({ positions: positionsX, font: fontSize } = getResponsiveSettings());
+  textMeshes.forEach((mesh, i) => {
+    mesh.position.x = positionsX[i];
+  });
 });
 
 // ----- CLEANUP -----

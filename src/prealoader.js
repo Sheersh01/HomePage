@@ -9,7 +9,9 @@ const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   alpha: true,
 });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
+
 
 // ----- WHITE MASK QUAD -----
 const maskScene = new THREE.Scene();
@@ -201,7 +203,7 @@ setTimeout(() => {
       },
     }
   );
-}, 6500);
+}, 5500);
 
 // ----- ANIMATION LOOP -----
 const clock = new THREE.Clock();

@@ -67,8 +67,8 @@ void main() {
   
   // Preloader sequence timing:
   // 0.0 - 2.0: All words fade in
-  // 2.0 - 3.5: "Does" turns red AND others turn black (SIMULTANEOUSLY)
-  // 4.5 - 5.5: "Does" fades out
+  // 2.0 - 3.5: "Explore" turns red AND others turn black (SIMULTANEOUSLY)
+  // 4.5 - 5.5: "Explore" fades out
   
   vec4 textColor = texture2D(uTextTexture, vUv);
   
@@ -79,7 +79,7 @@ void main() {
   float colorTransition = smoothstep(2.0, 4.0, uTime);
   
   if (uIsRedWord) {
-    // "Does" behavior - turns red at the same time others turn black
+    // "Explore" behavior - turns red at the same time others turn black
     float finalFadeOut = smoothstep(noise + 0.2, noise - 0.2, clamp((uTime - 4.5) / 1.0, 0.0, 1.0));
     
     vec3 finalColor = mix(textColor.rgb, vec3(1.0, 0.0, 0.0), colorTransition);

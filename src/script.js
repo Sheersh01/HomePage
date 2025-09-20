@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMenuToggle();
   initSoundToggle();
   initAboutClick();
-  // Fade in #root after 5 seconds
+    // Fade in #root after 5 seconds
   setTimeout(() => {
     gsap.to("#root", { duration: 1, opacity: 1 });
   }, 5000);

@@ -1,6 +1,6 @@
 import "./script.js";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
@@ -98,8 +98,8 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 /* -----------------------
    Controls
 ----------------------- */
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+// const controls = new OrbitControls(camera, renderer.domElement);
+// controls.enableDamping = true;
 
 /* -----------------------
    Postprocessing
@@ -268,7 +268,7 @@ function animate(time) {
     Math.max(0, Math.min(1, sunScreenPos.y))
   );
 
-  controls.update();
+  // controls.update();
   composer.render();
 
   requestAnimationFrame(animate);
