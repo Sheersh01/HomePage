@@ -1,5 +1,42 @@
-// Import JSON directly (Vite supports this)
+// Import JSON
 import data from "../assets/json/data.json";
+
+// Import club images
+import crisprLogo from "../assets/clubsLogo/crispr_logo.png";
+import elevateLogo from "../assets/clubsLogo/elevate_logo.png";
+import ioticsLogo from "../assets/clubsLogo/iotics_logo.png";
+import dotslashLogo from "../assets/clubsLogo/DotSlash_logo.png";
+import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.png";
+import strokesLogo from "../assets/clubsLogo/strokes_logo.png";
+import probeLogo from "../assets/clubsLogo/probe_logo.png";
+import tfLogo from "../assets/clubsLogo/tf logo.png";
+
+// Import event images
+import gameJamImg from "../assets/clubsLogo/game jam.png";
+
+// Map club names to imported images
+const clubImagesMap = {
+  CRISPR: crisprLogo,
+  Elevate: elevateLogo,
+  IOTICS: ioticsLogo,
+  Dotslash: dotslashLogo,
+  Dimensions: dimensionsLogo,
+  Strokes: strokesLogo,
+  Probe: probeLogo,
+  "Central TantraFiesta": tfLogo,
+  Synergy: tfLogo,
+};
+
+// Map event names to imported images
+const eventImagesMap = {
+  "Gen-A-Thon": gameJamImg,
+  "Innovate Fusion": gameJamImg,
+  "Code Sprint": gameJamImg,
+  "Design Expo": gameJamImg,
+  "Cybersecurity Summit": gameJamImg,
+  "Molecular Frontiers": gameJamImg,
+  "AI Hackathon": gameJamImg,
+};
 
 // Global variables
 let club_list = data.clubs;
@@ -11,10 +48,9 @@ const clubListContainer = document.getElementById("club-list-container");
 const eventListContainer = document.getElementById("event-list-container");
 
 // Set Tailwind config if provided in JSON
-if (data.tailwindConfig) {
-  tailwind.config = data.tailwindConfig;
-}
+if (data.tailwindConfig) tailwind.config = data.tailwindConfig;
 
+// Render Clubs
 function renderClubs() {
   clubListContainer.innerHTML = "";
   clubListContainer.classList.add(
@@ -34,12 +70,14 @@ function renderClubs() {
   club_list.forEach((item) => {
     const div = document.createElement("div");
     const isSelected = item.club_name === currentCategory;
+    const imgSrc = clubImagesMap[item.club_name];
+
     div.className = `flex flex-col items-center flex-shrink-0 cursor-pointer snap-center w-1/3 md:w-1/4 lg:w-auto px-2 md:px-4 transition-all duration-300 ${
       isSelected ? "shadow-glow-primary" : ""
     }`;
     div.dataset.category = item.club_name;
     div.innerHTML = `
-      <img src="${item.club_image}" alt="${item.club_name}" 
+      <img src="${imgSrc}" alt="${item.club_name}" 
         class="w-16 h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-cover rounded-full transition-all duration-200 border-2 ${
           isSelected ? "border-primary" : "border-transparent"
         }" />
@@ -79,6 +117,7 @@ function renderClubs() {
   }
 }
 
+// Create arrows for club scroll
 function createArrow(direction) {
   const arrow = document.createElement("div");
   arrow.className = `absolute top-1/2 -translate-y-1/2 p-2 lg:p-4 cursor-pointer z-10 transition-transform duration-300 transform hover:scale-125 ${
@@ -112,6 +151,7 @@ function scrollClubs(direction) {
   }
 }
 
+// Render Events
 function renderEvents(category) {
   eventListContainer.innerHTML = "";
   const filteredEvents =
@@ -128,10 +168,13 @@ function renderEvents(category) {
     const li = document.createElement("li");
     li.className =
       "border-t border-white/10 opacity-0 transform translate-y-5 last:border-b last:border-white/10";
+
+    const imgSrc = eventImagesMap[item.name];
+
     li.innerHTML = `
       <a href="#" class="flex flex-col lg:flex-row p-9 lg:py-9 lg:px-0 text-inherit no-underline overflow-hidden transition-all duration-300 ease-in-out">
         <div class="w-full lg:w-[30rem] lg:flex-shrink-0 aspect-[56/36] relative rounded-lg rounded-tr-none rounded-bl-[3rem] rounded-br-none overflow-hidden">
-          <img src="${item.image}" alt="${item.name}" 
+          <img src="${imgSrc}" alt="${item.name}" 
             class="w-full h-full object-cover object-center transition-transform duration-500 cubic-bezier(0.165, 0.84, 0.44, 1)" />
         </div>
         <div class="relative ml-0 lg:ml-32 mt-4 lg:mt-0 flex flex-col items-start px-6 lg:px-0">
@@ -159,15 +202,16 @@ function renderEvents(category) {
             </svg>
             <div class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 group-hover:left-full"></div>
           </div>
-          <span class="block text-primary mt-8 lg:mt-12 text-sm lg:text-base font-medium"></span>
         </div>
       </a>
     `;
     eventListContainer.appendChild(li);
   });
+
   setupAnimations();
 }
 
+// GSAP animations
 function setupAnimations() {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
@@ -222,6 +266,7 @@ function setupAnimations() {
   }
 }
 
+// Initialize
 function init() {
   clubListContainer.addEventListener("click", (event) => {
     const item = event.target.closest("[data-category]");
@@ -238,5 +283,5 @@ function init() {
   renderEvents(currentCategory);
 }
 
-// Load data when DOM is ready
+// DOM ready
 document.addEventListener("DOMContentLoaded", init);
