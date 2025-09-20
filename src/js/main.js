@@ -126,15 +126,31 @@ const bgTexture = textureLoader.load(background);
 const planetTexture = textureLoader.load(planet);
 planetTexture.colorSpace = THREE.SRGBColorSpace;
 
+
+
+let innerSphereMesh;
+let sunSphereMesh;
+let bgSphereMesh;
+
+if (window.innerWidth >= 768) {
+  innerSphereMesh = 64;
+  sunSphereMesh = 64;
+  bgSphereMesh = 64;
+} else {
+  innerSphereMesh = 32;
+  sunSphereMesh = 32;
+  bgSphereMesh = 32;
+}
+
 const bgSphere = new THREE.Mesh(
-  new THREE.SphereGeometry(120, 64, 64),
+  new THREE.SphereGeometry(120, bgSphereMesh, bgSphereMesh),
   new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide })
 );
 scene.add(bgSphere);
 bgSphere.rotateY(1.3);
 
 const innerSphere = new THREE.Mesh(
-  new THREE.SphereGeometry(1, 64, 64),
+  new THREE.SphereGeometry(1, innerSphereMesh, innerSphereMesh),
   new THREE.MeshStandardMaterial({
     map: planetTexture,
     roughness: 1.0,
@@ -144,7 +160,7 @@ const innerSphere = new THREE.Mesh(
 scene.add(innerSphere);
 
 const sunSphere = new THREE.Mesh(
-  new THREE.SphereGeometry(3.5, 64, 64),
+  new THREE.SphereGeometry(3.5, sunSphereMesh, sunSphereMesh),
   new THREE.MeshStandardMaterial({
     color: 0xffffff,
     emissive: 0xffffff,

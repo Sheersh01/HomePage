@@ -10,7 +10,6 @@ function resetScrollOnReload() {
   window.history.scrollRestoration = "manual";
   window.onbeforeunload = () => window.scrollTo(0, 0);
 }
-
 /* ------------------------------
    Fade Animation on Scroll
 ------------------------------ */
