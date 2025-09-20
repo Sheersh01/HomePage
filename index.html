@@ -70,6 +70,12 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/src/style.css" />
 
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
     <!-- Tailwind (browser build) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -100,9 +106,10 @@
     </script>
   </head>
 
-  <body>
-    <div class="h-screen w-screen absolute top-0 left-0 z-[999]">
-      <canvas id="preloader"></canvas>
+  <body >
+  <div id="words" class="h-screen w-screen absolute top-0 left-0 z-[100]"></div>
+    <div class="text-white h-screen w-screen absolute top-0 left-0 z-[99]">
+      <canvas id="preloader" class="w-full h-full"></canvas>
     </div>
     <div id="root">
       <aside
@@ -183,7 +190,7 @@
             >
               <img
                 class="text-white h-[10px]"
-                src="./src/assets/arrow.svg"
+                src="./src/assets/home/arrow.svg"
                 alt=""
               />
               <h1>SCROLL TO EXPLORE</h1>
@@ -202,12 +209,12 @@
                 >
                   <img
                     class="text-white h-[10px]"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                   <img
                     class="text-white h-[10px] rotate-180"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                 </div>
@@ -248,12 +255,12 @@
                 >
                   <img
                     class="text-white h-[10px]"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                   <img
                     class="text-white h-[10px] rotate-180"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                 </div>
@@ -292,12 +299,12 @@
                 >
                   <img
                     class="text-white h-[10px]"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                   <img
                     class="text-white h-[10px] rotate-180"
-                    src="./src/assets/arrow.svg"
+                    src="./src/assets/home/arrow.svg"
                     alt=""
                   />
                 </div>
@@ -341,7 +348,8 @@
         </div>
       </div>
     </div>
-    <script type="module" src="./src/main.js"></script>
+    <script defer type="module" src="./src/main.js"></script>
     <script type="module" src="./src/prealoader.js"></script>
+    <script type="module" src="./src/words.js"></script>
   </body>
 </html>

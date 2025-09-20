@@ -27,7 +27,7 @@ const maskMaterial = new THREE.ShaderMaterial({
     u_distortionStrength: { value: 3.0 },
     u_edgeSoftness: { value: 0.6 },
     u_fadeEdges: { value: 0.3 },
-    u_maskColor: { value: new THREE.Color("#010101") },
+    u_maskColor: { value: new THREE.Color("#000") },
   },
   vertexShader: `
     varying vec2 vUv;
@@ -171,9 +171,9 @@ function playTransition() {
     settings,
     { progress: 0 },
     {
-      duration: 5.0,
+      duration: 3.0,
       ease: "power2.in",
-      progress: 10.0,
+      progress: 2.0,
       onUpdate: () => {
         maskMaterial.uniforms.u_progress.value = settings.progress;
       },
@@ -184,7 +184,9 @@ function playTransition() {
     }
   );
 }
-playTransition();
+setTimeout(() => {
+  playTransition();
+}, 5500);
 
 // ----- ANIMATION LOOP -----
 const clock = new THREE.Clock();
@@ -209,3 +211,5 @@ window.addEventListener("resize", () => {
     window.innerHeight
   );
 });
+
+
