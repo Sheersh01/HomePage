@@ -287,7 +287,7 @@ function onResize() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 }
 
-window.addEventListener("resize", onResize);
+// window.addEventListener("resize", onResize);
 
 /* -----------------------
    Optional GUI (commented out by default)
