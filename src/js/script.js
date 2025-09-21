@@ -239,34 +239,68 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to("#root", { duration: 1, opacity: 1 });
   }, 5000);
 });
+if (window.innerWidth < 768) {
+  
+  const tl = gsap.timeline();
 
-const tl = gsap.timeline();
-
-tl.to("#words", {
-  delay: 1,
-  opacity: 1,
-  duration: 1.5,
-  ease: "power2.out",
-})
-  .to("#exploring", {
-    color: "#c3073f", // red
+  tl.to("#words", {
+    delay: 1,
+    opacity: 1,
     duration: 1.5,
+    ease: "power2.out",
   })
-  .to(
-    ["#the", "#unexplored"],
-    {
-      color: "#000000", // black
+    .to("#exploring", {
+      color: "#c3073f", // red
       duration: 1.5,
-    },
-    "-=1.5"
-  ) // overlap a little
-  .to("#exploring", {
-    color: "#000", // red
-    duration: 1.4,
+    })
+    .to(
+      ["#the", "#unexplored"],
+      {
+        color: "#000000", // black
+        duration: 1.5,
+      },
+      "-=1.5"
+    ) // overlap a little
+    .to("#exploring", {
+      color: "#000", // red
+      duration: 1.4,
+    })
+    .to("#words", {
+      opacity: 0,
+      duration: 1.4,
+      ease: "power2.inOut",
+    })
+    .set("#words", { display: "none" });
+} else {
+  const tl = gsap.timeline();
+
+  // Animate colors
+  tl.to("#words", {
+    opacity: 1,
+    duration: 1.5,
+    ease: "power2.out",
   })
-  .to("#words", {
-    opacity: 0,
-    duration: 1.4,
-    ease: "power2.inOut",
-  })
-  .set("#words", { display: "none" });
+    .to("#exploring", {
+      color: "#c3073f", // red
+      duration: 1.5,
+    })
+    .to(
+      ["#the", "#unexplored"],
+      {
+        color: "#000000", // black
+        duration: 1.5,
+      },
+      "-=1.5"
+    ) // overlap a little
+    .to("#exploring", {
+      color: "#000", // red
+      duration: 1.5,
+    })
+    .to("#words", {
+      delay:0.5,
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.inOut",
+    })
+    .set("#words", { display: "none" });
+}
