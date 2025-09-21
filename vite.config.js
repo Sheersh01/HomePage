@@ -4,7 +4,20 @@ import { resolve } from "path";
 
 export default defineConfig({
   base: "./", // ensures relative asset resolution
-  plugins: [tailwindcss()],
+  plugins: [
+    tailwindcss({
+      theme: {
+        extend: {
+          colors: {
+            background: "#0f0f23",
+            foreground: "#e2e8f0",
+            primary: "#40e0d0",
+            sponsorHeading: "#c3073f",
+          },
+        },
+      },
+    }),
+  ],
   root: "src",
   build: {
     outDir: "../dist",

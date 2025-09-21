@@ -206,11 +206,11 @@ function initAboutClick() {
     const index = getVisibleSection();
 
     if (index === 0) {
-      window.location.href = "about.html";
+      window.location.href = "/about";
     } else if (index === 1) {
-      window.location.href = "sponsors.html";
+      window.location.href = "/sponsors";
     } else if (index === 2) {
-      window.location.href = "speakers.html";
+      window.location.href = "/speakers";
     } else {
       console.log("No section visible enough.");
     }

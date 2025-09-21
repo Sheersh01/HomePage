@@ -36,15 +36,14 @@
   <meta name="twitter:creator" content="@tantrafiesta" />
 
   <!-- Favicon & Manifest -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="shortcut icon" href="favicon.ico" type="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png" />
   <!-- <link rel="manifest" href="/site.webmanifest" /> -->
 
   <!-- Preload hero image for faster LCP -->
-  <link rel="preload" as="image" href="https://i.ibb.co/5jwVb60/main-banner.webp" />
+  <!-- <link rel="preload" as="image" href="https://i.ibb.co/5jwVb60/main-banner.webp" /> -->
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/style.css" />
@@ -52,7 +51,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
   <!-- Tailwind (browser build) -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 
   <!-- Structured Data for Google Rich Snippets -->
   <script type="application/ld+json">
@@ -83,7 +82,14 @@
 
 <body>
   
-  <!-- <div id="words" class="h-screen w-screen absolute top-0 left-0 z-[100]"></div> -->
+<div id="words" class="h-screen w-screen absolute top-0 left-0 z-[100] flex justify-center items-center bg-black opacity-0">
+  <div class="text-white flex items-center gap-5 text-4xl">
+    <h1 id="explore">Explore</h1>
+    <h1 id="the">The</h1>
+    <h1 id="unexplored">Unexplored</h1>
+  </div>
+</div>
+
   
   <div class="text-white h-screen w-screen fixed top-0 left-0 z-[99]">
     <canvas id="preloader" class="w-full h-full"></canvas>
@@ -257,7 +263,7 @@
   </div>
   <script defer type="module" src="./js/main.js"></script>
   <script type="module" src="./js/prealoader.js"></script>
-  <!-- <script type="module" src="./js/words.js"></script> -->
+  <script type="module" src="./js/words.js"></script>
 </body>
 
 </html>

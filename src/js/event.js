@@ -1,3 +1,8 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 // Import JSON
 import data from "../assets/json/data.json";
 
@@ -47,9 +52,6 @@ let currentCategory = "All";
 const clubListContainer = document.getElementById("club-list-container");
 const eventListContainer = document.getElementById("event-list-container");
 
-// Set Tailwind config if provided in JSON
-if (data.tailwindConfig) tailwind.config = data.tailwindConfig;
-
 // Render Clubs
 function renderClubs() {
   clubListContainer.innerHTML = "";
@@ -73,16 +75,16 @@ function renderClubs() {
     const imgSrc = clubImagesMap[item.club_name];
 
     div.className = `flex flex-col items-center flex-shrink-0 cursor-pointer snap-center w-1/3 md:w-1/4 lg:w-auto px-2 md:px-4 transition-all duration-300 ${
-      isSelected ? "shadow-glow-primary" : ""
+      isSelected ? "shadow-glow-[#c3073f]" : ""
     }`;
     div.dataset.category = item.club_name;
     div.innerHTML = `
       <img src="${imgSrc}" alt="${item.club_name}" 
         class="w-16 h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-cover rounded-full transition-all duration-200 border-2 ${
-          isSelected ? "border-primary" : "border-transparent"
+          isSelected ? "border-[#c3073f]" : "border-transparent"
         }" />
       <p class="mt-2.5 text-sm lg:text-base cursor-pointer text-center ${
-        isSelected ? "text-primary" : "text-gray-400"
+        isSelected ? "text-[#c3073f]" : "text-gray-400"
       }">${item.club_name}</p>
     `;
     clubWrapper.appendChild(div);
@@ -179,7 +181,7 @@ function renderEvents(category) {
         </div>
         <div class="relative ml-0 lg:ml-32 mt-4 lg:mt-0 flex flex-col items-start px-6 lg:px-0">
           <div class="opacity-0 transform -translate-x-10">
-            <div class="border border-primary rounded-full text-primary text-sm lg:text-xl mb-3 py-1 px-3 inline-block font-medium">
+            <div class="border border-[#c3073f] rounded-full text-[#c3073f] text-sm lg:text-xl mb-3 py-1 px-3 inline-block font-medium">
               ${item.club}
             </div>
             <div class="text-white text-sm lg:text-base font-medium">
@@ -192,7 +194,7 @@ function renderEvents(category) {
               ${item.description}
             </p>
           </div>
-          <div class="flex items-center gap-2 py-3 px-6 font-medium relative overflow-hidden cursor-pointer bg-primary rounded-md transition-all duration-300 mt-6 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/40 group">
+          <div class="flex items-center gap-2 py-3 px-6 font-medium relative overflow-hidden cursor-pointer bg-[#c3073f] rounded-md transition-all duration-300 mt-6 hover:bg-[#c3073f]-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#c3073f]/40 group">
             <span class="text-base text-white transition-transform duration-500 group-hover:-translate-x-1">Register</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
               xmlns="http://www.w3.org/2000/svg"

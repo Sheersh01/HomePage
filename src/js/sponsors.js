@@ -4,19 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
 
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        background: "#0f0f23",
-        foreground: "#e2e8f0",
-        primary: "#40e0d0",
-        sponsorHeading: "#c3073f",
-      },
-    },
-  },
-};
-
 // Import images as modules
 import abhibusImg from "../assets/sponsors/abhibus.png";
 import benqImg from "../assets/sponsors/benq.png";
