@@ -198,7 +198,6 @@ const pathPoints = [
   new THREE.Vector3(-4.0, -5.67, -5.0),
   new THREE.Vector3(-6.0, -4.0, -3.0),
   new THREE.Vector3(-5.5, -3.2, -1.5),
-  new THREE.Vector3(-4.5, -2.4, 0.0),
 ];
 
 

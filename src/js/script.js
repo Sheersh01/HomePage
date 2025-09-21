@@ -19,7 +19,7 @@ function initFadeScroll() {
   const scrollBox = document.querySelector(".scroll-box");
   const steps = document.querySelectorAll(".animated-main, .animated-step");
 
-  const MAX_SCROLL_MOBILE = 5800; // max scroll for mobile
+  const MAX_SCROLL_MOBILE = 5850; // max scroll for mobile
   const MOBILE_WIDTH = 768;
 
   /* ------------------------------
