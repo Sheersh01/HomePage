@@ -105,7 +105,7 @@ function animateSponsorCards() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: card,
-          start: "top 70%",
+          start: "top 65%",
           toggleActions: "play none none none",
         },
       }
