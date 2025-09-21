@@ -263,7 +263,7 @@ const lenis = new Lenis({
   smoothWheel: true,
   smoothTouch: true,
   wheelMultiplier: 0.35,
-  touchMultiplier: 0.02,
+  touchMultiplier: 0.01,
   infinite: false,
 });
 
@@ -280,7 +280,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.02 : 0.2;
+  const lerpSpeed = isMobile ? 0.03 : 0.2;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
