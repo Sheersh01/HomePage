@@ -61,7 +61,7 @@ function generateSponsorCards() {
   sponsorLogos.forEach((sponsor) => {
     const card = document.createElement("div");
     card.className =
-      "sponsor-card relative rounded-3xl flex items-center justify-center overflow-hidden p-4 bg-white bg-opacity-5 transition-transform duration-300 ease-in-out backdrop-blur-sm opacity-0 -translate-x-24 m-5 md:m-3 hover:scale-105";
+      "sponsor-card relative rounded-3xl flex items-center justify-center overflow-hidden p-4 bg-opacity-5 transition-transform duration-300 ease-in-out backdrop-blur-sm opacity-0 -translate-x-24 m-5 md:m-3 hover:scale-105";
     card.style.width = "320px";
     card.style.height = "200px";
 
