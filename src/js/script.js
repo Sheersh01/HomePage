@@ -222,7 +222,7 @@ function initAboutClick() {
 ------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
   resetScrollOnReload();
-  initFadeScroll();
+  // initFadeScroll();
   initMenuToggle();
   initSoundToggle();
   initAboutClick();

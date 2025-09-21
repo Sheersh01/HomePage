@@ -18,7 +18,7 @@ tl.to("#words", {
       color: "#000000", // black
       duration: 1.5,
     },
-    "-=1.0"
+    "-=1.5"
   ) // overlap a little
   .to("#explore", {
     color: "#000", // red
