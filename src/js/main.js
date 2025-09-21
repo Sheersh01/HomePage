@@ -85,8 +85,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 0, 2.5);
 
-const canvas =
-  document.querySelector("#canvas") 
+const canvas = document.querySelector("#canvas");
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -126,8 +125,6 @@ const bgTexture = textureLoader.load(background);
 const planetTexture = textureLoader.load(planet);
 planetTexture.colorSpace = THREE.SRGBColorSpace;
 
-
-
 let innerSphereMesh;
 let sunSphereMesh;
 let bgSphereMesh;
@@ -137,9 +134,9 @@ if (window.innerWidth >= 768) {
   sunSphereMesh = 64;
   bgSphereMesh = 64;
 } else {
-  innerSphereMesh = 32;
-  sunSphereMesh = 32;
-  bgSphereMesh = 32;
+  innerSphereMesh = 28;
+  sunSphereMesh = 28;
+  bgSphereMesh = 28;
 }
 
 const bgSphere = new THREE.Mesh(
@@ -180,9 +177,76 @@ scene.add(sunLight);
    Camera Arc Path
 ----------------------- */
 const pathPoints = [
-  new THREE.Vector3(0.0, 0.0, 2.8),
+  new THREE.Vector3(0.0, 0.0, 2.5),
+  new THREE.Vector3(0.4, -0.2, 2.9),
+  new THREE.Vector3(0.8, -0.4, 3.3),
+  new THREE.Vector3(1.2, -0.6, 3.7),
+  new THREE.Vector3(1.6, -0.9, 4.0),
+  new THREE.Vector3(2.0, -1.2, 4.3),
+  new THREE.Vector3(2.4, -1.5, 4.6),
+  new THREE.Vector3(2.8, -1.8, 4.8),
+  new THREE.Vector3(3.2, -2.1, 5.0),
+  new THREE.Vector3(3.6, -2.4, 5.2),
+  new THREE.Vector3(4.0, -2.7, 5.3),
+  new THREE.Vector3(4.5, -3.0, 5.3),
+  new THREE.Vector3(5.0, -3.3, 5.2),
+  new THREE.Vector3(5.5, -3.6, 5.0),
+  new THREE.Vector3(6.0, -3.9, 4.8),
+  new THREE.Vector3(6.4, -4.3, 4.4),
+  new THREE.Vector3(6.8, -4.7, 3.9),
+  new THREE.Vector3(7.2, -5.1, 3.3),
+  new THREE.Vector3(7.6, -5.5, 2.6),
   new THREE.Vector3(8.0, -5.9, 1.8),
+  new THREE.Vector3(8.3, -6.2, 1.0),
+  new THREE.Vector3(8.5, -6.5, 0.0),
+  new THREE.Vector3(8.4, -6.8, -1.0),
+  new THREE.Vector3(8.2, -7.0, -2.0),
+  new THREE.Vector3(7.9, -7.2, -3.0),
+  new THREE.Vector3(7.5, -7.4, -4.0),
+  new THREE.Vector3(7.0, -7.6, -5.0),
+  new THREE.Vector3(6.5, -7.8, -5.8),
+  new THREE.Vector3(6.0, -8.0, -6.5),
+  new THREE.Vector3(5.4, -8.1, -7.1),
+  new THREE.Vector3(4.8, -8.2, -7.6),
+  new THREE.Vector3(4.2, -8.3, -8.0),
+  new THREE.Vector3(3.6, -8.4, -8.3),
+  new THREE.Vector3(3.0, -8.5, -8.5),
+  new THREE.Vector3(2.5, -8.6, -8.7),
+  new THREE.Vector3(2.0, -8.7, -8.8),
+  new THREE.Vector3(1.6, -8.75, -8.9),
+  new THREE.Vector3(1.2, -8.8, -8.95),
+  new THREE.Vector3(0.9, -8.85, -9.0),
+  new THREE.Vector3(0.7, -8.87, -9.0),
+  new THREE.Vector3(0.5, -8.88, -9.0),
+  new THREE.Vector3(0.4, -8.89, -9.0),
+  new THREE.Vector3(0.3, -8.9, -9.0),
+  new THREE.Vector3(0.25, -8.92, -9.0),
+  new THREE.Vector3(0.2, -8.94, -9.0),
+  new THREE.Vector3(0.15, -8.96, -9.0),
+  new THREE.Vector3(0.1, -8.98, -9.0),
+  new THREE.Vector3(0.05, -8.99, -9.0),
+  new THREE.Vector3(0.02, -9.0, -9.0),
   new THREE.Vector3(0.0, -9.0, -9.0),
+  new THREE.Vector3(-0.29, -8.76, -8.71),
+  new THREE.Vector3(-0.57, -8.52, -8.43),
+  new THREE.Vector3(-0.86, -8.29, -8.14),
+  new THREE.Vector3(-1.14, -8.05, -7.86),
+  new THREE.Vector3(-1.43, -7.81, -7.57),
+  new THREE.Vector3(-1.71, -7.57, -7.29),
+  new THREE.Vector3(-2.0, -7.33, -7.0),
+  new THREE.Vector3(-2.29, -7.1, -6.71),
+  new THREE.Vector3(-2.57, -6.86, -6.43),
+  new THREE.Vector3(-2.86, -6.62, -6.14),
+  new THREE.Vector3(-3.14, -6.38, -5.86),
+  new THREE.Vector3(-3.43, -6.14, -5.57),
+  new THREE.Vector3(-3.71, -5.9, -5.29),
+  new THREE.Vector3(-4.0, -5.67, -5.0),
+  new THREE.Vector3(-4.29, -5.43, -4.71),
+  new THREE.Vector3(-4.57, -5.19, -4.43),
+  new THREE.Vector3(-4.86, -4.95, -4.14),
+  new THREE.Vector3(-5.14, -4.71, -3.86),
+  new THREE.Vector3(-5.43, -4.48, -3.57),
+  new THREE.Vector3(-5.71, -4.24, -3.29),
   new THREE.Vector3(-6.0, -4.0, -3.0),
 ];
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
@@ -216,7 +280,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.04 : 0.2;
+  const lerpSpeed = isMobile ? 0.03 : 0.2;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
@@ -303,7 +367,7 @@ function onResize() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 }
 
-// window.addEventListener("resize", onResize);
+window.addEventListener("resize", onResize);
 
 /* -----------------------
    Optional GUI (commented out by default)
