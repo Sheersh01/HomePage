@@ -47,11 +47,21 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/style.css" />
+<!-- In your <head> -->
+<link rel="preload" href="/assets/Philosopher-Regular-mKq_-NVH.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" /> -->
+<style>
+  @font-face {
+    font-family: 'phi';
+    src: url('/assets/Philosopher-Regular-mKq_-NVH.ttf') format('truetype');
+    font-display: swap; /* ensures text is visible immediately */
+  }
 
-  <!-- Tailwind (browser build) -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  * {
+    font-family: 'phi', sans-serif;
+  }
+</style>
+<link rel="preload" href="/assets/Philosopher-Regular-mKq_-NVH.ttf" as="font" type="font/ttf" crossorigin>
 
   <!-- Structured Data for Google Rich Snippets -->
   <script type="application/ld+json">
@@ -257,8 +267,6 @@
     </div>
   </div>
   <script defer type="module" src="./js/main.js"></script>
-  <!-- <script type="module" src="./js/prealoader.js"></script> -->
-  <script type="module" src="./js/words.js"></script>
+  <script type="module" src="./js/script.js"></script>
 </body>
-
 </html>

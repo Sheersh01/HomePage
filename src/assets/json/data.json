@@ -16,23 +16,23 @@
     }
   },
   "clubs": [
-    { "club_name": "CRISPR", "club_image": "../assets/clubsLogo/crispr_logo.png" },
-    { "club_name": "Elevate", "club_image": "../assets/clubsLogo/elevate_logo.png" },
-    { "club_name": "IOTICS", "club_image": "../assets/clubsLogo/iotics_logo.png" },
-    { "club_name": "Dotslash", "club_image": "../assets/clubsLogo/DotSlash_logo.png" },
-    { "club_name": "Dimensions", "club_image": "../assets/clubsLogo/dimensions_logo.png" },
-    { "club_name": "Strokes", "club_image": "../assets/clubsLogo/strokes_logo.png" },
-    { "club_name": "Probe", "club_image": "../assets/clubsLogo/probe_logo.png" },
-    { "club_name": "Central TantraFiesta", "club_image": "../assets/clubsLogo/tf logo.png" },
-    { "club_name": "Synergy", "club_image": "../assets/clubsLogo/tf logo.png" }
+    { "club_name": "CRISPR", "club_image": "../assets/clubsLogo/crispr_logo.webp" },
+    { "club_name": "Elevate", "club_image": "../assets/clubsLogo/elevate_logo.webp" },
+    { "club_name": "IOTICS", "club_image": "../assets/clubsLogo/iotics_logo.webp" },
+    { "club_name": "Dotslash", "club_image": "../assets/clubsLogo/DotSlash_logo.webp" },
+    { "club_name": "Dimensions", "club_image": "../assets/clubsLogo/dimensions_logo.webp" },
+    { "club_name": "Strokes", "club_image": "../assets/clubsLogo/strokes_logo.webp" },
+    { "club_name": "Probe", "club_image": "../assets/clubsLogo/probe_logo.webp" },
+    { "club_name": "Central TantraFiesta", "club_image": "../assets/clubsLogo/tf logo.webp" },
+    { "club_name": "Synergy", "club_image": "../assets/clubsLogo/tf logo.webp" }
   ],
   "events": [
-    { "_id": "1", "name": "Gen-A-Thon", "image": "../assets/clubsLogo/game jam.png", "pricePool": 20, "description": "Exciting AI, ML, Web Dev and App Dev Hackathon!", "club": "Elevate" },
-    { "_id": "2", "name": "Innovate Fusion", "image": "../assets/clubsLogo/game jam.png", "pricePool": 15, "description": "A creative workshop on blending tech with art.", "club": "Strokes" },
-    { "_id": "3", "name": "Code Sprint", "image": "../assets/clubsLogo/game jam.png", "pricePool": 30, "description": "A fast-paced coding challenge for all skill levels.", "club": "IOTICS" },
-    { "_id": "4", "name": "Design Expo", "image": "../assets/clubsLogo/game jam.png", "pricePool": 10, "description": "Showcase your design skills and get feedback from experts.", "club": "Dimensions" },
-    { "_id": "5", "name": "Cybersecurity Summit", "image": "../assets/clubsLogo/game jam.png", "pricePool": 50, "description": "Learn about the latest threats and protection methods.", "club": "Dotslash" },
-    { "_id": "6", "name": "Molecular Frontiers", "image": "../assets/clubsLogo/game jam.png", "pricePool": 25, "description": "A seminar on the latest advancements in gene editing and biology.", "club": "CRISPR" },
-    { "_id": "7", "name": "AI Hackathon", "image": "../assets/clubsLogo/game jam.png", "pricePool": 5, "description": "A challenge to build innovative AI applications.", "club": "Synergy" }
+    { "_id": "1", "name": "Gen-A-Thon", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 20, "description": "Exciting AI, ML, Web Dev and App Dev Hackathon!", "club": "Elevate" },
+    { "_id": "2", "name": "Innovate Fusion", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 15, "description": "A creative workshop on blending tech with art.", "club": "Strokes" },
+    { "_id": "3", "name": "Code Sprint", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 30, "description": "A fast-paced coding challenge for all skill levels.", "club": "IOTICS" },
+    { "_id": "4", "name": "Design Expo", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 10, "description": "Showcase your design skills and get feedback from experts.", "club": "Dimensions" },
+    { "_id": "5", "name": "Cybersecurity Summit", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 50, "description": "Learn about the latest threats and protection methods.", "club": "Dotslash" },
+    { "_id": "6", "name": "Molecular Frontiers", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 25, "description": "A seminar on the latest advancements in gene editing and biology.", "club": "CRISPR" },
+    { "_id": "7", "name": "AI Hackathon", "image": "../assets/clubsLogo/game jam.webp", "pricePool": 5, "description": "A challenge to build innovative AI applications.", "club": "Synergy" }
   ]
 }

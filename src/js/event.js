@@ -7,17 +7,17 @@ gsap.registerPlugin(ScrollTrigger);
 import data from "../assets/json/data.json";
 
 // Import club images
-import crisprLogo from "../assets/clubsLogo/crispr_logo.png";
-import elevateLogo from "../assets/clubsLogo/elevate_logo.png";
-import ioticsLogo from "../assets/clubsLogo/iotics_logo.png";
-import dotslashLogo from "../assets/clubsLogo/DotSlash_logo.png";
-import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.png";
-import strokesLogo from "../assets/clubsLogo/strokes_logo.png";
-import probeLogo from "../assets/clubsLogo/probe_logo.png";
-import tfLogo from "../assets/clubsLogo/tf logo.png";
+import crisprLogo from "../assets/clubsLogo/crispr_logo.webp";
+import elevateLogo from "../assets/clubsLogo/elevate_logo.webp";
+import ioticsLogo from "../assets/clubsLogo/iotics_logo.webp";
+import dotslashLogo from "../assets/clubsLogo/DotSlash_logo.webp";
+import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.webp";
+import strokesLogo from "../assets/clubsLogo/strokes_logo.webp";
+import probeLogo from "../assets/clubsLogo/probe_logo.webp";
+import tfLogo from "../assets/clubsLogo/tf logo.webp";
 
 // Import event images
-import gameJamImg from "../assets/clubsLogo/game jam.png";
+import gameJamImg from "../assets/clubsLogo/game jam.webp";
 
 // Map club names to imported images
 const clubImagesMap = {

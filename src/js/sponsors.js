@@ -5,29 +5,29 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
 
 // Import images as modules
-import abhibusImg from "../assets/sponsors/abhibus.png";
-import benqImg from "../assets/sponsors/benq.png";
-import bsnlImg from "../assets/sponsors/bsnl.jpg";
-import canaraImg from "../assets/sponsors/canara.png";
-import cocaColaImg from "../assets/sponsors/cocaCola.png";
-import decathlonImg from "../assets/sponsors/decathlon.png";
-import easeMyTripImg from "../assets/sponsors/easeMyTrip.png";
-import gfgImg from "../assets/sponsors/gfg.png";
-import giveMyCertificateImg from "../assets/sponsors/giveMyCertificate.png";
-import harleyDavidsonImg from "../assets/sponsors/harleyDavidson.jpg";
-import hitavadaImg from "../assets/sponsors/hitavada.jpg";
-import iiitiansNetworkImg from "../assets/sponsors/iiitiansNetwork.png";
-import ixigoImg from "../assets/sponsors/ixigo.png";
-import kazoImg from "../assets/sponsors/kazo.png";
-import kolourflyImg from "../assets/sponsors/kolourfly.png";
-import koreanMaggiImg from "../assets/sponsors/koreanMaggiNoodles.png";
-import lavieImg from "../assets/sponsors/lavie.jpg";
-import nvidiaImg from "../assets/sponsors/nvidia.jpg";
-import ongcImg from "../assets/sponsors/ongc.jpg";
-import sbiImg from "../assets/sponsors/sbi.png";
-import shreeCompSystemsImg from "../assets/sponsors/shreeCompSystems.jpg";
-import skechersImg from "../assets/sponsors/skechers.png";
-import trendsImg from "../assets/sponsors/trends.jpeg";
+import abhibusImg from "../assets/sponsors/abhibus.webp";
+import benqImg from "../assets/sponsors/benq.webp";
+import bsnlImg from "../assets/sponsors/bsnl.webp";
+import canaraImg from "../assets/sponsors/canara.webp";
+import cocaColaImg from "../assets/sponsors/cocaCola.webp";
+import decathlonImg from "../assets/sponsors/decathlon.webp";
+import easeMyTripImg from "../assets/sponsors/easeMyTrip.webp";
+// import gfgImg from "../assets/sponsors/gfg.webp";
+import giveMyCertificateImg from "../assets/sponsors/giveMyCertificate.webp";
+import harleyDavidsonImg from "../assets/sponsors/harleyDavidson.webp";
+import hitavadaImg from "../assets/sponsors/hitavada.webp";
+import iiitiansNetworkImg from "../assets/sponsors/iiitiansNetwork.webp";
+import ixigoImg from "../assets/sponsors/ixigo.webp";
+import kazoImg from "../assets/sponsors/kazo.webp";
+import kolourflyImg from "../assets/sponsors/kolourfly.webp";
+import koreanMaggiImg from "../assets/sponsors/koreanMaggiNoodles.webp";
+import lavieImg from "../assets/sponsors/lavie.webp";
+import nvidiaImg from "../assets/sponsors/nvidia.webp";
+import ongcImg from "../assets/sponsors/ongc.webp";
+import sbiImg from "../assets/sponsors/sbi.webp";
+import shreeCompSystemsImg from "../assets/sponsors/shreeCompSystems.webp";
+import skechersImg from "../assets/sponsors/skechers.webp";
+import trendsImg from "../assets/sponsors/trends.webp";
 
 const sponsorLogos = [
   { name: "Abhibus", image: abhibusImg },
@@ -37,7 +37,7 @@ const sponsorLogos = [
   { name: "Coca Cola", image: cocaColaImg },
   { name: "Decathlon", image: decathlonImg },
   { name: "EaseMyTrip", image: easeMyTripImg },
-  { name: "GeeksforGeeks", image: gfgImg },
+  // { name: "GeeksforGeeks", image: gfgImg },
   { name: "GiveMyCertificate", image: giveMyCertificateImg },
   { name: "Harley Davidson", image: harleyDavidsonImg },
   { name: "Hitavada", image: hitavadaImg },

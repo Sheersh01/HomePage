@@ -3,12 +3,12 @@ import linkIcon from "../assets/linkedin-box-fill.svg";
 import instaIcon from "../assets/instagram-line.svg";
 
 // Import all speaker images
-import sanjayImg from "../assets/speakers/Sanjay_Arora.png";
-import gajendraImg from "../assets/speakers/Gajendra_purohit.jpeg";
-import roshniImg from "../assets/speakers/Roshni_Chhabra.png";
-import keertiImg from "../assets/speakers/Keerti_Purswani.jpg";
-import abhishekImg from "../assets/speakers/Abhishek_Mungoli.jpg";
-import ashishImg from "../assets/speakers/Ashish_Patel.jpeg";
+import sanjayImg from "../assets/speakers/Sanjay_Arora.webp";
+import gajendraImg from "../assets/speakers/Gajendra_purohit.webp";
+import roshniImg from "../assets/speakers/Roshni_Chhabra.webp";
+import keertiImg from "../assets/speakers/Keerti_Purswani.webp";
+import abhishekImg from "../assets/speakers/Abhishek_Mungoli.webp";
+import ashishImg from "../assets/speakers/Ashish_Patel.webp";
 
 // Map images to speakers in the same order as JSON
 const speakerImages = [
