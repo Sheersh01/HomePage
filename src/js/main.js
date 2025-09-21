@@ -134,7 +134,7 @@ if (window.innerWidth >= 768) {
   sunSphereMesh = 32;
   bgSphereMesh = 32;
 } else {
-  innerSphereMesh = 16;
+  innerSphereMesh = 32;
   sunSphereMesh = 16;
   bgSphereMesh = 16;
 }
@@ -280,7 +280,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.015 : 0.2;
+  const lerpSpeed = isMobile ? 0.02 : 0.2;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
