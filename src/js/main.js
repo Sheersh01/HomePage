@@ -130,13 +130,13 @@ let sunSphereMesh;
 let bgSphereMesh;
 
 if (window.innerWidth >= 768) {
-  innerSphereMesh = 64;
-  sunSphereMesh = 64;
-  bgSphereMesh = 64;
+  innerSphereMesh = 32;
+  sunSphereMesh = 32;
+  bgSphereMesh = 32;
 } else {
-  innerSphereMesh = 28;
-  sunSphereMesh = 28;
-  bgSphereMesh = 28;
+  innerSphereMesh = 16;
+  sunSphereMesh = 16;
+  bgSphereMesh = 16;
 }
 
 const bgSphere = new THREE.Mesh(
@@ -280,7 +280,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.03 : 0.2;
+  const lerpSpeed = isMobile ? 0.015 : 0.2;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
@@ -317,8 +317,17 @@ if (isDesktop) {
    Clock & Animation Loop
 ----------------------- */
 const clock = new THREE.Clock();
+let lastTime = 0;
+const mobileFPS = 30; // cap FPS for mobile
+const mobileInterval = 1000 / mobileFPS;
 
 function animate(time) {
+  requestAnimationFrame(animate);
+
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  if (isMobile && time - lastTime < mobileInterval) return;
+  lastTime = time;
+
   lenis.raf(time);
 
   const delta = clock.getDelta();
@@ -348,11 +357,9 @@ function animate(time) {
     Math.max(0, Math.min(1, sunScreenPos.y))
   );
 
-  // controls.update();
   composer.render();
-
-  requestAnimationFrame(animate);
 }
+
 
 requestAnimationFrame(animate);
 
