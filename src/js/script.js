@@ -1,3 +1,5 @@
+import "remixicon/fonts/remixicon.css";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -232,7 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 5000);
 });
 
-
 const tl = gsap.timeline();
 
 tl.to("#words", {
@@ -263,4 +264,3 @@ tl.to("#words", {
     ease: "power2.inOut",
   })
   .set("#words", { display: "none" });
-
