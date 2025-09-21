@@ -17,10 +17,38 @@ import probeLogo from "../assets/clubsLogo/probe_logo.webp";
 import tfLogo from "../assets/clubsLogo/tf logo.webp";
 
 // Import event images
-import gameJamImg from "../assets/clubsLogo/game jam.webp";
+import claudeSolvathonImg from "../assets/events/claude.webp";
+import analyticaImg from "../assets/events/analytica.webp";
+import trailTracerImg from "../assets/events/Trail-Tracer.webp";
+import robowarsImg from "../assets/events/RoboWars.webp";
+import algorithmiaImg from "../assets/events/algorithmia.webp";
+import codefiestaImg from "../assets/events/codefiesta.webp";
+import quantQuestImg from "../assets/events/quant-quest.webp";
+import winterGameJamImg from "../assets/events/analytica.webp"; // placeholder
+import renderRiotImg from "../assets/events/render-riot.webp";
+import designAThonImg from "../assets/events/design.webp";
+import brandXperienceImg from "../assets/events/brandx.webp";
+import womenOnlyHackathonImg from "../assets/events/women's-only.webp";
+import enigmaXploreImg from "../assets/events/enigma.webp";
+import circuitDesignImg from "../assets/events/circuit-design.webp";
+// import vlsiImg from "../assets/events/analytica.webp"; // placeholder
+import atalTinkeringImg from "../assets/events/atal.webp";
+import bioinformaticsImg from "../assets/events/bioinfo.webp";
+import fintechImg from "../assets/events/finix.webp";
+import quantumImg from "../assets/events/quant.webp";
+import web3Img from "../assets/events/web-3.webp";
+import codedualzImg from "../assets/events/codeduelz.webp";
+import valorantImg from "../assets/events/valorant.webp";
+import bgmiImg from "../assets/events/bgmi.webp";
+import freeFireImg from "../assets/events/freeFire.webp"; // now matches JSON
+import callOfDutyImg from "../assets/events/codm.webp";
+// import clashOfClansImg from "../assets/events/freeFire.webp"; // placeholder
+// import clashRoyaleImg from "../assets/events/analytica.webp"; // placeholder
+import chessImg from "../assets/events/chess.webp";
 
 // Map club names to imported images
 const clubImagesMap = {
+  All: tfLogo, // Add a logo for the "All" category if needed
   CRISPR: crisprLogo,
   Elevate: elevateLogo,
   IOTICS: ioticsLogo,
@@ -31,16 +59,39 @@ const clubImagesMap = {
   "Central TantraFiesta": tfLogo,
   Synergy: tfLogo,
 };
-
 // Map event names to imported images
 const eventImagesMap = {
-  "Gen-A-Thon": gameJamImg,
-  "Innovate Fusion": gameJamImg,
-  "Code Sprint": gameJamImg,
-  "Design Expo": gameJamImg,
-  "Cybersecurity Summit": gameJamImg,
-  "Molecular Frontiers": gameJamImg,
-  "AI Hackathon": gameJamImg,
+  "Claude Solvathon": claudeSolvathonImg,
+  Analytica: analyticaImg,
+  Genathon: analyticaImg, // Using same image as Analytica as per your JSON
+  "Bug Bounty Blitz": analyticaImg, // Using same image as Analytica as per your JSON
+  "Trail Tracer": trailTracerImg,
+  Micromouse: analyticaImg, // Using same image as Analytica as per your JSON
+  Robowars: robowarsImg,
+  Algorithmia: algorithmiaImg,
+  Codefiesta: codefiestaImg,
+  "Quant Quest": quantQuestImg,
+  "Winter Game Jam": winterGameJamImg,
+  "Render Riot": renderRiotImg,
+  "Design-a-thon": designAThonImg,
+  BrandXperience: brandXperienceImg,
+  "Women's Only Hackathon": womenOnlyHackathonImg,
+  "Enigma Xplore 3.0": enigmaXploreImg,
+  "Circuit Design": circuitDesignImg,
+  VLSI: analyticaImg, // Using same image as Analytica as per your JSON
+  "Atal Tinkering": atalTinkeringImg,
+  Bioinformatics: bioinformaticsImg,
+  Fintech: fintechImg,
+  Quantum: quantumImg,
+  "Web 3": web3Img,
+  CodeDualz: codedualzImg,
+  Valorant: valorantImg,
+  BGMI: bgmiImg,
+  FreeFire: bgmiImg, // Using same image as BGMI as per your JSON
+  "Call of Duty": callOfDutyImg,
+  "Clash of Clans": analyticaImg, // Using same image as Analytica as per your JSON
+  "Clash Royale": analyticaImg, // Using same image as Analytica as per your JSON
+  Chess: chessImg,
 };
 
 // Global variables
@@ -67,7 +118,7 @@ function renderClubs() {
 
   const clubWrapper = document.createElement("div");
   clubWrapper.className =
-    "flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory px-8 md:px-12 lg:px-16";
+    "flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory md:px-12 lg:px-16";
 
   club_list.forEach((item) => {
     const div = document.createElement("div");
@@ -80,7 +131,7 @@ function renderClubs() {
     div.dataset.category = item.club_name;
     div.innerHTML = `
       <img src="${imgSrc}" alt="${item.club_name}" 
-        class="w-16 h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-cover rounded-full transition-all duration-200 border-2 ${
+        class="w-16 h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-contain rounded-full transition-all duration-200 border-2 ${
           isSelected ? "border-[#c3073f]" : "border-transparent"
         }" />
       <p class="mt-2.5 text-sm lg:text-base cursor-pointer text-center ${
@@ -92,10 +143,10 @@ function renderClubs() {
 
   clubListContainer.appendChild(clubWrapper);
 
-  const prevArrow = createArrow("left");
-  const nextArrow = createArrow("right");
-  clubListContainer.appendChild(prevArrow);
-  clubListContainer.appendChild(nextArrow);
+  // const prevArrow = createArrow("left");
+  // const nextArrow = createArrow("right");
+  // clubListContainer.appendChild(prevArrow);
+  // clubListContainer.appendChild(nextArrow);
 
   if (currentCategory !== "All") {
     setTimeout(() => {
@@ -174,18 +225,18 @@ function renderEvents(category) {
     const imgSrc = eventImagesMap[item.name];
 
     li.innerHTML = `
-      <a href="#" class="flex flex-col lg:flex-row p-9 lg:py-9 lg:px-0 text-inherit no-underline overflow-hidden transition-all duration-300 ease-in-out">
-        <div class="w-full lg:w-[30rem] lg:flex-shrink-0 aspect-[56/36] relative rounded-lg rounded-tr-none rounded-bl-[3rem] rounded-br-none overflow-hidden">
+      <a href="#" class="flex flex-col lg:flex-row lg:py-9 lg:px-0 text-inherit no-underline overflow-hidden  transition-all duration-300 ease-in-out">
+        <div class=" w-full lg:w-[30rem] lg:flex-shrink-0 aspect-[56/36] relative rounded-lg rounded-tr-none rounded-bl-[3rem] rounded-br-none overflow-hidden">
           <img src="${imgSrc}" alt="${item.name}" 
-            class="w-full h-full object-cover object-center transition-transform duration-500 cubic-bezier(0.165, 0.84, 0.44, 1)" />
+            class="w-full h-full object-contain object-center transition-transform duration-500 cubic-bezier(0.165, 0.84, 0.44, 1)" />
         </div>
-        <div class="relative ml-0 lg:ml-32 mt-4 lg:mt-0 flex flex-col items-start px-6 lg:px-0">
+        <div class="backdrop-blur-xl relative ml-0 lg:ml-32 mt-4 lg:mt-0 flex flex-col items-start px-6 lg:px-0 md:mb-0 mb-6">
           <div class="opacity-0 transform -translate-x-10">
             <div class="border border-[#c3073f] rounded-full text-[#c3073f] text-sm lg:text-xl mb-3 py-1 px-3 inline-block font-medium">
               ${item.club}
             </div>
             <div class="text-white text-sm lg:text-base font-medium">
-              Price Pool: $${item.pricePool}
+              Price Pool: ₹${item.pricePool}
             </div>
             <h2 class="text-[40px] lg:text-[50px] font-bold text-white mt-0">
               ${item.name}
