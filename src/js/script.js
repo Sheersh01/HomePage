@@ -19,7 +19,7 @@ function initFadeScroll() {
   const scrollBox = document.querySelector(".scroll-box");
   const steps = document.querySelectorAll(".animated-main, .animated-step");
 
-  const MAX_SCROLL_MOBILE = 5500; // max scroll for mobile
+  const MAX_SCROLL_MOBILE = 5700; // max scroll for mobile
   const MOBILE_WIDTH = 768;
 
   /* ------------------------------
@@ -262,11 +262,11 @@ tl.to("#words", {
   ) // overlap a little
   .to("#explore", {
     color: "#000", // red
-    duration: 1.5,
+    duration: 1.4,
   })
   .to("#words", {
     opacity: 0,
-    duration: 1.5,
+    duration: 1.4,
     ease: "power2.inOut",
   })
   .set("#words", { display: "none" });
