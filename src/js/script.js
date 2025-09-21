@@ -5,6 +5,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+function loadPreloader() {
+  import("./prealoader.js")
+    .then((module) => {
+      console.log("Preloader loaded");
+    })
+    .catch((err) => console.error(err));
+}
+
+if (window.innerWidth >= 768) {
+  loadPreloader();
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    loadPreloader();
+  }
+});
+
+
 /* ------------------------------
    Reset scroll position
 ------------------------------ */
