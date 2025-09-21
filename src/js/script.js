@@ -248,7 +248,7 @@ tl.to("#words", {
   duration: 1.5,
   ease: "power2.out",
 })
-  .to("#explore", {
+  .to("#exploring", {
     color: "#c3073f", // red
     duration: 1.5,
   })
@@ -260,7 +260,7 @@ tl.to("#words", {
     },
     "-=1.5"
   ) // overlap a little
-  .to("#explore", {
+  .to("#exploring", {
     color: "#000", // red
     duration: 1.4,
   })
