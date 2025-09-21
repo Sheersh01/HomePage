@@ -13,3 +13,25 @@
 .bg{
     background-image: url(../assets/background2.webp);
 }
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* distance from text */
+  width: 0%;
+  height: 2px;
+  background: currentColor; /* matches text color */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}

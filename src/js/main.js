@@ -247,7 +247,16 @@ const pathPoints = [
   new THREE.Vector3(-5.43, -4.48, -3.57),
   new THREE.Vector3(-5.71, -4.24, -3.29),
   new THREE.Vector3(-6.0, -4.0, -3.0),
+
+  // 🔹 New points to curve upward and reconnect
+  new THREE.Vector3(-5.5, -3.2, -1.5),
+  new THREE.Vector3(-4.5, -2.4, 0.0),
+  // new THREE.Vector3(-3.0, -1.5, 1.2),
+  // new THREE.Vector3(-1.5, -0.8, 2.0),
+  // new THREE.Vector3(-0.5, -0.3, 2.4),
+  // new THREE.Vector3(0.0, 0.0, 2.5), // back to start
 ];
+
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 
 /* -----------------------

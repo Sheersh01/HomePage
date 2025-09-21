@@ -58,10 +58,14 @@ const sponsorLogos = [
 function generateSponsorCards() {
   const grid = document.getElementById("sponsorGrid");
 
+  // Add centering classes to the grid container
+  // This is a good practice if your HTML doesn't already have them
+  grid.className = "flex flex-wrap justify-center items-center";
+
   sponsorLogos.forEach((sponsor) => {
     const card = document.createElement("div");
     card.className =
-      "sponsor-card relative rounded-3xl flex items-center justify-center overflow-hidden p-4 bg-opacity-5 transition-transform duration-300 ease-in-out backdrop-blur-sm opacity-0 -translate-x-24 m-5 md:m-3 hover:scale-105";
+      "sponsor-card relative rounded-3xl flex items-center justify-center overflow-hidden p-4  bg-opacity-5 transition-transform duration-300 ease-in-out backdrop-blur-sm m-5 md:m-3 hover:scale-105";
     card.style.width = "320px";
     card.style.height = "200px";
 
@@ -70,10 +74,30 @@ function generateSponsorCards() {
     img.alt = sponsor.name;
     img.loading = "lazy";
     img.className = "relative z-10 w-full h-full object-contain rounded-2xl";
+    img.style.maxWidth = "280px";
+    img.style.maxHeight = "160px";
 
     card.appendChild(img);
     grid.appendChild(card);
   });
+
+  // Apply responsive styles
+  const mediaQuery = window.matchMedia("(max-width: 768px)");
+  function handleMediaQuery(e) {
+    const cards = document.querySelectorAll(".sponsor-card");
+    cards.forEach((card) => {
+      if (e.matches) {
+        card.style.width = "280px";
+        card.style.height = "180px";
+      } else {
+        card.style.width = "320px";
+        card.style.height = "200px";
+      }
+    });
+  }
+
+  mediaQuery.addListener(handleMediaQuery);
+  handleMediaQuery(mediaQuery);
 
   animateSponsorCards();
 }
@@ -84,15 +108,14 @@ function animateSponsorCards() {
   cards.forEach((card) => {
     gsap.fromTo(
       card,
-      { x: -100, opacity: 0 },
+      { opacity: 0 }, // Start with opacity 0
       {
-        x: 0,
-        opacity: 1,
-        duration: 0.3,
+        opacity: 1, // Animate to opacity 1
+        duration: 1, // Set a duration for the fade-in
         ease: "power2.out",
         scrollTrigger: {
           trigger: card,
-          start: "top 65%",
+          start: "top 80%", // The animation will start when the top of the card enters the viewport
           toggleActions: "play none none none",
         },
       }

@@ -19,19 +19,23 @@ function initFadeScroll() {
   const scrollBox = document.querySelector(".scroll-box");
   const steps = document.querySelectorAll(".animated-main, .animated-step");
 
-  const MAX_SCROLL_MOBILE = 4300; // max scroll for mobile
+  const MAX_SCROLL_MOBILE = 5500; // max scroll for mobile
   const MOBILE_WIDTH = 768;
 
   /* ------------------------------
      Mobile Scroll Limiter
   ------------------------------ */
-  function clampScroll() {
-    if (window.innerWidth < MOBILE_WIDTH) {
-      if (scrollBox.scrollTop > MAX_SCROLL_MOBILE)
-        scrollBox.scrollTop = MAX_SCROLL_MOBILE;
-      if (scrollBox.scrollTop < 0) scrollBox.scrollTop = 0;
-    }
-  }
+function clampScroll() {
+  const MOBILE_WIDTH = 768;
+  const MAX_SCROLL_MOBILE = 5500;
+  const MAX_SCROLL_DESKTOP = 8000; // for example
+
+  const maxScroll =
+    window.innerWidth < MOBILE_WIDTH ? MAX_SCROLL_MOBILE : MAX_SCROLL_DESKTOP;
+
+  if (scrollBox.scrollTop > maxScroll) scrollBox.scrollTop = maxScroll;
+  if (scrollBox.scrollTop < 0) scrollBox.scrollTop = 0;
+}
 
   function updateFadeOnScroll() {
     clampScroll(); // keep scroll within limits
@@ -213,6 +217,8 @@ function initAboutClick() {
       window.location.href = "/sponsors";
     } else if (index === 2) {
       window.location.href = "/speakers";
+    } else if (index === 3) {
+      window.location.href = "/contact";
     } else {
       console.log("No section visible enough.");
     }

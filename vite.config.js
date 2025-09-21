@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "./", // ensures relative asset resolution
+  base: "/", // ensures relative asset resolution
   plugins: [
     tailwindcss({
       theme: {
@@ -19,6 +19,7 @@ export default defineConfig({
     }),
   ],
   root: "src",
+  publicDir: resolve(__dirname, "public"),
   build: {
     outDir: "../dist",
     emptyOutDir: true,
