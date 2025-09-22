@@ -1,0 +1,254 @@
+.timeline {
+            margin-block: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Main timeline line */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #888;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .checkpoint {
+            max-width: 31em;
+            padding-block: 2em;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .checkpoint div {
+            border: 2px solid #888;
+            padding: 2em;
+            border-radius: 6px;
+            line-height: 1.5;
+            background: rgba(0, 0, 0, 0.8);
+            /* Add background to make content readable */
+        }
+
+        div h3 {
+            margin-bottom: 0.8em;
+            font-size: 1.25rem;
+        }
+
+        div p {
+            color: #888;
+        }
+
+        .checkpoint:nth-child(odd) {
+            padding-left: 3em;
+            transform: translateX(15.37em);
+        }
+
+        .checkpoint:nth-child(even) {
+            padding-right: 3em;
+            transform: translateX(-15.37em);
+        }
+
+        /* connector lines - fixed positioning */
+        .checkpoint:nth-child(odd)::before,
+        .checkpoint:nth-child(even)::before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            height: 2px;
+            width: 3em;
+            background: #888;
+            transform: translateY(-50%);
+            /* Center vertically regardless of content height */
+        }
+
+        .checkpoint:nth-child(odd)::before {
+            left: 0;
+        }
+
+        .checkpoint:nth-child(even)::before {
+            right: 0;
+        }
+
+        /* Logo as timeline circle - fixed positioning */
+        .checkpoint-logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #c3073f;
+            padding: 4px;
+            box-shadow: 0px 0px 7px 3px #c3073f;
+            z-index: 2;
+        }
+
+        .checkpoint:nth-child(odd) .checkpoint-logo {
+            left: -18px;
+        }
+
+        .checkpoint:nth-child(even) .checkpoint-logo {
+            right: -18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1150px) {
+            .timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .timeline .checkpoint {
+                transform: none;
+                padding-inline: 0;
+                max-width: 90%;
+            }
+
+            .timeline .checkpoint::before {
+                display: none;
+                /* Hide horizontal connectors on mobile */
+            }
+
+            .timeline .checkpoint-logo {
+                left: 50% !important;
+                right: auto !important;
+                transform: translate(-50%, -50%);
+            }
+  .checkpoint-logo {
+            top:0%;
+              height: 20px;
+            width: 20px;
+        }
+
+            .checkpoint div {
+            background: rgba(0, 0, 0, 1.0);
+            /* Add background to make content readable */
+        }
+ 
+        }
+
+        .cont {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .section {
+            padding: 2rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            .section {
+                padding: 4rem;
+            }
+        }
+
+        h1 {
+            margin: 0 0 1.5em;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-auto-rows: 150px;
+            grid-auto-flow: row dense;
+        }
+
+        .item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            counter-increment: item-counter;
+            color: #fff;
+            overflow: hidden; /* This is important to contain the image */
+        }
+
+        .item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            /* Send image to the back */
+            transition: transform 0.3s ease-in-out;
+            /* Smooth scaling on hover */
+        }
+
+        .item:hover img {
+            transform: scale(1.1);
+        }
+
+        .item:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.3;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1;
+        }
+
+        .item:hover:after {
+            opacity: 0;
+        }
+
+        /* Different item sizes */
+        .item--medium {
+            grid-row-end: span 2;
+        }
+
+        .item--large {
+            grid-row-end: span 3;
+        }
+
+        .item--full {
+            grid-column-end: auto;
+        }
+
+        @media screen and (min-width: 768px) {
+            .item--full {
+                grid-column: 1/-1;
+                grid-row-end: span 2;
+            }
+        }
+
+        /* Details overlay */
+        .item__details {
+            position: relative;
+            z-index: 2;
+            padding: 15px;
+            background: #fff;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            color: #828282;
+        }
+
+        .item__details:before {
+            content: counter(item-counter);
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-right: 0.5em;
+            color: #444;
+        }

@@ -82,3 +82,12 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
+/* Text Gradient CSS */
+/* .grad {
+  color: #83153A;
+  background-image: linear-gradient(315deg, #83153A 45%, #9F0E3C 47%, #CF3632 53%, #E4861B 57%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+} */

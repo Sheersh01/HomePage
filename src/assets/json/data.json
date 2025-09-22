@@ -17,6 +17,10 @@
   },
   "clubs": [
     {
+      "club_name": "Central TantraFiesta",
+      "club_image": "../assets/clubsLogo/tf logo.png"
+    },
+    {
       "club_name": "CRISPR",
       "club_image": "../assets/clubsLogo/crispr_logo.png"
     },
@@ -26,11 +30,11 @@
     },
     {
       "club_name": "IOTICS",
-      "club_image": "../assets/clubsLogo/iotics_logo.png"
+      "club_image": "../assets/clubsLogo/iotics.png"
     },
     {
       "club_name": "Dotslash",
-      "club_image": "../assets/clubsLogo/DotSlash_logo.png"
+      "club_image": "../assets/clubsLogo/dotslash.png"
     },
     {
       "club_name": "Dimensions",
@@ -42,268 +46,291 @@
     },
     {
       "club_name": "Probe",
-      "club_image": "../assets/clubsLogo/probe_logo.png"
-    },
-    {
-      "club_name": "Central TantraFiesta",
-      "club_image": "../assets/clubsLogo/tf logo.png"
+      "club_image": "../assets/clubsLogo/probe.png"
     },
     {
       "club_name": "Synergy",
-      "club_image": "../assets/clubsLogo/tf logo.png"
+      "club_image": "../assets/clubsLogo/synergy.png"
     }
   ],
+
   "events": [
     {
       "_id": "1",
       "name": "Claude Solvathon",
       "image": "../assets/events/claude.webp",
       "pricePool": 30000,
-      "description": "Claude Solvathon is a premier three-stage AI challenge designed to simulate real-world AI problem-solving under pressure. Hosted at Tantra Fiesta, the competition tests teamwork, creativity, and technical proficiency across messy data wrangling and an open-ended problem-solving final challenge.",
-      "club": "CRISPR"
+      "description": "Solvathon Is A Three-Stage Al Challenge By TantraFiesta That Simulates Real-World, Time-Bound Problem-Solving To Bridge Theory And Practice,Assessing Teamwork, Creativity, And TechnicalSkills Like Data Wrangling And Open-Ended Problem-Solving.",
+      "club": "CRISPR",
+      "url": "https://unstop.com/hackathons/claude-solvathon-tantrafiesta25-iiitn-1555451"
     },
     {
       "_id": "2",
       "name": "Analytica",
       "image": "../assets/events/analytica.webp",
       "pricePool": 35000,
-      "description": "Analytica is IIIT Nagpur's flagship Machine Learning and Data Science hackathon. The first round will be hosted online on Unstop, and the final offline round will be conducted at IIIT Nagpur. Designed to ignite creativity, problem-solving, and technical rigor, Analytica challenges participants to apply ML/DS skills to solve real-world problems in a limited time.",
+      "description": "Analytica Is Tantra Fiesta's ML/DS Hackathon That Showcases How Computer Science Predicts And Shapes The Future (E.G., Personalized Recommendations), Pushing Participants To Apply Skills Creatively Under Time Limits While Strengthening Problem-S.",
       "club": "CRISPR",
       "url": "https://unstop.com/hackathons/analytica-tantrafiesta25-iiitn-1553390"
     },
     {
       "_id": "3",
       "name": "Genathon",
-      "image": "../assets/events/analytica.webp",
+      "image": "../assets/events/genathon.webp",
       "pricePool": 50000,
-      "description": "Genathon 3.0 is a hackathon that invites students to create solutions for real-world problems. The event begins with an online quiz to test technical knowledge, followed by a 24-hour offline hackathon. The focus is on creative ideation, rapid prototyping, and collaboration to build impactful tech solutions.",
-      "club": "Elevate"
+      "description": "Hackathons Transform Curiosity Into Innovation,Solitude Into Teamwork, And Fear Into Courage,Offering Stage To Showcase Ideas, Creativity,Vision, And Problem-Solving While Emphasizing Strong Teamwork And Dedication-And Ultimately Highlighting Human Potential.",
+      "club": "Elevate",
+      "url": "https://unstop.com/hackathons/genathon-30-tantrafiesta25-iiitn-1549544"
     },
     {
       "_id": "4",
-      "name": "Bug Bounty Blitz",
-      "image": "../assets/events/analytica.webp",
+      "name": "Last Man Standing",
+      "image": "../assets/events/last.webp",
       "pricePool": 15000,
-      "description": "A creative workshop on blending tech with art.",
-      "club": "Elevate"
+      "description": "LAST MAN STANDING Is A CompetitiveEvent For Individuals To Find Vulnerabilities In Web Applications, Al Systems, And Blockchain Frameworks. It Emphasizes The Growing Importance Of Bug Hunters In An Al-Driven Coding Landscape, Focusing On Converting Discovered Weaknesses Into Security Strengths And Advancing Engineering Strategies.",
+      "club": "Elevate",
+      "url": "https://unstop.com/competitions/last-man-standing-30-tantrafiesta25-iiitn-1555747"
     },
     {
       "_id": "5",
       "name": "Trail Tracer",
       "image": "../assets/events/Trail-Tracer.webp",
       "pricePool": 20000,
-      "description": "Trail Tracer 2.0 challenges participants to build autonomous robots that trace a black path on a white surface. The event tests real-time control, algorithms, and problem-solving in increasingly complex tracks, fostering robotics, coding, and teamwork skills while driving innovation and practical learning in embedded systems and IoT.",
-      "club": "IOTICS"
+      "description": "Trail Tracer Is A Robotics Contest Where Teams Build Autonomous Line-Following Robots To Navigate A Complex Black Path On White With Curves, Loops, Sharp Turns, Junctions, Dotted Lines, Dead Ends, And Surprise Obstacles, Demanding Smart Algorithms, Solid Engineering, And Inventive Design To Finish The Course",
+      "club": "IOTICS",
+      "url": "https://unstop.com/hackathons/line-follower-robot-trail-tracer-20-tantrafiesta25-iiitn-1549032"
     },
     {
       "_id": "6",
       "name": "Micromouse",
-      "image": "../assets/events/analytica.webp",
+      "image": "../assets/events/mazex.webp",
       "pricePool": 20000,
-      "description": "Micromouse Challenge is a robotics event where participants design small autonomous robots capable of solving a maze. Starting from a corner cell, the robots must navigate efficiently to the center. The event tests maze-solving algorithms, decision-making, and control accuracy, encouraging innovation, teamwork, and real-world application of robotics and AI.",
-      "club": "IOTICS"
+      "description": "Micromouse Is TantraFiesta's Robotic Event Where Autonomous Bots Solve A 16 × 16 Maze From A Corner To The Center, Testing Algorithm Design, Decision-Making, Engineering, Teamwork, And Innovation To Highlight The Blend Of Human Creativity And Machine Intelligence.",
+      "club": "IOTICS",
+      "url": "https://unstop.com/hackathons/micromouse-challenge-autonomous-maze-solving-robotics-competition-tantrafiesta25-iiitn-1552770"
     },
     {
       "_id": "7",
       "name": "Robowars",
       "image": "../assets/events/RoboWars.webp",
       "pricePool": 100000,
-      "description": "Robowars is a high-adrenaline combat robotics event where participants design and build manually controlled combat robots to battle in an enclosed arena. Hosted by IIIT Nagpur, the event tests mechanical strength, weapon systems, durability, and strategy.",
-      "club": "IOTICS"
+      "description": "Robowars Is A Competitive Arena Battle Where Teams Build And Drive Weaponized Robots (E.G., Spinners, Hammers) To Disable Opponents, Testing Mechanical Design, Weapon Systems, Durability, Control, And Match Strategy.",
+      "club": "IOTICS",
+      "url": "https://unstop.com/hackathons/robowars-tantrafiesta25-iiitn-1552789"
     },
     {
       "_id": "8",
-      "name": "Algorithmia",
-      "image": "../assets/events/algorithmia.webp",
-      "pricePool": 30000,
-      "description": "Algorithmia is a prestigious ICPC-style coding competition by DotSlash, Coding Club of IIIT Nagpur. Teams will battle to solve challenging algorithmic problems, testing their teamwork, creativity, and coding speed at a national level during TantraFiesta.",
-      "club": "Dotslash"
-    },
-    {
-      "_id": "9",
-      "name": "Codefiesta",
-      "image": "../assets/events/codefiesta.webp",
-      "pricePool": 20000,
-      "description": "CodeFiesta is the flagship online individual coding contest of DotSlash, IIIT Nagpur. This national-level event challenges participants with 5-6 algorithmic problems in a 2-hour Codeforces contest, testing speed, accuracy, and problem-solving skills.",
-      "club": "Dotslash"
-    },
-    {
-      "_id": "10",
-      "name": "Quant Quest",
-      "image": "../assets/events/quant-quest.webp",
-      "pricePool": 20000,
-      "description": "Quant Quest is a premier competition in algorithmic trading where participants design and execute high-performing trading strategies. Hosted by IIIT Nagpur, the event allows participants to explore the world of quantitative trading using advanced AI tools or by manually coding their strategies.",
-      "club": "Dotslash"
-    },
-    {
-      "_id": "11",
-      "name": "Winter Game Jam",
-      "image": "../assets/events/analytica.webp",
-      "pricePool": 30000,
-      "description": "Game Jam is a game development marathon where participants unleash creativity by designing unique games inspired by Tantrafiesta's theme. The event promotes innovation, storytelling, and fun gameplay while challenging participants to align creativity with technology.",
-      "club": "Dimensions"
-    },
-    {
-      "_id": "12",
       "name": "Render Riot",
       "image": "../assets/events/render-riot.webp",
       "pricePool": 15000,
-      "description": "Render Riot is a 3D animation competition hosted by Dimensions Club at IIIT Nagpur as part of TantraFiesta. It provides a platform for students to showcase creativity, storytelling, and technical skills in 3D modeling and animation.",
-      "club": "Dimensions"
+      "description": "Render Riot I s A 3D Animation Contest That Treats Animation As Expressive Storytelling, Urging Participants To Use Modeling As A Creative Language And Prioritize Artistic Vision, Originality, And Innovation To Turn Imagination Into Motion And Create Emotionally Resonant Work.",
+      "club": "Dimensions",
+      "url": "https://unstop.com/competitions/render-riot-3d-animation-competition-tantrafiesta25-iiitn-1553282"
     },
     {
-      "_id": "13",
+      "_id": "9",
+      "name": "IIITN Game Jam",
+      "image": "../assets/events/game-jam.webp",
+      "pricePool": 30000,
+      "description": "Game Jam I s A Fast-Paced Contest Where Teams Build Theme-Based Playable Games, Judged On Creativity, Storytelling, And Technical Quality To Craft Experiences That Evoke Emotion..",
+      "club": "Dimensions",
+      "url": "https://unstop.com/hackathons/game-jam-tantrafiesta25-iiitn-1553016"
+    },
+    {
+      "_id": "10",
       "name": "Design-a-thon",
       "image": "../assets/events/design.webp",
       "pricePool": 30000,
-      "description": "Design-A-thon is a UI/UX event that challenges participants to create innovative solutions to real-world problems. The event is a design hackathon organized by Strokes, the official design club of IIIT Nagpur. We aim to test participant's creativity, problem-solving skills, and design methodologies in a competitive environment.",
-      "club": "Strokes"
+      "description": "Design-A-Thon Is A UL/UX Competition Where Empathy Leads The Process, Imagination Guides Solutions, Form Bridges Ideas To Users, And Impact Measures Success, Pushing Creative Problem-Solving and Design Method In A competitive Setting ",
+      "club": "Strokes",
+      "Url": "https://unstop.com/hackathons/design-a-thon-tantrafiesta25-iiitn-1555462"
     },
     {
-      "_id": "14",
+      "_id": "11",
       "name": "BrandXperience",
       "image": "../assets/events/brandx.webp",
       "pricePool": 35000,
-      "description": "BrandXperience is Tantra Fiesta's flagship marketing and branding competition, designed to unleash creativity in advertising, storytelling, and brand positioning. It challenges participants to build innovative campaigns that blend strategy and imagination, testing their ability to influence, inspire, and connect with real-world audiences under pressure.",
-      "club": "Strokes"
+      "description": "BrandXperience Is A Fast-Paced Branding Contest Where Teams Craft Strategy-Driven, Theme-Aligned Campaigns That Blend Creativity,Storytelling, And Positioning To Influence And Emotionally Connect With Audiences Under Pressure",
+      "club": "Strokes",
+      "url": "https://unstop.com/competitions/brandxperience-tantrafiesta25-iiitn-1549023"
+    },
+    {
+      "_id": "12",
+      "name": "Digital Time Capsule",
+      "image": "../assets/events/time.webp",
+      "pricePool": 35000,
+      "description": "Digital Time Capsule Is A Creative Media Drive To Capture TantraFiesta'25 Memories, Preserving Selected Submissions In A Capsule To Be Reopened At Next Year's Fest So Everyone Can Relive The Event's Energy And Spirit.",
+      "club": "Strokes",
+      "url": "https://unstop.com/events/digital-time-capsule-tantrafiesta25-iiitn-1552812"
+    },
+    {
+      "_id": "13",
+      "name": "Algorithmia",
+      "image": "../assets/events/algorithmia.webp",
+      "pricePool": 30000,
+      "description": "Algorithmia Is A National ICPC-Style Contest Where Three-Person Teams Solve Challenging Algorithmic Problems Under Time Pressure, Showcasing Creativity, Teamwork, And Coding Skill-The Logical Core Of Progress I n Action.",
+      "club": "Dotslash",
+      "url": "https://unstop.com/hackathons/algorithmia-tantrafiesta25-iiitn-1560187"
+    },
+    {
+      "_id": "14",
+      "name": "Codefiesta",
+      "image": "../assets/events/codefiesta.webp",
+      "pricePool": 20000,
+      "description": "CodeFiesta Is An Online Competitive Programming Contest That Celebrates Problem-Solving As A Creative Craft, Open To Anyone Passionate About Coding, And Emphasizes Speed And Accuracy Under Time Pressure To Help Participants Unlock Their Potential",
+      "club": "Dotslash",
+      "url": "https://unstop.com/competitions/codefiesta-tantrafiesta25-iiitn-1560180"
     },
     {
       "_id": "15",
-      "name": "Women's Only Hackathon",
-      "image": "../assets/events/women's-only.webp",
-      "pricePool": 40000,
-      "description": "WomenInDev 2.0 is a women-only hackathon empowering female developers to create innovative technology-driven solutions to real-world problems. This event promotes diversity and collaboration, offering participants a platform to demonstrate skills in web development, app development, AI/ML, and more, fostering creativity and problem-solving through a competitive yet inclusive environment.",
-      "club": "Central TantraFiesta"
+      "name": "Flash Code",
+      "image": "../assets/events/flash-code.webp",
+      "pricePool": 30000,
+      "description": "Flash Code Is A Unique And Exciting Onsite Codingcompetition Designed To Test Adaptability, Speed, And Creativity Under Pressure. Unlike Traditional Coding Contests, It Features 3 Surprise Mini-Games, Revealed Only On The Event Day. Each Game Is Scored Separately With Its Own Winners, Making The Event Fast-Paced, Unpredictable,And Full Of Opportunities To Shine.Participation Is Individual-Only, Ensuring Fair Competition For All Coders.",
+      "club": "Dotslash",
+      "url": "https://unstop.com/hackathons/flash-code-tantrafiesta25-iiitn-1557229"
     },
     {
       "_id": "16",
-      "name": "Enigma Xplore 3.0",
-      "image": "../assets/events/enigma.webp",
+      "name": "Women's Only Hackathon",
+      "image": "../assets/events/women's-only.webp",
       "pricePool": 40000,
-      "description": "EnigmaXplore is a cyber security competition- Jeopardy Style, for participants to show their skills in various areas of computing and solve real-life security challenges. It's an online live time event, having challenges from different categories like Reverse Engineering, Binary Exploitation, Forensics, Web Exploitation, cryptography etc.",
-      "club": "Central TantraFiesta"
+      "description": "WomenlnDev Celebrates Calm, Resilient, And Courageous Women, Blending Grace With Power And Purpose. It Empowers Female Developers To Solve Real Problems And Explore New Tech Frontiers, Spotlighting Their Often-Overlooked Impact Through Creativity And Innovation.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/womenindev-20-tantrafiesta25-iiitn-1548921"
     },
     {
       "_id": "17",
-      "name": "Circuit Design",
-      "image": "../assets/events/circuit-design.webp",
-      "pricePool": 20000,
-      "description": "The Circuit Design Competition is a thrilling showcase of electrical engineering prowess and innovation. Participants are tasked with creating electronic circuits to address a specific challenge. They must work within defined rules and constraints, utilizing a diverse array of components. Creativity, efficiency, and practicality are highly prized, and expert judges evaluate the designs based on various criteria.",
-      "club": "Central TantraFiesta"
+      "name": "Enigma Xplore 3.0",
+      "image": "../assets/events/enigma.webp",
+      "pricePool": 40000,
+      "description": "Enigma Xplore ls A Cybersecurity Contest Framed As A Journey Into Hidden Mysteries Of Code, Where Participants Use Sharp ProblemSolving, Rapid Brainstorming, And A Passion For Decoding To Turn Secrets Into Protective Defenses And Navigate The Heart Of Digital Enigmas.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/enigmaxplore-tantrafiesta25-iiitn-1548975"
     },
     {
       "_id": "18",
-      "name": "VLSI",
-      "image": "../assets/events/analytica.webp",
-      "pricePool": 25000,
-      "description": "Dark Silicon (or Silicon Umbra) is a national-level VLSI design challenge where participants solve real-world problems using digital logic design, simulation, and FPGA prototyping. The event bridges academic theory and industry-grade practice while exposing students to semiconductor challenges, EDA tools, and real hardware implementation.",
-      "club": "Central TantraFiesta"
+      "name": "Circuit Design",
+      "image": "../assets/events/circuit-design.webp",
+      "pricePool": 20000,
+      "description": "Circuits Aren't Just Wires-They're The Logic That Powers Computation. This Event Challenges Participants To Design And Build Electronic Circuits That Solve Real Problems, Emphasizing Innovation, Precision, And Methodical ProblemSolving Using A Provided Component Kit Under Clear Rules And Creative Constraints.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/ctf-digital-circuit-design-competition-tantrafiesta25-iiitn-1556089"
     },
     {
       "_id": "19",
-      "name": "Atal Tinkering",
-      "image": "../assets/events/atal.webp",
-      "pricePool": 15000,
-      "description": "The Atal Tinkering Lab Competition encourages young innovators to ideate, prototype, and present solutions for real-world challenges. Through offline and online rounds, participants showcase creativity, problem-solving, and impact, aiming to build a smarter, sustainable future driven by innovation, design thinking, and technology.",
-      "club": "Central TantraFiesta"
+      "name": "VLSI",
+      "image": "../assets/events/vlsi.webp",
+      "pricePool": 25000,
+      "description": "The VLSI Design Challenge Tasks Teams With Designing, Simulating, And Optimizing ICs That Power Domains Like AI, loT, 5G, And Biomedical-Balancing Efficiency, Area, Power, And Performance To Solve Real-World Problems And Push Technological Progress.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/competitions/dark-silicon-tantrafiesta25-iiitn-1555976"
     },
     {
       "_id": "20",
-      "name": "Bioinformatics",
-      "image": "../assets/events/bioinfo.webp",
-      "pricePool": 25000,
-      "description": "Code of Gene-iuses is an exciting, interdisciplinary hackathon open to students of all years. The event combines the worlds of biology, coding, and machine learning in a unique attack-and-defense competition format. Participants will face rapid quizzes, hands-on bioinformatics challenges, and machine learning problem statements that push them to think creatively under time pressure.",
-      "club": "Central TantraFiesta"
+      "name": "Atal Tinkering",
+      "image": "../assets/events/atal.webp",
+      "pricePool": 15000,
+      "description": "Atal Tinkering Lab (ATL), Under The Government Of India's Atal Innovation Mission, Nurtures Youug Innovators By Giving School Students Space, Tools, And Mentorship To Turn ldeas Into Prototypes And Solutions For Real-World Challenges, Strengthening Creativity, Problem-Solving, And Decision-Making For National Development.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/competitions/atal-young-innovators-challenge-tantrafiesta25-iiitn-1549035"
     },
     {
       "_id": "21",
-      "name": "Fintech",
-      "image": "../assets/events/finix.webp",
-      "pricePool": 20000,
-      "description": "Finix is a FinTech hackathon that fuses finance with artificial intelligence to spark the future of innovation. It challenges participants to apply AI-driven approaches, encouraging creative and practical thinking to build meaningful solutions in the financial ecosystem.",
-      "club": "Central TantraFiesta"
+      "name": "BioInformatics",
+      "image": "../assets/events/bioinfo.webp",
+      "pricePool": 25000,
+      "description": "Bioinformatics Blends Computing, Math, And Biology To Decode Life's Complexity, Powering Advances Like Gene Editing, Vaccine Design, And Protein Structure Prediction That Drive Modern Medicine. \"Code Of Gene-luses\" Embodies This Spirit With An Attack-And-Defence Hackathon Where Teams Fuse Biology, Coding, And Machine Learning To Solve Data-Driven Challenges Under Pressure..",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/bioinformatics-tantrafiesta25-iiitn-1552660"
     },
     {
       "_id": "22",
-      "name": "Quantum",
-      "image": "../assets/events/quant.webp",
+      "name": "Finance Case study comp",
+      "image": "../assets/events/finix.webp",
       "pricePool": 20000,
-      "description": "The Quantum Computing Hackathon is a national-level competition designed to spark innovation in quantum technologies. It is more than a competition, it's a guided journey into the world of quantum problem-solving. Designed for all levels, it ensures every participant learns the foundations, applies concepts, and builds prototypes that reimagine classical problems through the lens of quantum computing.",
-      "club": "Central TantraFiesta"
+      "description": "FiniX Is A Fintech Hackathon Blending Finance And Al To Explore Modern Financial Innovation, Inviting Participants To Understand Transformation, Build Novel Solutions, And Reimagine The Future Of Money.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/finix-a-fintech-hackathon-tantrafiesta25-iiitn-1555757"
     },
     {
       "_id": "23",
-      "name": "Web 3",
-      "image": "../assets/events/web-3.webp",
-      "pricePool": 25000,
-      "description": "The Blockchain Hackathon at Tantrafiesta aims to ignite a culture of decentralized innovation. Participants will dive into the EVM ecosystem, experiment with smart contracts, and build prototypes that tackle real-world challenges in DeFi, RWA, DeFAI, interoperability, and beyond. This is not just about coding—it’s about reimagining how trust, transparency, and collaboration work in the digital age.",
-      "club": "Central TantraFiesta"
+      "name": "Quantum",
+      "image": "../assets/events/quant.webp",
+      "pricePool": 20000,
+      "description": "The Quantum Computing Hackathon Is A Learning-First, Build-Fast Event That Readies Future Innovators To Apply Quantum Principles To Real-World Problems Across Domains Like Optimization, Materials, Finance, And Security, Reflecting The Field's Profound But Emerging Potential To Reshape Technology And Society.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/quantum-computing-hackathon-tantrafiesta25-iiitn-1556062"
     },
     {
       "_id": "24",
-      "name": "CodeDualz",
-      "image": "../assets/events/codeduelz.webp",
-      "pricePool": 15000,
-      "description": "CodeDualz is a Head-to-Head Competitive Programming Battle where teams battle through multiple knockout rounds, crowning a DSA winner team in Central Asia's largest technical fest TantraFiesta’25, at IIIT Nagpur. The event combines the thrill of DSA problem-solving with the intensity of direct face to face duels with top coding teams from all over the nation.",
-      "club": "Central TantraFiesta"
+      "name": "Web 3",
+      "image": "../assets/events/web-3.webp",
+      "pricePool": 25000,
+      "description": "The Blockchain Hackathon At TantraFiesta, Hosted By IIIT Nagpur And Powered By The Bhaisaaab Community, Invites Builders To Spark Decentralized Innovation By Diving Deep Into The EVM Stack, Experimenting With Smart Contracts, And Rapidly Prototyping Solutions Across DeFi, RWA, DeFAL, Interoperability, And MoreReimagining Trust, Transparency, And Collaboration For The Digital Age.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/web3-hackathon-tantrafiesta25-iiitn-1559546"
     },
     {
       "_id": "25",
+      "name": "CodeDuelz",
+      "image": "../assets/events/codeduelz.webp",
+      "pricePool": 15000,
+      "description": "CodeDualz ls A Knockout, Face-To-Face DSA Duel Where Teams Race Through Rounds To Crown A TantraFiesta'25 Champion On The Main StageEarly Rounds Prize Consistency; Finals Deliver High-Pressure, Live Spectacle.",
+      "club": "Central TantraFiesta",
+      "url": "https://unstop.com/hackathons/codeduelz-tantrafiesta25-iiitn-1558142"
+    },
+    {
+      "_id": "26",
       "name": "Valorant",
       "image": "../assets/events/valorant.webp",
       "pricePool": 5000,
-      "description": "Pheonix Cup is a 5v5 team-based tactical first-person shooter tournament. Teams will compete in a high-skill game that combines classic gunplay with unique hero abilities. Attackers plant the spike, defenders stop them. The first to 13 rounds wins.",
+      "description": "Valorant By Synergy ls A Competitive EGaming Arena Demanding Focus, Strategy, Reflexes, And Teamwork, Urging Squads To Refine Tactics, Chase Rewards, And Lead Teams To Victory-“Lock. Load. Dominate!\"",
       "club": "Synergy",
       "url": "https://unstop.com/events/phoenix-cup-tantrafiesta25-iiitn-1559458"
     },
     {
-      "_id": "26",
+      "_id": "27",
       "name": "BGMI",
       "image": "../assets/events/bgmi.webp",
       "pricePool": 10000,
-      "description": "Combat Carnage is a Battlegrounds Mobile India (BGMI) tournament where up to 100 players compete in a large map survival with looting, shooting, vehicles, and strategic gameplay. The last team/player standing wins.",
+      "description": "Victory Favors A Calm, Coordinated Survivor's Mindset: Patience, Precise Timing, And Steady Nerves Beat Raw AggressionStay Persistent, Make Smart Callouts, And Execute As One To Be The Last Standing.",
       "club": "Synergy",
       "url": "https://unstop.com/events/combat-carnage-tantrafiesta25-iiitn-1559442"
     },
     {
-      "_id": "27",
+      "_id": "28",
       "name": "FreeFire",
       "image": "../assets/events/freeFire.webp",
-      "pricePool": 5000,
-      "description": "Firestorm Rampage is a fast-paced battle royale tournament on Garena Free Fire. Up to 50 players drop onto an island to collect weapons and resources, fighting to be the last player or team that survives. The event is known for its quick matches and strategic use of character abilities.",
-      "club": "Synergy"
+      "pricePool": 8000,
+      "description": "Victory In Free Fire Belongs To Fearless Players Who Thrive On Speed, Unpredictability, And AdrenalineWhether Sneaking Or Charging, Survival Favors Calm Precision And Unwavering Aggression, Granting The \"Freedom To Fire\" And The \"Freedom To Conquer.\"",
+      "club": "Synergy",
+      "url": "https://unstop.com/events/firestorm-rampage-tantrafiesta25-iiitn-1559481"
     },
     {
-      "_id": "28",
+      "_id": "29",
       "name": "Call of Duty",
       "image": "../assets/events/codm.webp",
       "pricePool": 5000,
-      "description": "Critical Ops is a First-Person Shooter tournament that features classic fast-paced COD gunplay, with customizable loadouts, perks, and high-action matches. It is popular in both casual and competitive scenes, known for intense team fights.",
+      "description": "Victory Comes From Coordinated Teamworki Dedication, Clear Callouts, And Supportive Actions Like Cover Fire-So Squads Move, Fight, And Win As A Unified Unit Against Tougher Odds, Not Through Lone Heroics.",
       "club": "Synergy",
       "url": "https://unstop.com/events/critical-ops-tantrafiesta25-iiitn-1559472"
     },
     {
-      "_id": "29",
-      "name": "Clash of Clans",
-      "image": "../assets/events/freeFire.webp",
-      "pricePool": 2000,
-      "description": "A creative workshop on blending tech with art.",
-      "club": "Synergy"
-    },
-    {
       "_id": "30",
-      "name": "Clash Royale",
-      "image": "../assets/events/analytica.webp",
+      "name": "Subway Surfers",
+      "image": "../assets/events/subway.webp",
       "pricePool": 2500,
-      "description": "A creative workshop on blending tech with art.",
-      "club": "Synergy"
+      "description": "Subway Surfers Is An Endless Runner Where Players Dodge Trains And Obstacles, Collect Coins And Power-Ups, And Flee An Inspector And His Dog To Run As Far As Possible. It Stays Engaging With Vibrant Visuals, Smooth Swipe Controls, And Frequent Themed Updates That Add Locations, Events, And Rewards.",
+      "club": "Synergy",
+      "url": "https://unstop.com/events/escape-velocity-tantrafiesta25-iiitn-1559467"
     },
     {
       "_id": "31",
       "name": "Chess",
       "image": "../assets/events/chess.webp",
       "pricePool": 5000,
-      "description": "Knights Legacy is a 1v1 chess tournament. The objective is to checkmate the opponent's king. Online chess has grown massively, and this event features both online prelims and an offline final round.",
+      "description": "Chess ls A Timeless Mental Battleground That Builds Patience, Creativity, And Courage, Humbling Ego While Sharpening Intellect And Showing How Even A Pawn Can Change Destiny-An Open Invitation To Experience The Enduring Game.",
       "club": "Synergy",
       "url": "https://unstop.com/events/knights-legacy-tantrafiesta25-iiitn-1558968"
     }

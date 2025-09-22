@@ -9,12 +9,13 @@ import data from "../assets/json/data.json";
 // Import club images
 import crisprLogo from "../assets/clubsLogo/crispr_logo.webp";
 import elevateLogo from "../assets/clubsLogo/elevate_logo.webp";
-import ioticsLogo from "../assets/clubsLogo/iotics_logo.webp";
-import dotslashLogo from "../assets/clubsLogo/DotSlash_logo.webp";
+import ioticsLogo from "../assets/clubsLogo/iotics.png";
+import dotslashLogo from "../assets/clubsLogo/dotslash.png";
 import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.webp";
 import strokesLogo from "../assets/clubsLogo/strokes_logo.webp";
-import probeLogo from "../assets/clubsLogo/probe_logo.webp";
+import probeLogo from "../assets/clubsLogo/probe.png";
 import tfLogo from "../assets/clubsLogo/tf logo.webp";
+import synergyLogo from "../assets/clubsLogo/synergy.png";
 
 // Import event images
 import claudeSolvathonImg from "../assets/events/claude.webp";
@@ -24,7 +25,6 @@ import robowarsImg from "../assets/events/RoboWars.webp";
 import algorithmiaImg from "../assets/events/algorithmia.webp";
 import codefiestaImg from "../assets/events/codefiesta.webp";
 import quantQuestImg from "../assets/events/quant-quest.webp";
-import winterGameJamImg from "../assets/events/analytica.webp"; // placeholder
 import renderRiotImg from "../assets/events/render-riot.webp";
 import designAThonImg from "../assets/events/design.webp";
 import brandXperienceImg from "../assets/events/brandx.webp";
@@ -45,10 +45,14 @@ import callOfDutyImg from "../assets/events/codm.webp";
 // import clashOfClansImg from "../assets/events/freeFire.webp"; // placeholder
 // import clashRoyaleImg from "../assets/events/analytica.webp"; // placeholder
 import chessImg from "../assets/events/chess.webp";
+import mazex from "../assets/events/mazex.webp";
+import gameJam from "../assets/events/game-jam.webp";
+import subway from "../assets/events/subway.webp";
 
 // Map club names to imported images
 const clubImagesMap = {
   All: tfLogo, // Add a logo for the "All" category if needed
+  "Central TantraFiesta": tfLogo,
   CRISPR: crisprLogo,
   Elevate: elevateLogo,
   IOTICS: ioticsLogo,
@@ -56,22 +60,22 @@ const clubImagesMap = {
   Dimensions: dimensionsLogo,
   Strokes: strokesLogo,
   Probe: probeLogo,
-  "Central TantraFiesta": tfLogo,
-  Synergy: tfLogo,
+  Synergy: synergyLogo,
 };
 // Map event names to imported images
 const eventImagesMap = {
+  "Finance Case study comp": fintechImg,
   "Claude Solvathon": claudeSolvathonImg,
   Analytica: analyticaImg,
   Genathon: analyticaImg, // Using same image as Analytica as per your JSON
   "Bug Bounty Blitz": analyticaImg, // Using same image as Analytica as per your JSON
   "Trail Tracer": trailTracerImg,
-  Micromouse: analyticaImg, // Using same image as Analytica as per your JSON
+  Micromouse: mazex, // Using same image as Analytica as per your JSON
   Robowars: robowarsImg,
   Algorithmia: algorithmiaImg,
   Codefiesta: codefiestaImg,
   "Quant Quest": quantQuestImg,
-  "Winter Game Jam": winterGameJamImg,
+  "IIITN Game Jam": gameJam,
   "Render Riot": renderRiotImg,
   "Design-a-thon": designAThonImg,
   BrandXperience: brandXperienceImg,
@@ -80,18 +84,19 @@ const eventImagesMap = {
   "Circuit Design": circuitDesignImg,
   VLSI: analyticaImg, // Using same image as Analytica as per your JSON
   "Atal Tinkering": atalTinkeringImg,
-  Bioinformatics: bioinformaticsImg,
+  BioInformatics: bioinformaticsImg,
   Fintech: fintechImg,
   Quantum: quantumImg,
   "Web 3": web3Img,
-  CodeDualz: codedualzImg,
+  CodeDuelz: codedualzImg,
   Valorant: valorantImg,
   BGMI: bgmiImg,
-  FreeFire: bgmiImg, // Using same image as BGMI as per your JSON
+  FreeFire: freeFireImg, // Using same image as BGMI as per your JSON
   "Call of Duty": callOfDutyImg,
   "Clash of Clans": analyticaImg, // Using same image as Analytica as per your JSON
   "Clash Royale": analyticaImg, // Using same image as Analytica as per your JSON
   Chess: chessImg,
+  "Subway Surfers": subway,
 };
 
 // Global variables
@@ -142,11 +147,6 @@ function renderClubs() {
   });
 
   clubListContainer.appendChild(clubWrapper);
-
-  // const prevArrow = createArrow("left");
-  // const nextArrow = createArrow("right");
-  // clubListContainer.appendChild(prevArrow);
-  // clubListContainer.appendChild(nextArrow);
 
   if (currentCategory !== "All") {
     setTimeout(() => {
@@ -225,7 +225,7 @@ function renderEvents(category) {
     const imgSrc = eventImagesMap[item.name];
 
     li.innerHTML = `
-      <a href="#" class="flex flex-col lg:flex-row lg:py-9 lg:px-0 text-inherit no-underline overflow-hidden  transition-all duration-300 ease-in-out">
+    <div class="flex flex-col lg:flex-row lg:py-9 lg:px-0 text-inherit no-underline overflow-hidden  transition-all duration-300 ease-in-out">
         <div class=" w-full lg:w-[30rem] lg:flex-shrink-0 aspect-[56/36] relative rounded-lg rounded-tr-none rounded-bl-[3rem] rounded-br-none overflow-hidden">
           <img src="${imgSrc}" alt="${item.name}" 
             class="w-full h-full object-contain object-center transition-transform duration-500 cubic-bezier(0.165, 0.84, 0.44, 1)" />
@@ -245,7 +245,7 @@ function renderEvents(category) {
               ${item.description}
             </p>
           </div>
-          <div class="flex items-center gap-2 py-3 px-6 font-medium relative overflow-hidden cursor-pointer bg-[#c3073f] rounded-md transition-all duration-300 mt-6 hover:bg-[#c3073f]-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#c3073f]/40 group">
+          <div onclick="window.open('${item.url}', '_blank')" class="flex items-center gap-2 py-3 px-6 font-medium relative overflow-hidden cursor-pointer bg-[#c3073f] rounded-md transition-all duration-300 mt-6 hover:bg-[#c3073f]-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#c3073f]/40 group">
             <span class="text-base text-white transition-transform duration-500 group-hover:-translate-x-1">Register</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +256,7 @@ function renderEvents(category) {
             <div class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 group-hover:left-full"></div>
           </div>
         </div>
-      </a>
+        </div>
     `;
     eventListContainer.appendChild(li);
   });

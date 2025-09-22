@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const card = document.createElement("div");
     card.className =
-      "relative w-80 h-[470px] bg-white rounded-2xl overflow-hidden shadow-xl cursor-pointer group transition-all duration-1000";
+      "relative w-80 h-[470px] bg-[#dadada] rounded-2xl overflow-hidden shadow-xl cursor-pointer group transition-all duration-1000";
 
     card.innerHTML = `
       <div class="absolute top-0 left-0 right-0 h-24 bg-gradient-to-br from-[#c3073f] to-[#950740] rounded-bl-[50%] rounded-br-[50%] transform ${

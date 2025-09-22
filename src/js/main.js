@@ -4,7 +4,7 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import background from "../assets/background.webp";
+import background from "../assets/bg4.png";
 import planet from "../assets/planet.webp";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
@@ -179,28 +179,50 @@ scene.add(sunLight);
 ----------------------- */
 const pathPoints = [
   new THREE.Vector3(0.0, 0.0, 2.5),
+  new THREE.Vector3(0.4, -0.2, 2.9),
   new THREE.Vector3(0.8, -0.4, 3.3),
+  new THREE.Vector3(1.2, -0.65, 3.7),
   new THREE.Vector3(1.6, -0.9, 4.0),
+  new THREE.Vector3(2.0, -1.2, 4.3),
   new THREE.Vector3(2.4, -1.5, 4.6),
+  new THREE.Vector3(2.8, -1.8, 4.8),
   new THREE.Vector3(3.2, -2.1, 5.0),
+  new THREE.Vector3(3.6, -2.4, 5.15),
   new THREE.Vector3(4.0, -2.7, 5.3),
+  new THREE.Vector3(4.5, -3.0, 5.3),
   new THREE.Vector3(5.0, -3.3, 5.2),
+  new THREE.Vector3(5.5, -3.6, 5.0),
   new THREE.Vector3(6.0, -3.9, 4.8),
+  new THREE.Vector3(6.4, -4.3, 4.35),
   new THREE.Vector3(6.8, -4.7, 3.9),
+  new THREE.Vector3(7.2, -5.1, 3.25),
   new THREE.Vector3(7.6, -5.5, 2.6),
+  new THREE.Vector3(7.8, -5.7, 2.2),
   new THREE.Vector3(8.0, -5.9, 1.8),
+  new THREE.Vector3(8.25, -6.2, 0.9),
   new THREE.Vector3(8.5, -6.5, 0.0),
+  new THREE.Vector3(8.35, -6.75, -1.0),
   new THREE.Vector3(8.2, -7.0, -2.0),
+  new THREE.Vector3(7.85, -7.2, -3.0),
   new THREE.Vector3(7.5, -7.4, -4.0),
+  new THREE.Vector3(6.75, -7.7, -5.25),
   new THREE.Vector3(6.0, -8.0, -6.5),
+  new THREE.Vector3(5.1, -8.15, -7.25),
   new THREE.Vector3(4.2, -8.3, -8.0),
+  new THREE.Vector3(3.1, -8.5, -8.4),
   new THREE.Vector3(2.0, -8.7, -8.8),
+  new THREE.Vector3(1.0, -8.85, -8.9),
   new THREE.Vector3(0.0, -9.0, -9.0),
+  new THREE.Vector3(-1.0, -8.165, -8.0),
   new THREE.Vector3(-2.0, -7.33, -7.0),
+  new THREE.Vector3(-3.0, -6.5, -6.0),
   new THREE.Vector3(-4.0, -5.67, -5.0),
+  new THREE.Vector3(-5.0, -4.83, -4.0),
   new THREE.Vector3(-6.0, -4.0, -3.0),
+  new THREE.Vector3(-5.75, -3.6, -2.25),
   new THREE.Vector3(-5.5, -3.2, -1.5),
 ];
+
 
 
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
@@ -216,7 +238,7 @@ const lenis = new Lenis({
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smoothWheel: true,
   smoothTouch: true,
-  wheelMultiplier: 0.35,
+  wheelMultiplier: 0.5,
   touchMultiplier: 0.01,
   infinite: false,
 });
@@ -234,7 +256,7 @@ lenis.on("scroll", ({ scroll }) => {
 ----------------------- */
 function updateProgress() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.08 : 0.2;
+  const lerpSpeed = isMobile ? 0.08 : 0.35;
   scrollProgress = gsap.utils.interpolate(
     scrollProgress,
     targetProgress,
@@ -274,6 +296,7 @@ const clock = new THREE.Clock();
 let lastTime = 0;
 const mobileFPS = 30; // cap FPS for mobile
 const mobileInterval = 1000 / mobileFPS;
+
 
 function animate(time) {
   requestAnimationFrame(animate);
