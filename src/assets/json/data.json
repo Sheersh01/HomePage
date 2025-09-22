@@ -59,7 +59,7 @@
       "_id": "1",
       "name": "Claude Solvathon",
       "image": "../assets/events/claude.webp",
-      "pricePool": 30000,
+      "pricePool": 35000,
       "description": "Solvathon Is A Three-Stage Al Challenge By TantraFiesta That Simulates Real-World, Time-Bound Problem-Solving To Bridge Theory And Practice,Assessing Teamwork, Creativity, And TechnicalSkills Like Data Wrangling And Open-Ended Problem-Solving.",
       "club": "CRISPR",
       "url": "https://unstop.com/hackathons/claude-solvathon-tantrafiesta25-iiitn-1555451"
@@ -68,7 +68,7 @@
       "_id": "2",
       "name": "Analytica",
       "image": "../assets/events/analytica.webp",
-      "pricePool": 35000,
+      "pricePool": 30000,
       "description": "Analytica Is Tantra Fiesta's ML/DS Hackathon That Showcases How Computer Science Predicts And Shapes The Future (E.G., Personalized Recommendations), Pushing Participants To Apply Skills Creatively Under Time Limits While Strengthening Problem-S.",
       "club": "CRISPR",
       "url": "https://unstop.com/hackathons/analytica-tantrafiesta25-iiitn-1553390"
@@ -131,7 +131,7 @@
       "_id": "9",
       "name": "IIITN Game Jam",
       "image": "../assets/events/game-jam.webp",
-      "pricePool": 30000,
+      "pricePool": 25000,
       "description": "Game Jam I s A Fast-Paced Contest Where Teams Build Theme-Based Playable Games, Judged On Creativity, Storytelling, And Technical Quality To Craft Experiences That Evoke Emotion..",
       "club": "Dimensions",
       "url": "https://unstop.com/hackathons/game-jam-tantrafiesta25-iiitn-1553016"
@@ -140,7 +140,7 @@
       "_id": "10",
       "name": "Design-a-thon",
       "image": "../assets/events/design.webp",
-      "pricePool": 30000,
+      "pricePool": 35000,
       "description": "Design-A-Thon Is A UL/UX Competition Where Empathy Leads The Process, Imagination Guides Solutions, Form Bridges Ideas To Users, And Impact Measures Success, Pushing Creative Problem-Solving and Design Method In A competitive Setting ",
       "club": "Strokes",
       "Url": "https://unstop.com/hackathons/design-a-thon-tantrafiesta25-iiitn-1555462"
@@ -149,7 +149,7 @@
       "_id": "11",
       "name": "BrandXperience",
       "image": "../assets/events/brandx.webp",
-      "pricePool": 35000,
+      "pricePool": 30000,
       "description": "BrandXperience Is A Fast-Paced Branding Contest Where Teams Craft Strategy-Driven, Theme-Aligned Campaigns That Blend Creativity,Storytelling, And Positioning To Influence And Emotionally Connect With Audiences Under Pressure",
       "club": "Strokes",
       "url": "https://unstop.com/competitions/brandxperience-tantrafiesta25-iiitn-1549023"
@@ -176,7 +176,7 @@
       "_id": "14",
       "name": "Codefiesta",
       "image": "../assets/events/codefiesta.webp",
-      "pricePool": 20000,
+      "pricePool": 10000,
       "description": "CodeFiesta Is An Online Competitive Programming Contest That Celebrates Problem-Solving As A Creative Craft, Open To Anyone Passionate About Coding, And Emphasizes Speed And Accuracy Under Time Pressure To Help Participants Unlock Their Potential",
       "club": "Dotslash",
       "url": "https://unstop.com/competitions/codefiesta-tantrafiesta25-iiitn-1560180"

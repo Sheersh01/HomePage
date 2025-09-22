@@ -31,7 +31,7 @@ import brandXperienceImg from "../assets/events/brandx.webp";
 import womenOnlyHackathonImg from "../assets/events/women's-only.webp";
 import enigmaXploreImg from "../assets/events/enigma.webp";
 import circuitDesignImg from "../assets/events/circuit-design.webp";
-// import vlsiImg from "../assets/events/analytica.webp"; // placeholder
+import vlsiImg from "../assets/events/vlsi.webp"; 
 import atalTinkeringImg from "../assets/events/atal.webp";
 import bioinformaticsImg from "../assets/events/bioinfo.webp";
 import fintechImg from "../assets/events/finix.webp";
@@ -48,6 +48,10 @@ import chessImg from "../assets/events/chess.webp";
 import mazex from "../assets/events/mazex.webp";
 import gameJam from "../assets/events/game-jam.webp";
 import subway from "../assets/events/subway.webp";
+import lastImg from "../assets/events/LMS.webp";
+import flashImg from "../assets/events/FlashCode.webp";
+import digitalImg from "../assets/events/DTC.webp";
+import genathonImg from "../assets/events/Genathon.webp";
 
 // Map club names to imported images
 const clubImagesMap = {
@@ -82,7 +86,7 @@ const eventImagesMap = {
   "Women's Only Hackathon": womenOnlyHackathonImg,
   "Enigma Xplore 3.0": enigmaXploreImg,
   "Circuit Design": circuitDesignImg,
-  VLSI: analyticaImg, // Using same image as Analytica as per your JSON
+  VLSI: vlsiImg, // Using same image as Analytica as per your JSON
   "Atal Tinkering": atalTinkeringImg,
   BioInformatics: bioinformaticsImg,
   Fintech: fintechImg,
@@ -97,6 +101,10 @@ const eventImagesMap = {
   "Clash Royale": analyticaImg, // Using same image as Analytica as per your JSON
   Chess: chessImg,
   "Subway Surfers": subway,
+  "Last Man Standing": lastImg,
+  "Flash Code": flashImg,
+  "Digital Time Capsule": digitalImg,
+  "Genathon":genathonImg
 };
 
 // Global variables
