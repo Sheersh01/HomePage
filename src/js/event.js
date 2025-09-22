@@ -42,8 +42,6 @@ import valorantImg from "../assets/events/valorant.webp";
 import bgmiImg from "../assets/events/bgmi.webp";
 import freeFireImg from "../assets/events/freeFire.webp"; // now matches JSON
 import callOfDutyImg from "../assets/events/codm.webp";
-// import clashOfClansImg from "../assets/events/freeFire.webp"; // placeholder
-// import clashRoyaleImg from "../assets/events/analytica.webp"; // placeholder
 import chessImg from "../assets/events/chess.webp";
 import mazex from "../assets/events/mazex.webp";
 import gameJam from "../assets/events/game-jam.webp";
@@ -97,8 +95,6 @@ const eventImagesMap = {
   BGMI: bgmiImg,
   FreeFire: freeFireImg, // Using same image as BGMI as per your JSON
   "Call of Duty": callOfDutyImg,
-  "Clash of Clans": analyticaImg, // Using same image as Analytica as per your JSON
-  "Clash Royale": analyticaImg, // Using same image as Analytica as per your JSON
   Chess: chessImg,
   "Subway Surfers": subway,
   "Last Man Standing": lastImg,
