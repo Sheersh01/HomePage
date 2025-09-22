@@ -240,7 +240,7 @@ function renderEvents(category) {
               ${item.club}
             </div>
             <div class="text-white text-sm lg:text-base font-medium">
-              Price Pool: ₹${item.pricePool}
+              Prize Pool: ₹${item.pricePool}
             </div>
             <h2 class="text-[40px] lg:text-[50px] font-bold text-white mt-0">
               ${item.name}

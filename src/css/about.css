@@ -238,11 +238,11 @@
         .item__details {
             position: relative;
             z-index: 2;
-            padding: 6px;
+            padding: 2px 8px;
             background: #fff;
             text-transform: capitalize;
             letter-spacing: 1px;
-            color: #828282;
+            color: #c3073f;
         }
 
         .item__details:before {
@@ -250,5 +250,5 @@
             font-weight: bold;
             font-size: 1.1rem;
             padding-right: 0.5em;
-            color: #444;
+            color: #c3073f;
         }

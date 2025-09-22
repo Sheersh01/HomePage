@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2 class="text-2xl font-bold text-[#2c2c2c] mb-2 tracking-wide">${
           speaker.name
         }</h2>
-        <p class="text-sm text-gray-600 mb-5 leading-relaxed">${
+        <p class="text-sm text-gray-600 leading-relaxed">${
           speaker.title
         }</p>
         <h3 class="text-lg font-bold text-[#2c2c2c] mb-2 self-start">Achievements:</h3>
