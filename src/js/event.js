@@ -9,13 +9,13 @@ import data from "../assets/json/data.json";
 // Import club images
 import crisprLogo from "../assets/clubsLogo/crispr_logo.webp";
 import elevateLogo from "../assets/clubsLogo/elevate_logo.webp";
-import ioticsLogo from "../assets/clubsLogo/iotics.png";
-import dotslashLogo from "../assets/clubsLogo/dotslash.png";
+import ioticsLogo from "../assets/clubsLogo/iotics.webp";
+import dotslashLogo from "../assets/clubsLogo/dotslash.webp";
 import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.webp";
 import strokesLogo from "../assets/clubsLogo/strokes_logo.webp";
-import probeLogo from "../assets/clubsLogo/probe.png";
+import probeLogo from "../assets/clubsLogo/probe.webp";
 import tfLogo from "../assets/clubsLogo/tf logo.webp";
-import synergyLogo from "../assets/clubsLogo/synergy.png";
+import synergyLogo from "../assets/clubsLogo/synergy.webp";
 
 // Import event images
 import claudeSolvathonImg from "../assets/events/claude.webp";

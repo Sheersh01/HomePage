@@ -18,39 +18,39 @@
   "clubs": [
     {
       "club_name": "Central TantraFiesta",
-      "club_image": "../assets/clubsLogo/tf logo.png"
+      "club_image": "../assets/clubsLogo/tf logo.webp"
     },
     {
       "club_name": "CRISPR",
-      "club_image": "../assets/clubsLogo/crispr_logo.png"
+      "club_image": "../assets/clubsLogo/crispr_logo.webp"
     },
     {
       "club_name": "Elevate",
-      "club_image": "../assets/clubsLogo/elevate_logo.png"
+      "club_image": "../assets/clubsLogo/elevate_logo.webp"
     },
     {
       "club_name": "IOTICS",
-      "club_image": "../assets/clubsLogo/iotics.png"
+      "club_image": "../assets/clubsLogo/iotics.webp"
     },
     {
       "club_name": "Dotslash",
-      "club_image": "../assets/clubsLogo/dotslash.png"
+      "club_image": "../assets/clubsLogo/dotslash.webp"
     },
     {
       "club_name": "Dimensions",
-      "club_image": "../assets/clubsLogo/dimensions_logo.png"
+      "club_image": "../assets/clubsLogo/dimensions_logo.webp"
     },
     {
       "club_name": "Strokes",
-      "club_image": "../assets/clubsLogo/strokes_logo.png"
+      "club_image": "../assets/clubsLogo/strokes_logo.webp"
     },
     {
       "club_name": "Probe",
-      "club_image": "../assets/clubsLogo/probe.png"
+      "club_image": "../assets/clubsLogo/probe.webp"
     },
     {
       "club_name": "Synergy",
-      "club_image": "../assets/clubsLogo/synergy.png"
+      "club_image": "../assets/clubsLogo/synergy.webp"
     }
   ],
 

@@ -238,9 +238,9 @@
         .item__details {
             position: relative;
             z-index: 2;
-            padding: 15px;
+            padding: 6px;
             background: #fff;
-            text-transform: lowercase;
+            text-transform: capitalize;
             letter-spacing: 1px;
             color: #828282;
         }
