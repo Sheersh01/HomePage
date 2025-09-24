@@ -82,7 +82,7 @@ const eventImagesMap = {
   "Design-a-thon": designAThonImg,
   BrandXperience: brandXperienceImg,
   "Women's Only Hackathon": womenOnlyHackathonImg,
-  "Enigma Xplore 3.0": enigmaXploreImg,
+  "EnigmaXplore 3.0": enigmaXploreImg,
   "Circuit Design": circuitDesignImg,
   VLSI: vlsiImg, // Using same image as Analytica as per your JSON
   "Atal Tinkering": atalTinkeringImg,

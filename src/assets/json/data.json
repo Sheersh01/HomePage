@@ -201,10 +201,10 @@
     },
     {
       "_id": "17",
-      "name": "Enigma Xplore 3.0",
+      "name": "EnigmaXplore 3.0",
       "image": "../assets/events/enigma.webp",
       "pricePool": 40000,
-      "description": "Enigma Xplore ls A Cybersecurity Contest Framed As A Journey Into Hidden Mysteries Of Code, Where Participants Use Sharp ProblemSolving, Rapid Brainstorming, And A Passion For Decoding To Turn Secrets Into Protective Defenses And Navigate The Heart Of Digital Enigmas.",
+      "description": "EnigmaXplore will be a Capture The Flag - Jeopardy Style, for participants to show their skills in various areas of computing and solve real-life security challenges.",
       "club": "Central TantraFiesta",
       "url": "https://unstop.com/hackathons/enigmaxplore-tantrafiesta25-iiitn-1548975"
     },
@@ -213,7 +213,7 @@
       "name": "Circuit Design",
       "image": "../assets/events/circuit-design.webp",
       "pricePool": 20000,
-      "description": "Circuits Aren't Just Wires-They're The Logic That Powers Computation. This Event Challenges Participants To Design And Build Electronic Circuits That Solve Real Problems, Emphasizing Innovation, Precision, And Methodical Problem Solving Using A Provided Component Kit Under Clear Rules And Creative Constraints.",
+      "description": "Circuits Aren't Just Wires-They're The Logic That Powers Computation. This Event Challenges Participants To Design And Build Electronic Circuits That Solve Real Problems, Emphasizing Innovation, Precision, And Methodical Problem Solving Using A Simulation Software Under Clear Rules And Creative Constraints.",
       "club": "Central TantraFiesta",
       "url": "https://unstop.com/hackathons/ctf-digital-circuit-design-competition-tantrafiesta25-iiitn-1556089"
     },
