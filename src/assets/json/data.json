@@ -237,10 +237,10 @@
     },
     {
       "_id": "21",
-      "name": "BioInformatics",
+      "name": "Bioinformatics - ML Challenge",
       "image": "../assets/events/bioinfo.webp",
       "pricePool": 25000,
-      "description": "Bioinformatics Blends Computing, Math, And Biology To Decode Life's Complexity, Powering Advances Like Gene Editing, Vaccine Design, And Protein Structure Prediction That Drive Modern Medicine. \"Code Of Gene-luses\" Embodies This Spirit With An Attack-And-Defence Hackathon Where Teams Fuse Biology, Coding, And Machine Learning To Solve Data-Driven Challenges Under Pressure..",
+      "description": "A one-of-its-kind Attack & Defense Battle. Don't just solve the problems, also create your own challenges for your peers, but never forget to defend your castle with the incoming ones. With a live leaderboard, points, penalties, and real-world ML problems like gene clustering, protein classification, and cancer prediction, the battle fuses strategy with innovation in ML...",
       "club": "Central TantraFiesta",
       "url": "https://unstop.com/hackathons/bioinformatics-tantrafiesta25-iiitn-1552660"
     },

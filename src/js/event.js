@@ -86,7 +86,7 @@ const eventImagesMap = {
   "Circuit Design": circuitDesignImg,
   VLSI: vlsiImg, // Using same image as Analytica as per your JSON
   "Atal Tinkering": atalTinkeringImg,
-  BioInformatics: bioinformaticsImg,
+  "Bioinformatics - ML Challenge": bioinformaticsImg,
   Fintech: fintechImg,
   Quantum: quantumImg,
   "Web 3": web3Img,
