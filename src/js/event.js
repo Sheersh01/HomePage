@@ -29,7 +29,7 @@ import renderRiotImg from "../assets/events/render-riot.webp";
 import designAThonImg from "../assets/events/design.webp";
 import brandXperienceImg from "../assets/events/brandx.webp";
 import womenOnlyHackathonImg from "../assets/events/women's-only.webp";
-import enigmaXploreImg from "../assets/events/enigma.webp";
+import enigmaXploreImg from "../assets/events/enigma.jpg";
 import circuitDesignImg from "../assets/events/circuit-design.webp";
 import vlsiImg from "../assets/events/vlsi.webp"; 
 import atalTinkeringImg from "../assets/events/atal.webp";

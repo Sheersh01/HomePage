@@ -204,51 +204,114 @@
         </section>
 
         <!-- How to Reach Section -->
-       <section
+      <section
   class="container mx-auto px-6 py-10 flex flex-col items-center"
   style="background-color: #83153A;"
 >
-  <h2 class="text-3xl md:text-4xl font-bold mb-10 glow-on-hover text-center">
-    How to Reach IIIT Nagpur
+  <h2 class="text-3xl md:text-4xl font-bold mb-10 glow-on-hover text-center text-white">
+    ⭐ How to Reach IIIT Nagpur
   </h2>
 
-  <!-- Grid for 2 on top, 1 centered below -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-    <!-- By Air -->
-    <article
-      class="bg-black p-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 
-             hover:scale-105 transition-transform duration-300 text-center 
-             w-full max-w-md"
-    >
-      <h3 class="text-2xl font-bold mb-3 glow-on-hover">✈ By Air</h3>
-      <p class="text-lg">
-        Dr. Babasaheb Ambedkar International Airport, Nagpur – 19 km
-      </p>
-    </article>
+  <!-- Grid for travel options -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
 
     <!-- By Train -->
     <article
       class="bg-black p-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 
-             hover:scale-105 transition-transform duration-300 text-center 
-             w-full max-w-md"
+             hover:scale-105 transition-transform duration-300 text-left w-full max-w-xl mx-auto"
     >
-      <h3 class="text-2xl font-bold mb-3 glow-on-hover">
-        <i class="ri-train-line"></i> By Train
-      </h3>
-      <p class="text-lg">Nagpur Junction Railway Station – 26 km</p>
+      <h3 class="text-2xl font-bold mb-3 glow-on-hover text-center">🚉 From Railway Station</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li>Take a cab to Sitabuldi (Panchsheel Square) and board a bus to IIIT. (Bus timings at end)</li>
+        <li>Take the Blue Line Metro to Sitabuldi or South Airport Metro Station and catch a bus from there. (Metro map at end)</li>
+        <li>From Sitabuldi, you can also take a bus towards Butibori and get down near IIIT Nagpur highway → then take an E-Rickshaw.</li>
+        <li>You can also take a CAB directly to IIIT Nagpur.</li>
+        <li>Book an Auto.</li>
+      </ul>
     </article>
 
-    <!-- By Road (centered on new row) -->
+    <!-- By Air -->
     <article
       class="bg-black p-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 
-             hover:scale-105 transition-transform duration-300 text-center 
-             w-full  md:col-span-2 mx-auto"
+             hover:scale-105 transition-transform duration-300 text-left w-full max-w-xl mx-auto"
     >
-      <h3 class="text-2xl font-bold mb-3 glow-on-hover">🚌 By Road</h3>
-      <p class="text-lg">
-        Nagpur Bus Stand (Ganeshpeth) – 27 km
-      </p>
+      <h3 class="text-2xl font-bold mb-3 glow-on-hover text-center">✈️ From Airport</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li>Take a bus to Butibori from South Airport Metro Station / Airport → then take an E-Rickshaw from the highway.</li>
+        <li>Take a CAB directly to IIIT Nagpur.</li>
+        <li>Book an Auto.</li>
+      </ul>
     </article>
+
+    <!-- By Bus -->
+    <article
+      class="bg-black p-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 
+             hover:scale-105 transition-transform duration-300 text-left w-full max-w-xl mx-auto"
+    >
+      <h3 class="text-2xl font-bold mb-3 glow-on-hover text-center">🚌 From Sitabuldi Bus Stop</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li>From Sitabuldi (Panchsheel Square), board a bus to IIIT. (Bus timings at end)</li>
+        <li>Take a bus towards Butibori and get down near IIIT Nagpur highway → then take an E-Rickshaw.</li>
+        <li>Take a CAB directly to IIIT Nagpur.</li>
+        <li>Book an Auto.</li>
+      </ul>
+    </article>
+
+    <!-- From Butibori -->
+    <article
+      class="bg-black p-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 
+             hover:scale-105 transition-transform duration-300 text-left w-full max-w-xl mx-auto"
+    >
+      <h3 class="text-2xl font-bold mb-3 glow-on-hover text-center">🛺 From Butibori</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li>Directly take an E-Rickshaw to IIIT Nagpur.</li>
+        <li>Board a bus from Butibori towards Nagpur, get down near IIIT highway and take an E-Rickshaw.</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <!-- Bus Timings -->
+  <div
+    class="bg-black p-6 mt-10 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 w-full max-w-4xl"
+  >
+    <h3 class="text-2xl font-bold mb-5 glow-on-hover text-center">🕧 Bus Timings (Sitabuldi → IIIT Nagpur)</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-lg text-center border border-gray-700">
+        <thead class="bg-rose-900 text-white">
+          <tr>
+            <th class="p-2 border border-gray-700">Serial No.</th>
+            <th class="p-2 border border-gray-700">Nagpur</th>
+            <th class="p-2 border border-gray-700">IIIT Nagpur</th>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <tr><td class="border p-2">1</td><td class="border p-2">6:55 AM</td><td class="border p-2">7:55 AM</td></tr>
+          <tr><td class="border p-2">2</td><td class="border p-2">8:10 AM</td><td class="border p-2">9:10 AM</td></tr>
+          <tr><td class="border p-2">3</td><td class="border p-2">9:25 AM</td><td class="border p-2">10:25 AM</td></tr>
+          <tr><td class="border p-2">4</td><td class="border p-2">10:30 AM</td><td class="border p-2">11:30 AM</td></tr>
+          <tr><td class="border p-2">5</td><td class="border p-2">11:10 AM</td><td class="border p-2">12:10 PM</td></tr>
+          <tr><td class="border p-2">6</td><td class="border p-2">1:10 PM</td><td class="border p-2">2:10 PM</td></tr>
+          <tr><td class="border p-2">7</td><td class="border p-2">1:25 PM</td><td class="border p-2">2:25 PM</td></tr>
+          <tr><td class="border p-2">8</td><td class="border p-2">2:15 PM</td><td class="border p-2">3:15 PM</td></tr>
+          <tr><td class="border p-2">9</td><td class="border p-2">3:40 PM</td><td class="border p-2">4:40 PM</td></tr>
+          <tr><td class="border p-2">10</td><td class="border p-2">4:45 PM</td><td class="border p-2">5:45 PM</td></tr>
+          <tr><td class="border p-2">11</td><td class="border p-2">5:05 PM</td><td class="border p-2">6:05 PM</td></tr>
+          <tr><td class="border p-2">12</td><td class="border p-2">7:15 PM</td><td class="border p-2">8:15 PM</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Auto Contact -->
+  <div
+    class="bg-black p-6 mt-6 rounded-2xl border border-rose-900 shadow-lg shadow-rose-900/50 w-full max-w-xl text-center"
+  >
+    <h3 class="text-2xl font-bold mb-3 glow-on-hover">🚖 Auto Contact</h3>
+    <p class="text-lg text-white">
+      Mahesh – <span class="font-bold">9372635739</span><br>
+      (Approx. Rs. 500 – Rs. 600 from Nagpur to IIIT)
+    </p>
   </div>
 </section>
 
