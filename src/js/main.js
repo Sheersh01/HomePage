@@ -10,8 +10,6 @@ import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import GUI from "lil-gui";
 
-
-
 /* -----------------------
    Godrays Shader
 ----------------------- */
@@ -96,12 +94,6 @@ renderer.toneMappingExposure = 2.0;
 renderer.outputEncoding = THREE.sRGBEncoding;
 
 /* -----------------------
-   Controls
------------------------ */
-// const controls = new OrbitControls(camera, renderer.domElement);
-// controls.enableDamping = true;
-
-/* -----------------------
    Postprocessing
 ----------------------- */
 const composer = new EffectComposer(renderer);
@@ -179,51 +171,21 @@ scene.add(sunLight);
 ----------------------- */
 const pathPoints = [
   new THREE.Vector3(0.0, 0.0, 2.5),
-  new THREE.Vector3(0.4, -0.2, 2.9),
   new THREE.Vector3(0.8, -0.4, 3.3),
-  new THREE.Vector3(1.2, -0.65, 3.7),
-  new THREE.Vector3(1.6, -0.9, 4.0),
   new THREE.Vector3(2.0, -1.2, 4.3),
-  new THREE.Vector3(2.4, -1.5, 4.6),
-  new THREE.Vector3(2.8, -1.8, 4.8),
   new THREE.Vector3(3.2, -2.1, 5.0),
-  new THREE.Vector3(3.6, -2.4, 5.15),
-  new THREE.Vector3(4.0, -2.7, 5.3),
   new THREE.Vector3(4.5, -3.0, 5.3),
-  new THREE.Vector3(5.0, -3.3, 5.2),
-  new THREE.Vector3(5.5, -3.6, 5.0),
   new THREE.Vector3(6.0, -3.9, 4.8),
-  new THREE.Vector3(6.4, -4.3, 4.35),
-  new THREE.Vector3(6.8, -4.7, 3.9),
   new THREE.Vector3(7.2, -5.1, 3.25),
-  new THREE.Vector3(7.6, -5.5, 2.6),
-  new THREE.Vector3(7.8, -5.7, 2.2),
-  new THREE.Vector3(8.0, -5.9, 1.8),
-  new THREE.Vector3(8.25, -6.2, 0.9),
   new THREE.Vector3(8.5, -6.5, 0.0),
-  new THREE.Vector3(8.35, -6.75, -1.0),
-  new THREE.Vector3(8.2, -7.0, -2.0),
   new THREE.Vector3(7.85, -7.2, -3.0),
-  new THREE.Vector3(7.5, -7.4, -4.0),
-  new THREE.Vector3(6.75, -7.7, -5.25),
   new THREE.Vector3(6.0, -8.0, -6.5),
-  new THREE.Vector3(5.1, -8.15, -7.25),
-  new THREE.Vector3(4.2, -8.3, -8.0),
   new THREE.Vector3(3.1, -8.5, -8.4),
-  new THREE.Vector3(2.0, -8.7, -8.8),
-  new THREE.Vector3(1.0, -8.85, -8.9),
   new THREE.Vector3(0.0, -9.0, -9.0),
-  new THREE.Vector3(-1.0, -8.165, -8.0),
-  new THREE.Vector3(-2.0, -7.33, -7.0),
   new THREE.Vector3(-3.0, -6.5, -6.0),
-  new THREE.Vector3(-4.0, -5.67, -5.0),
   new THREE.Vector3(-5.0, -4.83, -4.0),
-  new THREE.Vector3(-6.0, -4.0, -3.0),
-  new THREE.Vector3(-5.75, -3.6, -2.25),
   new THREE.Vector3(-5.5, -3.2, -1.5),
 ];
-
-
 
 const arcCurve = new THREE.CatmullRomCurve3(pathPoints);
 
@@ -254,16 +216,6 @@ lenis.on("scroll", ({ scroll }) => {
 /* -----------------------
    Helpers & Interpolation
 ----------------------- */
-function updateProgress() {
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const lerpSpeed = isMobile ? 0.08 : 0.35;
-  scrollProgress = gsap.utils.interpolate(
-    scrollProgress,
-    targetProgress,
-    lerpSpeed
-  );
-}
-
 function getArcPoint(t) {
   return arcCurve.getPoint(t);
 }
@@ -294,9 +246,8 @@ if (isDesktop) {
 ----------------------- */
 const clock = new THREE.Clock();
 let lastTime = 0;
-const mobileFPS = 30; // cap FPS for mobile
+const mobileFPS = 30;
 const mobileInterval = 1000 / mobileFPS;
-
 
 function animate(time) {
   requestAnimationFrame(animate);
@@ -308,15 +259,20 @@ function animate(time) {
   lenis.raf(time);
 
   const delta = clock.getDelta();
-  innerSphere.rotation.y += delta * 0.01;
-  bgSphere.rotation.y += delta * 0.005;
 
-  updateProgress();
+  // Frame-rate independent scroll progress
+  const scrollLerpSpeed = isMobile ? 4 : 12;
+  scrollProgress += (targetProgress - scrollProgress) * (1 - Math.exp(-scrollLerpSpeed * delta));
+
+  innerSphere.rotation.y += delta * 0.03;
+  bgSphere.rotation.y += delta * 0.005;
 
   const arcPos = getArcPoint(scrollProgress);
 
   if (isDesktop) {
-    smoothedMouse.lerp(mouse, 0.05);
+    const mouseLerpSpeed = 10;
+    smoothedMouse.lerp(mouse, 1 - Math.exp(-mouseLerpSpeed * delta));
+
     camera.position.set(
       arcPos.x - smoothedMouse.x * parallaxStrength,
       arcPos.y + smoothedMouse.y * parallaxStrength,
@@ -337,7 +293,6 @@ function animate(time) {
   composer.render();
 }
 
-
 requestAnimationFrame(animate);
 
 /* -----------------------
@@ -352,25 +307,3 @@ function onResize() {
 }
 
 window.addEventListener("resize", onResize);
-
-/* -----------------------
-   Optional GUI (commented out by default)
------------------------ */
-// const gui = new GUI();
-// const bloomFolder = gui.addFolder("Bloom");
-// bloomFolder.add(bloomPass, "strength", 0, 3, 0.01).name("Strength");
-// bloomFolder.add(bloomPass, "radius", 0, 1, 0.01).name("Radius");
-// bloomFolder.add(bloomPass, "threshold", 0, 1, 0.01).name("Threshold");
-
-// const godraysFolder = gui.addFolder("Godrays");
-// godraysFolder.add(godraysPass.uniforms.exposure, "value", 0, 1, 0.01).name("Exposure");
-// godraysFolder.add(godraysPass.uniforms.decay, "value", 0.8, 1, 0.001).name("Decay");
-// godraysFolder.add(godraysPass.uniforms.density, "value", 0, 2, 0.01).name("Density");
-// godraysFolder.add(godraysPass.uniforms.weight, "value", 0, 1, 0.01).name("Weight");
-// godraysFolder.add(godraysPass.uniforms.sunRadius, "value", 0, 1, 0.01).name("Sun Radius");
-
-// const lightFolder = gui.addFolder("Sun Light");
-// lightFolder.add(sunLight, "intensity", 0, 10, 0.1).name("Intensity");
-// lightFolder.addColor({ color: sunLight.color.getHex() }, "color")
-//   .onChange((val) => sunLight.color.set(val))
-//   .name("Color");
