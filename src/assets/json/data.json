@@ -148,7 +148,7 @@
     {
       "_id": "11",
       "name": "BrandXperience",
-      "image": "../assets/events/brandx.webp",
+      "image": "../assets/events/brandx.png",
       "pricePool": 30000,
       "description": "BrandXperience Is A Fast-Paced Branding Contest Where Teams Craft Strategy-Driven, Theme-Aligned Campaigns That Blend Creativity,Storytelling, And Positioning To Influence And Emotionally Connect With Audiences Under Pressure",
       "club": "Strokes",
@@ -333,6 +333,14 @@
       "description": "Chess ls A Timeless Mental Battleground That Builds Patience, Creativity, And Courage, Humbling Ego While Sharpening Intellect And Showing How Even A Pawn Can Change Destiny-An Open Invitation To Experience The Enduring Game.",
       "club": "Synergy",
       "url": "https://unstop.com/events/knights-legacy-tantrafiesta25-iiitn-1558968"
+    },{
+      "_id": "32",
+      "name": "BrandXperience",
+      "image": "../assets/events/brandx.png",
+      "pricePool": 30000,
+      "description": "BrandXperience Is A Fast-Paced Branding Contest Where Teams Craft Strategy-Driven, Theme-Aligned Campaigns That Blend Creativity,Storytelling, And Positioning To Influence And Emotionally Connect With Audiences Under Pressure",
+      "club": "Probe",
+      "url": "https://unstop.com/competitions/brandxperience-tantrafiesta25-iiitn-1549023"
     }
   ]
 }

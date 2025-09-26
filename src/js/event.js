@@ -27,7 +27,7 @@ import codefiestaImg from "../assets/events/codefiesta.webp";
 import quantQuestImg from "../assets/events/quant-quest.webp";
 import renderRiotImg from "../assets/events/render-riot.webp";
 import designAThonImg from "../assets/events/design.webp";
-import brandXperienceImg from "../assets/events/brandx.webp";
+import brandXperienceImg from "../assets/events/brandx.png";
 import womenOnlyHackathonImg from "../assets/events/women's-only.webp";
 import enigmaXploreImg from "../assets/events/enigma.jpg";
 import circuitDesignImg from "../assets/events/circuit-design.webp";
