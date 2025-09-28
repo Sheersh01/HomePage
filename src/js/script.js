@@ -292,8 +292,12 @@ if (window.innerWidth < 768) {
     })
     .set("#words", { display: "none" });
 } else {
-  const tl = gsap.timeline();
-
+  const tl = gsap.timeline({
+    onComplete: () => {
+      document.dispatchEvent(new Event("timelineFinished"));
+    },
+  });
+  
   // Animate colors
   tl.to("#words", {
     opacity: 1,

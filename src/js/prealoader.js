@@ -184,8 +184,7 @@ const settings = { progress: 0.0 };
 // Disable interactions before starting animation
 disableInteraction();
 
-// Transition with 6.5s delay
-setTimeout(() => {
+document.addEventListener("timelineFinished", () => {
   gsap.fromTo(
     settings,
     { progress: 0 },
@@ -199,11 +198,12 @@ setTimeout(() => {
       onComplete: () => {
         document.querySelector("#preloader").parentElement.style.display =
           "none";
-        enableInteraction(); // Re-enable scroll/touch
+        enableInteraction();
       },
     }
   );
-}, 5000);
+});
+
 
 // ----- ANIMATION LOOP -----
 const clock = new THREE.Clock();
