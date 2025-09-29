@@ -15,7 +15,7 @@ import dimensionsLogo from "../assets/clubsLogo/dimensions_logo.webp";
 import strokesLogo from "../assets/clubsLogo/strokes_logo.webp";
 import probeLogo from "../assets/clubsLogo/probe.webp";
 import tfLogo from "../assets/clubsLogo/tf logo.webp";
-import synergyLogo from "../assets/clubsLogo/synergy.webp";
+// import synergyLogo from "../assets/clubsLogo/synergy.webp";
 
 // Import event images
 import claudeSolvathonImg from "../assets/events/claude.webp";
@@ -62,7 +62,7 @@ const clubImagesMap = {
   Dimensions: dimensionsLogo,
   Strokes: strokesLogo,
   Probe: probeLogo,
-  Synergy: synergyLogo,
+  // Synergy: synergyLogo,
 };
 // Map event names to imported images
 const eventImagesMap = {

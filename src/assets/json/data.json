@@ -47,10 +47,6 @@
     {
       "club_name": "Probe",
       "club_image": "../assets/clubsLogo/probe.webp"
-    },
-    {
-      "club_name": "Synergy",
-      "club_image": "../assets/clubsLogo/synergy.webp"
     }
   ],
 
@@ -141,7 +137,7 @@
       "name": "Design-a-thon",
       "image": "../assets/events/design.webp",
       "pricePool": 35000,
-      "description": "Design-A-Thon Is A UL/UX Competition Where Empathy Leads The Process, Imagination Guides Solutions, Form Bridges Ideas To Users, And Impact Measures Success, Pushing Creative Problem-Solving and Design Method In A competitive Setting ",
+      "description": "Design-A-Thon Is A UI/UX Competition Where Empathy Leads The Process, Imagination Guides Solutions, Form Bridges Ideas To Users, And Impact Measures Success, Pushing Creative Problem-Solving and Design Method In A competitive Setting ",
       "club": "Strokes",
       "url": "https://unstop.com/hackathons/design-a-thon-tantrafiesta25-iiitn-1555462"
     },
@@ -281,59 +277,6 @@
       "url": "https://unstop.com/hackathons/codeduelz-tantrafiesta25-iiitn-1558142"
     },
     {
-      "_id": "26",
-      "name": "Valorant",
-      "image": "../assets/events/valorant.webp",
-      "pricePool": 5000,
-      "description": "Valorant By Synergy ls A Competitive EGaming Arena Demanding Focus, Strategy, Reflexes, And Teamwork, Urging Squads To Refine Tactics, Chase Rewards, And Lead Teams To Victory-“Lock. Load. Dominate!\"",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/phoenix-cup-tantrafiesta25-iiitn-1559458"
-    },
-    {
-      "_id": "27",
-      "name": "BGMI",
-      "image": "../assets/events/bgmi.webp",
-      "pricePool": 10000,
-      "description": "Victory Favors A Calm, Coordinated Survivor's Mindset: Patience, Precise Timing, And Steady Nerves Beat Raw AggressionStay Persistent, Make Smart Callouts, And Execute As One To Be The Last Standing.",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/combat-carnage-tantrafiesta25-iiitn-1559442"
-    },
-    {
-      "_id": "28",
-      "name": "FreeFire",
-      "image": "../assets/events/freeFire.webp",
-      "pricePool": 8000,
-      "description": "Victory In Free Fire Belongs To Fearless Players Who Thrive On Speed, Unpredictability, And AdrenalineWhether Sneaking Or Charging, Survival Favors Calm Precision And Unwavering Aggression, Granting The \"Freedom To Fire\" And The \"Freedom To Conquer.\"",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/firestorm-rampage-tantrafiesta25-iiitn-1559481"
-    },
-    {
-      "_id": "29",
-      "name": "Call of Duty",
-      "image": "../assets/events/codm.webp",
-      "pricePool": 5000,
-      "description": "Victory Comes From Coordinated Teamworki Dedication, Clear Callouts, And Supportive Actions Like Cover Fire-So Squads Move, Fight, And Win As A Unified Unit Against Tougher Odds, Not Through Lone Heroics.",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/critical-ops-tantrafiesta25-iiitn-1559472"
-    },
-    {
-      "_id": "30",
-      "name": "Subway Surfers",
-      "image": "../assets/events/subway.webp",
-      "pricePool": 2500,
-      "description": "Subway Surfers Is An Endless Runner Where Players Dodge Trains And Obstacles, Collect Coins And Power-Ups, And Flee An Inspector And His Dog To Run As Far As Possible. It Stays Engaging With Vibrant Visuals, Smooth Swipe Controls, And Frequent Themed Updates That Add Locations, Events, And Rewards.",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/escape-velocity-tantrafiesta25-iiitn-1559467"
-    },
-    {
-      "_id": "31",
-      "name": "Chess",
-      "image": "../assets/events/chess.webp",
-      "pricePool": 5000,
-      "description": "Chess ls A Timeless Mental Battleground That Builds Patience, Creativity, And Courage, Humbling Ego While Sharpening Intellect And Showing How Even A Pawn Can Change Destiny-An Open Invitation To Experience The Enduring Game.",
-      "club": "Synergy",
-      "url": "https://unstop.com/events/knights-legacy-tantrafiesta25-iiitn-1558968"
-    },{
       "_id": "32",
       "name": "BrandXperience",
       "image": "../assets/events/brandx.png",
