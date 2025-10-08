@@ -1,46 +1,4 @@
 @import "tailwindcss";
-body{
-    background-image: url(../assets/background2.webp);
-}
-/* 
-      @keyframes arrowBounce {
-        0% {
-          transform: rotate(45deg) translate(0, 0);
-          opacity: 0.2;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: rotate(45deg) translate(0, 0);
-          opacity: 0.2;
-        }
-      } */
-
-      @keyframes glowing {
-        /* 0% {
-          box-shadow: 0 0 5px #c3073f, 0 0 10px #c3073f, 0 0 15px #c3073f;
-        }
-        50% {
-          box-shadow: 0 0 10px #c3073f, 0 0 20px #c3073f, 0 0 30px #c3073f;
-        }
-        100% {
-          box-shadow: 0 0 5px #c3073f, 0 0 10px #c3073f, 0 0 15px #c3073f;
-        } */
-      }
-
-      /* .arrow-delay-1 {
-        animation-delay: 0s;
-      }
-
-      .arrow-delay-2 {
-        animation-delay: 0.3s;
-      }
-
-      .arrow-delay-3 {
-        animation-delay: 0.6s;
-      } */
-
       .flex.overflow-x-auto::-webkit-scrollbar {
         display: none;
       }

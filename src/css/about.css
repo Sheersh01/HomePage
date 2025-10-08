@@ -1,141 +1,159 @@
-.timeline {
-            margin-block: 5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
 
-        /* Main timeline line */
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #888;
-            transform: translateX(-50%);
-            z-index: 0;
-        }
+#play-button::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent #000;
+  margin-left: 5px;
+}
+.text-colorizer .word {
+  opacity: 0.2;
+}
+#video-container:hover {
+  cursor: none;
+}
 
-        .checkpoint {
-            max-width: 31em;
-            padding-block: 2em;
-            position: relative;
-            width: 100%;
-            z-index: 1;
-        }
+@layer base {
+  :root {
+    --slate-white: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-400: #94a3b8;
+    --slate-800: #1e293b;
+    --turquoise-500: #14b8a6;
+  }
+}
 
-        .checkpoint div {
-            border: 2px solid #888;
-            padding: 2em;
-            border-radius: 6px;
-            line-height: 1.5;
-            background: rgba(0, 0, 0, 0.8);
-            /* Add background to make content readable */
-        }
+@layer components {
+  /* Animations */
+  @keyframes fadeInY {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes letterAnim {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-        div h3 {
-            margin-bottom: 0.8em;
-            font-size: 1.25rem;
-        }
+  .subheading-subtitle {
+    animation: fadeInY 0.5s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  .subheading-title-letter {
+    display: inline-block;
+    opacity: 0;
+    animation: letterAnim 0.8s ease-out forwards;
+  }
+  .subheading-description {
+    animation: fadeInY 0.5s ease-out forwards;
+    animation-delay: 1.7s;
+    opacity: 0;
+  }
 
-        div p {
-            color: #888;
-        }
+  /* Timeline line */
+  .timeline-line {
+    background: url("data:image/svg+xml,%3csvg%20width='2'%20height='2'%20viewBox='0%200%202%202'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M0%201H2'%20stroke='%238A8A8A'/%3e%3c/svg%3e");
+    background-size: 10px;
+  }
+  .timeline-line-progress {
+    height: 0%;
+    border-radius: 10px;
+  }
 
-        .checkpoint:nth-child(odd) {
-            padding-left: 3em;
-            transform: translateX(15.37em);
-        }
+  /* Timer gradient animation */
+  .timer-grid article::before {
+    width: 1px;
+    height: 0px;
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(
+      to bottom,
+      var(--slate-800),
+      var(--slate-white)
+    );
+    transition: height 0.8s ease;
+  }
+  .timer-grid article.active::before {
+    height: 100%;
+  }
 
-        .checkpoint:nth-child(even) {
-            padding-right: 3em;
-            transform: translateX(-15.37em);
-        }
+  /* --- Responsive Timeline --- */
+  @media (max-width: 942px) {
+    .timeline-container {
+      max-width: 400px !important;
+    }
+    .timeline-event {
+      width: calc(100% - 70px) !important;
+    }
+    .timeline-event.event-left {
+      align-self: start !important;
+      margin-left: 70px !important;
+    }
+    .timeline-event.event-right {
+      align-self: start !important;
+      margin-left: 70px !important;
+    }
+    .timeline-event .event-year {
+      left: 2px !important;
+      top: -2px !important;
+      right: unset !important;
+    }
+    .timeline-event.event-right .event-year {
+      left: 0px !important;
+    }
+    .timeline-line {
+      left: 40px !important;
+      transform: unset !important;
+    }
+    .event-left .timeline-meta {
+      left: -60px !important;
+      right: unset !important;
+    }
+    .event-right .timeline-meta {
+      left: -57px !important;
+      right: unset !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .timeline-event h4 {
+      font-size: 24px !important;
+    }
+  }
 
-        /* connector lines - fixed positioning */
-        .checkpoint:nth-child(odd)::before,
-        .checkpoint:nth-child(even)::before {
-            position: absolute;
-            content: "";
-            top: 50%;
-            height: 2px;
-            width: 3em;
-            background: #888;
-            transform: translateY(-50%);
-            /* Center vertically regardless of content height */
-        }
+  /* --- Responsive Timer --- */
+  @media (max-width: 768px) {
+    .timer-grid {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    .timer-grid article {
+      width: 90% !important;
+    }
+  }
+}
 
-        .checkpoint:nth-child(odd)::before {
-            left: 0;
-        }
 
-        .checkpoint:nth-child(even)::before {
-            right: 0;
-        }
 
-        /* Logo as timeline circle - fixed positioning */
-        .checkpoint-logo {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            object-fit: contain;
-            background: #c3073f;
-            padding: 4px;
-            box-shadow: 0px 0px 7px 3px #c3073f;
-            z-index: 2;
-        }
 
-        .checkpoint:nth-child(odd) .checkpoint-logo {
-            left: -18px;
-        }
 
-        .checkpoint:nth-child(even) .checkpoint-logo {
-            right: -18px;
-        }
 
-        /* Responsive */
-        @media (max-width: 1150px) {
-            .timeline::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .timeline .checkpoint {
-                transform: none;
-                padding-inline: 0;
-                max-width: 90%;
-            }
-
-            .timeline .checkpoint::before {
-                display: none;
-                /* Hide horizontal connectors on mobile */
-            }
-
-            .timeline .checkpoint-logo {
-                left: 50% !important;
-                right: auto !important;
-                transform: translate(-50%, -50%);
-            }
-  .checkpoint-logo {
-            top:0%;
-              height: 20px;
-            width: 20px;
-        }
-
-            .checkpoint div {
-            background: rgba(0, 0, 0, 1.0);
-            /* Add background to make content readable */
-        }
- 
-        }
-
-        .cont {
+/* galleryt */
+.cont {
             margin: 0;
             padding: 0;
             display: flex;
@@ -155,12 +173,12 @@
             }
         }
 
-        h1 {
+        .section h1 {
+            font-size: 2rem;
             margin: 0 0 1.5em;
             text-align: center;
         }
-
-        .grid {
+.grid {
             display: grid;
             grid-gap: 30px;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -238,9 +256,8 @@
         .item__details {
             position: relative;
             z-index: 2;
-            padding: 2px 8px;
-            background: #fff;
-            text-transform: capitalize;
+            padding: 0px 4px;
+            background: #dadada;
             letter-spacing: 1px;
             color: #c3073f;
         }

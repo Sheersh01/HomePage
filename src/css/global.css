@@ -3,15 +3,17 @@
   font-family: "phi";
   src: url("../assets/fonts/Philosopher-Regular.ttf");
 }
-
+body {  background-image: url(../assets/bg.jpg);
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+  overflow-x: hidden;
+}
 * {
   font-family: "phi";
 }
 ::-webkit-scrollbar{
     display: none;
-}
-.bg{
-    background-image: url(../assets/background2.webp);
 }
 .nav-link {
   position: relative;
@@ -34,4 +36,62 @@
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* --- Starfield Background Styles --- */
+#stars,
+#stars2,
+#stars3 {
+  position: fixed; /* Fixed position to stay in viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  z-index: -1; /* Place behind all other content */
+}
+#stars {
+  animation: animStar 50s linear infinite;
+}
+#stars2 {
+  animation: animStar 100s linear infinite;
+  width: 2px;
+  height: 2px;
+}
+#stars3 {
+  animation: animStar 150s linear infinite;
+  width: 3px;
+  height: 3px;
+}
+
+#stars:after,
+#stars2:after,
+#stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  background: transparent;
+}
+#stars:after {
+  width: 1px;
+  height: 1px;
+}
+#stars2:after {
+  width: 2px;
+  height: 2px;
+}
+#stars3:after {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
 }

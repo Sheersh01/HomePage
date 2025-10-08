@@ -82,3 +82,41 @@ document.addEventListener("DOMContentLoaded", () => {
   initMenuToggle();
   initSoundToggle();
 });
+// --- Dynamic Star Generation Script ---
+document.addEventListener("DOMContentLoaded", () => {
+  function generateStars(numberOfStars) {
+    let shadow = [];
+    for (let i = 0; i < numberOfStars; i++) {
+      const x = Math.floor(Math.random() * 2000);
+      const y = Math.floor(Math.random() * 2000);
+      shadow.push(`${x}px ${y}px #FFF`);
+    }
+    return shadow.join(", ");
+  }
+
+  // --- 🚀 CHANGE THESE NUMBERS TO ADD/REMOVE STARS ---
+  const smallStarsCount = 700;
+  const mediumStarsCount = 200;
+  const bigStarsCount = 100;
+  // ----------------------------------------------------
+
+  const shadowsSmall = generateStars(smallStarsCount);
+  const shadowsMedium = generateStars(mediumStarsCount);
+  const shadowsBig = generateStars(bigStarsCount);
+
+  const starsSmall = document.getElementById("stars");
+  const starsMedium = document.getElementById("stars2");
+  const starsBig = document.getElementById("stars3");
+
+  starsSmall.style.boxShadow = shadowsSmall;
+  starsMedium.style.boxShadow = shadowsMedium;
+  starsBig.style.boxShadow = shadowsBig;
+
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = `
+                #stars:after { box-shadow: ${shadowsSmall}; }
+                #stars2:after { box-shadow: ${shadowsMedium}; }
+                #stars3:after { box-shadow: ${shadowsBig}; }
+            `;
+  document.head.appendChild(styleSheet);
+});

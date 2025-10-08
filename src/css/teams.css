@@ -1,0 +1,49 @@
+
+    html {
+        height: 100%;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(ellipse at bottom, #111922 0%, #000 100%);
+      overflow: hidden; 
+    }
+    
+    /* Main content wrapper for scrolling */
+    main {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    /* Starfield Layers and Animation */
+    /* Note: The box-shadow is now set by JavaScript */
+    #stars, #stars2, #stars3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+    }
+    #stars { animation: animStar 50s linear infinite; }
+    #stars2 { animation: animStar 100s linear infinite; width: 2px; height: 2px; }
+    #stars3 { animation: animStar 150s linear infinite; width: 3px; height: 3px; }
+
+    /* The ::after pseudo-elements are needed for the seamless loop */
+    #stars:after, #stars2:after, #stars3:after {
+        content: " ";
+        position: absolute;
+        top: 2000px; /* This must match the animation's translateY value */
+        background: transparent;
+    }
+    #stars:after { width: 1px; height: 1px; }
+    #stars2:after { width: 2px; height: 2px; }
+    #stars3:after { width: 3px; height: 3px; }
+
+    @keyframes animStar {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+    }

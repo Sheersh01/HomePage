@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
+gsap.registerPlugin();
 // Import JSON
 import data from "../assets/json/data.json";
 
@@ -31,7 +31,7 @@ import brandXperienceImg from "../assets/events/brandx.png";
 import womenOnlyHackathonImg from "../assets/events/women's-only.webp";
 import enigmaXploreImg from "../assets/events/enigma.jpg";
 import circuitDesignImg from "../assets/events/circuit-design.webp";
-import vlsiImg from "../assets/events/vlsi.webp"; 
+import vlsiImg from "../assets/events/vlsi.webp";
 import atalTinkeringImg from "../assets/events/atal.webp";
 import bioinformaticsImg from "../assets/events/bioinfo.webp";
 import fintechImg from "../assets/events/finix.webp";
@@ -100,7 +100,7 @@ const eventImagesMap = {
   "Last Man Standing": lastImg,
   "Flash Code": flashImg,
   "Digital Time Capsule": digitalImg,
-  "Genathon":genathonImg
+  Genathon: genathonImg,
 };
 
 // Global variables

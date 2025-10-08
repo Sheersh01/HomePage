@@ -133,171 +133,324 @@
       <i class="ri-menu-3-fill"></i>
     </button>
   </nav>
-  <div class="flex flex-col items-center min-h-screen pt-10 lg:mt-20 mt-10">
-    <h2 class="text-4xl lg:text-6xl font-black -tracking-wider text-sponsor-heading text-[#c3073f]">About</h2>
+  <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
 
-    <div class="w-full">
-    <!-- <div class='timeline'>
-  <div class='checkpoint'>
-    <div>
-      <h3>TantraFiesta 2025</h3>
-      <p>DARK MATTER ECLIPSE : EXPLORING THE UNEXPLORED</p>
-    </div>
-<span class="checkpoint-logo"></span>
-  </div>
+    <div class=""> <!-- Add a container with black background for sections that need it -->
+        <div id="scroll-container" class="relative w-full h-[125vh] bg-transparent">
+            
+            <div id="sticky-container" class="sticky top-0 h-screen w-full overflow-hidden">
+                
+                
+                <div id="scene1" class="scene absolute top-0 left-0 w-full h-full flex justify-center items-center flex-col ">
+                    
+                    <h1 class="text-[clamp(2.5rem,8vw,7rem)] font-medium uppercase text-center leading-tight px-4 text-[#c3073f]">TANTRA FIESTA <br> <span class="block w-full text-right text-[clamp(1.5rem,2vw,4rem)] font-medium uppercase">
+                            dark matter eclipse
+                        </span></h1>
+                </div>
+                <div id="video-scene" class="scene absolute top-0 left-0 w-full h-full flex justify-center items-center flex-col">
+                    <div id="video-container" class="group w-11/12 max-w-7xl md:w-full md:h-full aspect-video relative overflow-hidden origin-center rounded-2xl md:rounded-none">
+                        <video id="main-video" class="w-full h-full object-cover absolute top-0 left-0" playsinline muted loop src="./assets/video/tf.mp4"></video>
+                        <div id="play-button" class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-full flex justify-center items-center transition-opacity duration-300 pointer-events-none opacity-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <div class='checkpoint'>
-    <div>
-        <h3>TantraFiesta 2024</h3>
-      <p>DIGITAL BIG BANG : UNCHARTED REALMS AWAIT</p>
-    </div>
-<span class="checkpoint-logo"></span>
-  </div>
+        <!-- Text -->
+        <section class="quem-somos-color-text relative py-18 md:py-48">
+          <h2 class="text-4xl lg:text-6xl font-bold -tracking-wider text-sponsor-heading text-[#c3073f] flex items-center justify-center mt-[0vh] mb-[4vh]">About Tantra fiesta</h2>
+        <div class="container mx-auto px-4 relative">
+            <p class="text-colorizer text-[clamp(1.15rem,5.1vw,5rem)] md:text-[clamp(1.15rem,2.1vw,5rem)] font-medium uppercase leading-tight text-white md:mx-[12vh] text-center">
+    <span class="word">TantraFiesta</span> <span class="word">is</span> <span class="word">the</span> <span class="word">prestigious</span> <span class="word">National</span> <span class="word">Level</span> <span class="word">Annual</span> <span class="word">Technical</span> <span class="word">Fest</span> <span class="word">of</span> <span class="word">the</span> <span class="word">Indian</span> <span class="word">Institute</span> <span class="word">of</span> <span class="word">Information</span> <span class="word">Technology,</span> <span class="word">Nagpur,</span> <span class="word">which</span> <span class="word">is</span> <span class="word">back</span> <span class="word">on</span> <span class="word">the</span> <span class="word">stage</span> <span class="word">with</span> <span class="word">a</span> <span class="word">big</span> <span class="word">bang!</span> 
+    <span class="word">TantraFiesta</span> <span class="word">celebrates</span> <span class="word">innovation</span> <span class="word">and</span> <span class="word">brings</span> <span class="word">enormous</span> <span class="word">talent</span> <span class="word">together.</span> 
+</p>
 
-  <div class='checkpoint'>
-    <div>
-        <h3>तंत्रा Fiesta 2023</h3>
-      <p>Genesis Unleashed AI's Dawn</p>
-    </div>
-<span class="checkpoint-logo"></span>
-  </div>
-  <div class='checkpoint'>
-    <div>
-        <h3>तंत्रा Fiesta 2022</h3>
-      <p>GREENER TOMORROW</p>
-    </div>
-<span class="checkpoint-logo"></span>
-  </div>
-  <div class='checkpoint'>
-    <div>
-        <h3>तंत्रा Fiesta 2021</h3>
-      <p>LIFE IN FUTURE</p>
-    </div>
-<span class="checkpoint-logo"></span>
-  </div>
-</div> -->
+        </div>
+        </section>
 
+
+        <!-- Edition -->
+        <section class="font-['Inter'] text-[#ffffff]">
+            <div class="w-full max-w-[1440px] mx-auto py-[60px] px-[30px] md:px-[70px] flex justify-center">
+              <div class="timer-grid w-full flex flex-wrap justify-between gap-2.5">
+                <article class="w-[312px] flex flex-col relative pt-12 px-4 gap-2 border-l border-transparent">
+                  <h3 class="text-[32px] font-semibold leading-10 text-[#ffffff] m-0" data-target="10" data-step="1" data-format="normal">0</h3>
+                  <p class="font-['Roboto'] text-[14px] font-medium leading-6 text-[#94a3b8] uppercase m-0">Edition of IIITN Techfest</p>
+                </article>
+                <article class="w-[312px] flex flex-col relative pt-12 px-4 gap-2 border-l border-transparent">
+                  <h3 class="text-[32px] font-semibold leading-10 text-[#ffffff] m-0" data-target="10000" data-step="1000" data-format="k">0</h3>
+                  <p class="font-['Roboto'] text-[14px] font-medium leading-6 text-[#94a3b8] uppercase m-0">Registrations in Events</p>
+                </article>
+                <article class="w-[312px] flex flex-col relative pt-12 px-4 gap-2 border-l border-transparent">
+                  <h3 class="text-[32px] font-semibold leading-10 text-[#ffffff] m-0" data-target="130000" data-step="10000" data-format="lakh">0</h3>
+                  <p class="font-['Roboto'] text-[14px] font-medium leading-6 text-[#94a3b8] uppercase m-0">Impressions on Unstop</p>
+                </article>
+                <article class="w-[312px] flex flex-col relative pt-12 px-4 gap-2 border-l border-transparent">
+                  <h3 class="text-[32px] font-semibold leading-10 text-[#ffffff] m-0" data-target="830000" data-step="100000" data-format="lakh">0</h3>
+                  <p class="font-['Roboto'] text-[14px] font-medium leading-6 text-[#94a3b8] uppercase m-0">Prize Pool</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          
+          <!-- history -->
+          <section class="w-full max-w-[1200px] mx-auto px-[15px] box-border flex justify-center mb-[10vh] mt-[10vh]">
+            <div class="our-history flex flex-col items-center max-w-[700px] w-full text-center">
+              <h5 class="text-[30px] font-bold md:text-[65px] leading-[125%]  mt-8 mb-0 text-[#f1f5f9] opacity-0 transform translate-y-5">History of TantraFiesta</h5>
+              <p class="text-[16px] leading-[150%] mt-4 max-w-[424px] lg:max-w-[2000px] text-[#e2e8f0] opacity-0 transform translate-y-5">
+                Our technical fest began its wonderful journey in 2018 with humble beginnings and laying a strong foundation for future success. Despite the unprecedented challenges posed by the COVID-19 pandemic, we hosted successful fests each year. Our themes have continually evolved, reflecting our commitment to innovation and progress:
+              </p>
+            </div>
+          </section>
+
+
+          <!-- TImeline -->
+          <section class="timeline-container flex flex-col max-w-[872px] self-center relative pb-[152px] w-full mx-auto mb-[20vh]">
+            <article class="timeline-event event-left pt-6 pb-6 w-1/2 max-w-[411px] gap-2 flex flex-col relative self-start">
+              <p class="event-subtitle font-['Roboto'] font-medium text-[14px] leading-[171%] uppercase text-[#94a3b8]">Theme: Dark Matter Eclipse</p>
+              <h4 class="text-[32px] leading-[125%] font-light text-[#f1f5f9] mt-2 mb-0">Exploring The Unexplored</h4>
+              <p class="text-[16px] leading-[150%] text-[#e2e8f0] mt-2 mb-0">
+                TantraFiesta 2025 dives deep into the mysteries of the cosmos with “Dark Matter Eclipse.”  
+      This year marks a rebirth of innovation, where creativity meets the unseen power of technology.
+              </p>
+              <div class="timeline-meta absolute top-[34px] flex flex-col items-center gap-1.5 right-[-50px]">
+                <div class="icon">
+                  <img src="./assets/TF/tf25.png" alt="TantraFiesta 2025 Logo" class="h-[50px] w-[50px] object-contain block rounded-full" />
+                </div>
+              </div>
+              <!-- website -->
+                  <a href="https://www.tantrafiesta.in/" class="mt-4 inline-flex items-center gap-2 self-start rounded-lg border border-red-700 px-4 py-2 text-sm font-semibold text-red-500 transition-all duration-300 hover:scale-105 hover:bg-red-600/10 hover:text-red-400 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+            <span>Visit Website</span>
+        </a>
+              <p class="event-year absolute right-[-120px] top-[45px] font-['Roboto'] text-[20px] font-medium leading-6 text-right text-[#c3073f]">2025</p>
+            </article>
+
+            <article class="timeline-event event-right pt-6 pb-6 w-1/2 max-w-[411px] gap-2 flex flex-col relative self-end  md:left-[30px]">
+              <p class="event-subtitle font-['Roboto'] font-medium text-[14px] leading-[171%] uppercase text-[#94a3b8]">Theme: Digital Big Bang</p>
+              <h4 class="text-[32px] leading-[125%] font-light text-[#f1f5f9] mt-2 mb-0">The Online Revolution</h4>
+              <p class="text-[18px] leading-[144%] text-[#e2e8f0] mt-2 mb-0">
+                TantraFiesta 2024 exploded into the digital universe with its first website launch.  
+      The “Digital Big Bang” marked our online evolution—bringing the fest closer to every innovator nationwide.
+    
+              </p>
+              <div class="timeline-meta absolute top-[34px] flex flex-col items-center gap-1.5 left-[-52px] md:left-[-82px]">
+                <div class="icon">
+                  <img src="./assets/TF/tf24.png" alt="TantraFiesta 2024 Logo" class="h-[50px] w-[50px] object-contain block rounded-full" />
+                </div>
+              </div>
+              <!-- website -->
+                  <a href="https://2024.tantrafiesta.in/" class="mt-4 inline-flex items-center gap-2 self-start rounded-lg border border-red-700 px-4 py-2 text-sm font-semibold text-red-500 transition-all duration-300 hover:scale-105 hover:bg-red-600/10 hover:text-red-400 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+            <span>Visit Website</span>
+        </a>
+              <p class="event-year absolute left-[-120px] md:left-[-150px] top-[45px] font-['Roboto'] text-[20px] font-medium leading-6 text-[#c3073f]">2024</p>
+            </article>
+
+            <article class="timeline-event event-left pt-6 pb-6 w-1/2 max-w-[411px] gap-2 flex flex-col relative self-start">
+              <p class="event-subtitle font-['Roboto'] font-medium text-[14px] leading-[171%] uppercase text-[#94a3b8]">Theme: Genesis Unleashed AI's Dawn</p>
+              <h4 class="text-[32px] leading-[125%] font-light text-[#f1f5f9] mt-2 mb-0">Rise of Intelligence</h4>
+              <p class="text-[16px] leading-[150%] text-[#e2e8f0] mt-2 mb-0">
+                 “Genesis Unleashed” redefined TantraFiesta with a fully virtual edition.  
+      AI-powered challenges and interactive workshops connected innovators from across the globe.
+    
+              </p>
+              <div class="timeline-meta absolute top-[34px] flex flex-col items-center gap-1.5 right-[-50px]">
+                <div class="icon">
+                   <img src="./assets/TF/tf23.png" alt="TantraFiesta 2023 Logo" class="h-[55px] w-[55px] object-contain block rounded-full" />
+                </div>
+              </div>
+              <!-- website -->
+                  <a href="https://2023.tantrafiesta.in/" class="mt-4 inline-flex items-center gap-2 self-start rounded-lg border border-red-700 px-4 py-2 text-sm font-semibold text-red-500 transition-all duration-300 hover:scale-105 hover:bg-red-600/10 hover:text-red-400 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+            <span>Visit Website</span>
+        </a>
+              <p class="event-year absolute right-[-120px] top-[45px] font-['Roboto'] text-[20px] font-medium leading-6 text-right text-[#c3073f]">2023</p>
+            </article>
+
+            <article class="timeline-event event-right pt-6 pb-6 w-1/2 max-w-[411px] gap-2 flex flex-col relative self-end md:left-[30px]">
+              <p class="event-subtitle font-['Roboto'] font-medium text-[14px] leading-[171%] uppercase text-[#94a3b8]">Theme: Greener Tomorrow</p>
+              <h4 class="text-[32px] leading-[144%] font-light text-[#f1f5f9] mt-2 mb-0">Rebirth of Energy</h4>
+              <p class="text-[18px] leading-[144%] text-[#e2e8f0] mt-2 mb-0">
+                 With “Greener Tomorrow,” TantraFiesta returned to campus life.  
+      Sustainability met technology as students reignited the spirit of in-person collaboration.
+    
+              </p>
+              <div class="timeline-meta absolute top-[34px] flex flex-col items-center gap-1.5 left-[-51px] md:left-[-81px]">
+                <div class="icon">
+                  <img src="./assets/TF/tf22.png" alt="TantraFiesta 2023 Logo" class="h-[55px] w-[55px] object-contain block" />
+                </div>
+              </div>
+              <!-- website -->
+                  <a href="https://2022.tantrafiesta.in/" class="mt-4 inline-flex items-center gap-2 self-start rounded-lg border border-red-700 px-4 py-2 text-sm font-semibold text-red-500 transition-all duration-300 hover:scale-105 hover:bg-red-600/10 hover:text-red-400 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+            <span>Visit Website</span>
+        </a>
+              <p class="event-year absolute left-[-120px] md:left-[-150px] top-[45px] font-['Roboto'] text-[20px] font-medium leading-6 text-[#c3073f] ">2022</p>
+            </article>
+
+            <article class="timeline-event event-left pt-6 pb-6 w-1/2 max-w-[411px] gap-2 flex flex-col relative self-start">
+              <p class="event-subtitle font-['Roboto'] font-medium text-[14px] leading-[171%] uppercase text-[#94a3b8]">Theme: Life in Future</p>
+              <h4 class="text-[32px] leading-[125%] font-light text-[#f1f5f9] mt-2 mb-0">Intelligence Awakened</h4>
+              <p class="text-[16px] leading-[150%] text-[#e2e8f0] mt-2 mb-0">
+                “Life in Future” introduced TantraFiesta’s first dedicated AI/ML track.  
+      Students explored the next frontier of intelligence through workshops and tech challenges.
    
-<div class="cont w-full">
-  <section class="section w-full">
-    <div class="grid">
-      <div class="item">
-        <img src="./assets/gallery/20241024_131505.webp" alt="Events">
-        <div class="item__details">Events</div>
-      </div>
+              </p>
+              <div class="timeline-meta absolute top-[34px] flex flex-col items-center gap-1.5 right-[-50px]">
+                <div class="icon">
+                  <img src="./assets/TF/tf21.png" alt="TantraFiesta 2021 Logo" class="h-[50px] w-[50px] object-contain block" />
+                </div>
+              </div>
+              <!-- website -->
+                  <a href="https://2021.tantrafiesta.in/" class="mt-4 inline-flex items-center gap-2 self-start rounded-lg border border-red-700 px-4 py-2 text-sm font-semibold text-red-500 transition-all duration-300 hover:scale-105 hover:bg-red-600/10 hover:text-red-400 hover:shadow-[0_0_15px_rgba(195,7,63,0.5)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
+            <span>Visit Website</span>
+        </a>
+              <p class="event-year absolute right-[-120px] top-[45px]  font-['Roboto'] text-[20px] font-medium leading-6 text-right text-[#c3073f]  ">2021</p>
+           </article>
 
-      <div class="item item--large">
-        <img src="./assets/gallery/IMG_2294.webp" alt="Theme Reveal">
-        <div class="item__details">Theme Reveal</div>
-      </div>
+            <div class="timeline-line w-px h-full absolute left-1/2 -translate-x-1/2 z-[-1] top-0">
+              <figure class="timeline-line-progress absolute top-0 left-1/2 -translate-x-1/2 w-0.5 bg-[#f1f5f9] z-[2]"></figure>
+            </div>
+          </section>
 
-      <div class="item item--medium">
-        <img src="./assets/gallery/_MG_9894.webp" alt="Line Following">
-        <div class="item__details">Line Following</div>
-      </div>
 
-      <div class="item item--large">
-        <img src="./assets/gallery/20241024_202145.webp" alt="Decoration">
-        <div class="item__details">Decoration</div>
-      </div>
 
-      <div class="item item--full">
-        <img src="./assets/gallery/_MG_1430.webp" alt="DJ Night">
-        <div class="item__details">DJ Night</div>
-      </div>
 
-      <div class="item item--medium">
-        <img src="./assets/gallery/20241025_130535.webp" alt="Robo Rumble">
-        <div class="item__details">Robo Rumble</div>
-      </div>
-
-      <div class="item">
-        <img src="./assets/gallery/20241025_103617.webp" alt="TF'24">
-        <div class="item__details">TF'24</div>
-      </div>
-
-      <div class="item item--large">
-        <img src="./assets/gallery/IMG_4902.webp" alt="Decoration">
-        <div class="item__details">Decoration</div>
-      </div>
-
-      <div class="item item--medium">
-        <img src="./assets/gallery/0F2A9953.webp" alt="Gajendra Purohit session">
-        <div class="item__details">Gajendra Purohit</div>
-      </div>
-
-      <div class="item item--large">
-        <img src="./assets/gallery/IMG_6699.webp" alt="Night Shows">
-        <div class="item__details">Night Shows</div>
-      </div>
-
-      <div class="item item--full">
-        <img src="./assets/gallery/IMG_6470.webp" alt="Hackathon">
-        <div class="item__details">Hackathon</div>
-      </div>
-
-      <div class="item item--medium">
-        <img src="./assets/gallery/IMG_6643.webp" alt="Bike Expo">
-        <div class="item__details">Bike Expo</div>
-      </div>
-
-      <div class="item">
-        <img src="./assets/gallery/_MG_1430.webp" alt="Stage Events">
-        <div class="item__details">Stage Events</div>
-      </div>
-
-      <div class="item object-contain">
-        <img class="object-bottom" src="./assets/gallery/0F2A9783.webp" alt="Speaker Sessions">
-        <div class="item__details">Speaker Sessions</div>
-      </div>
+          <!-- gallery -->
+           <div class="flex flex-col items-center min-h-screen pt-10 lg:mt-20 mt-10">
+        <div class="w-full">
+            <div class="cont w-full">
+                <section class="section w-full capitalise">
+                    <h1>Gallery</h1>
+                    <div class="grid">
+                        <div class="item">
+                            <img src="./assets/gallery/20241024_131505.webp"
+                               loading="lazy"  alt="Events">
+                            <div class="item__details">
+                                Events
+                            </div>
+                        </div>
+                        <div class="item item--large">
+                            <img src="./assets/gallery/IMG_2294.webp"
+                               loading="lazy"  alt="Theme Reveal">
+                            <div class="item__details">
+                                Theme Reveal
+                            </div>
+                        </div>
+                        <div class="item item--medium">
+                            <img src="./assets/gallery/_MG_9894.webp"
+                               loading="lazy"  alt="Line Following">
+                            <div class="item__details">
+                                Line Following
+                            </div>
+                        </div>
+                        <div class="item item--large">
+                            <img src="./assets/gallery/20241024_202145.webp"
+                               loading="lazy"  alt="Decoration">
+                            <div class="item__details">
+                                Decoration
+                            </div>
+                        </div>
+                        <div class="item item--full">
+                            <img src="./assets/gallery/_MG_1430.webp"
+                               loading="lazy"  alt="DJ Night">
+                            <div class="item__details">
+                                DJ Night
+                            </div>
+                        </div>
+                        <div class="item item--medium">
+                            <img src="./assets/gallery/20241025_130535.webp"
+                               loading="lazy"  alt="Robo Rumble">
+                            <div class="item__details">
+                                Robo Rumble
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="./assets/gallery/20241025_103617.webp"
+                               loading="lazy"  alt="TF'25">
+                            <div class="item__details">
+                                TF'25
+                            </div>
+                        </div>
+                        <div class="item item--large">
+                            <img src="./assets/gallery/IMG_4902.webp"
+                               loading="lazy"  alt="Decoration">
+                            <div class="item__details">
+                                Decoration
+                            </div>
+                        </div>
+                        <div class="item item--medium">
+                            <img src="./assets/gallery/0F2A9953.webp"
+                               loading="lazy"  alt="Gajendra Purohit">
+                            <div class="item__details">
+                                 Gajendra Purohit
+                            </div>
+                        </div>
+                        <div class="item item--large">
+                            <img src="./assets/gallery/IMG_6699.webp"
+                               loading="lazy"  alt="Night Shows">
+                            <div class="item__details">
+                                Night Shows
+                            </div>
+                        </div>
+                        <div class="item item--full">
+                            <img src="./assets/gallery/IMG_6470.webp"
+                               loading="lazy"  alt="Hackacthon">
+                            <div class="item__details">
+                                Hackathon
+                            </div>
+                        </div>
+                        <div class="item item--medium">
+                            <img src="./assets/gallery/IMG_6643.webp"
+                               loading="lazy"  alt="Bike Expo">
+                            <div class="item__details">
+                                Bike Expo
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="./assets/gallery/_MG_1430.webp"
+                               loading="lazy"  alt="Stage Night">
+                            <div class="item__details">
+                                Stage Night
+                            </div>
+                        </div>
+                        <div class="item object-contain">
+                            <img src="./assets/gallery/0F2A9783.webp"
+                               loading="lazy"  alt="Speaker Sessions">
+                            <div class="item__details">
+                                Speaker Sessions
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
-  </section>
-</div>
-
     </div>
-  </div>
 
-  <script>
-    // Scroll animation observer
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    // Observe timeline checkpoints
-    document.addEventListener('DOMContentLoaded', () => {
-      const checkpoints = document.querySelectorAll('.checkpoint');
-      const galleryItems = document.querySelectorAll('.item');
-      const galleryTitle = document.querySelector('.section h1');
-
-      checkpoints.forEach((checkpoint, index) => {
-        // Add staggered delay for timeline items
-        checkpoint.style.transitionDelay = `${index * 0.2}s`;
-        observer.observe(checkpoint);
-      });
-
-      // Observe gallery items with staggered animation
-      galleryItems.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(item);
-      });
-
-      // Observe gallery title
-      if (galleryTitle) {
-        observer.observe(galleryTitle);
-      }
-    });
-  </script>
 
   <script type="module" src="./js/global.js"></script>
+  <script type="module" src="./js/about.js"></script>
 </body>
 
 </html>

@@ -1,233 +1,194 @@
-// Timeline and Gallery Scroll Animation
-document.addEventListener("DOMContentLoaded", function () {
-  // Initial setup - hide elements that will be animated
-  const setupInitialState = () => {
-    // Timeline checkpoints
-    const checkpoints = document.querySelectorAll(".checkpoint");
-    checkpoints.forEach((checkpoint, index) => {
-      checkpoint.style.opacity = "0";
-      checkpoint.style.transform =
-        index % 2 === 0
-          ? "translateX(-15.37em) translateY(50px)"
-          : "translateX(15.37em) translateY(50px)";
-      checkpoint.style.transition =
-        "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin();
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const videoContainer = document.getElementById("video-container");
+  const video = document.getElementById("main-video");
+  const playButton = document.getElementById("play-button");
+  setTimeout(() => {
+    if (video.paused)
+      video.play().catch((e) => console.error("Autoplay failed:", e));
+  }, 100);
+  video.addEventListener("play", () => videoContainer.classList.add("playing"));
+  video.addEventListener("pause", () =>
+    videoContainer.classList.remove("playing")
+  );
+  videoContainer.addEventListener("mouseenter", () =>
+    gsap.to(playButton, { opacity: 1, scale: 1, duration: 0.3 })
+  );
+  videoContainer.addEventListener("mouseleave", () =>
+    gsap.to(playButton, { opacity: 0, scale: 0, duration: 0.3 })
+  );
+  videoContainer.addEventListener("mousemove", (e) => {
+    const rect = videoContainer.getBoundingClientRect();
+    gsap.to(playButton, {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      duration: 0.4,
+      ease: "power2.out",
     });
+  });
+  gsap.set("#video-container", { scale: 0.5, y: "60vh" });
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#scroll-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+      },
+    })
+    .to("#scene1", { opacity: 0, duration: 1 })
+    .to("#video-container", { scale: 1.2, y: "0vh", duration: 2 }, "<");
 
-    // Gallery items
-    const galleryItems = document.querySelectorAll(".item");
-    galleryItems.forEach((item) => {
-      item.style.opacity = "0";
-      item.style.transform = "translateY(50px) scale(0.95)";
-      item.style.transition = "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    });
-
-    // Gallery title
-    const galleryTitle = document.querySelector(".section h1");
-    if (galleryTitle) {
-      galleryTitle.style.opacity = "0";
-      galleryTitle.style.transform = "translateY(30px)";
-      galleryTitle.style.transition = "all 0.6s ease-out";
-    }
-
-    // Timeline title
-    const timelineTitle = document.querySelector("h2.text-4xl");
-    if (timelineTitle) {
-      timelineTitle.style.opacity = "0";
-      timelineTitle.style.transform = "translateY(30px)";
-      timelineTitle.style.transition = "all 0.6s ease-out";
-    }
-  };
-
-  // Animation function for elements coming into view
-  const animateElement = (element, delay = 0) => {
-    setTimeout(() => {
-      if (element.classList.contains("checkpoint")) {
-        const index = Array.from(element.parentNode.children).indexOf(element);
-        element.style.opacity = "1";
-        element.style.transform =
-          index % 2 === 0
-            ? "translateX(-15.37em) translateY(0)"
-            : "translateX(15.37em) translateY(0)";
-
-        // Animate the logo with a slight delay
-        const logo = element.querySelector(".checkpoint-logo");
-        if (logo) {
-          logo.style.opacity = "0";
-          logo.style.transform += " scale(0)";
-          logo.style.transition = "all 0.4s ease-out";
-          setTimeout(() => {
-            logo.style.opacity = "1";
-            logo.style.transform = logo.style.transform.replace(
-              "scale(0)",
-              "scale(1)"
-            );
-          }, 200);
-        }
-      } else if (element.classList.contains("item")) {
-        element.style.opacity = "1";
-        element.style.transform = "translateY(0) scale(1)";
-      } else {
-        // For titles and other elements
-        element.style.opacity = "1";
-        element.style.transform = "translateY(0)";
-      }
-    }, delay);
-  };
-
-  // Intersection Observer for scroll-based animations
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (
-        entry.isIntersecting &&
-        !entry.target.classList.contains("animated")
-      ) {
-        entry.target.classList.add("animated");
-
-        if (entry.target.classList.contains("checkpoint")) {
-          animateElement(entry.target);
-        } else if (entry.target.classList.contains("item")) {
-          // Staggered animation for gallery items
-          const items = Array.from(document.querySelectorAll(".item"));
-          const index = items.indexOf(entry.target);
-          const delay = (index % 4) * 100; // Stagger based on position
-          animateElement(entry.target, delay);
-        } else {
-          animateElement(entry.target);
-        }
-      }
-    });
-  }, observerOptions);
-
-  // Special observer for mobile responsiveness
-  const mobileObserver = new IntersectionObserver(
+  videoContainer.addEventListener("click", () => {
+    // Replace the URL below with your desired link
+    window.location.href =
+      "https://www.instagram.com/reel/DPEc3wAgk5w/?utm_source=ig_web_button_share_sheet";
+  });
+  const colorizerSection = document.querySelector(".quem-somos-color-text");
+  const words = colorizerSection.querySelectorAll(".text-colorizer .word");
+  ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function () {
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: colorizerSection,
+          start: "top top",
+          end: "+=300%",
+          scrub: true,
+          pin: true,
+        },
+      });
+      tl2.to(words, { opacity: 1, stagger: 0.1, ease: "power1.inOut" });
+    },
+    "(max-width: 768px)": function () {
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: colorizerSection,
+          start: "top 5%",
+          end: "+=300%",
+          scrub: true,
+          pin: true,
+        },
+      });
+      tl2.to(words, { opacity: 1, stagger: 0.1, ease: "power1.inOut" });
+    },
+  });
+  gsap.to(".our-history > *", {
+    opacity: 1,
+    y: 0,
+    duration: 0.5,
+    ease: "power2.out",
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: ".our-history",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+  gsap.set(".timeline-event > *", { opacity: 0, y: 10 });
+  gsap.to(".timeline-line-progress", {
+    height: "100%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".timeline-container",
+      start: "top 20%",
+      end: "bottom 80%",
+      scrub: true,
+    },
+  });
+  const events = gsap.utils.toArray(".timeline-event");
+  events.forEach((event) => {
+    const children = gsap.utils.toArray(event.children);
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: event,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      })
+      .to(
+        children,
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", stagger: 0.1 },
+        0.2
+      );
+  });
+  const articles = document.querySelectorAll(".timer-grid article");
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (
-          entry.isIntersecting &&
-          entry.target.classList.contains("checkpoint")
-        ) {
-          const checkpoint = entry.target;
-          if (window.innerWidth <= 1150) {
-            // Mobile animation - simpler transform
-            checkpoint.style.transform = "translateY(0)";
-          } else {
-            // Desktop animation - maintain alternating pattern
-            const index = Array.from(checkpoint.parentNode.children).indexOf(
-              checkpoint
-            );
-            checkpoint.style.transform =
-              index % 2 === 0
-                ? "translateX(-15.37em) translateY(0)"
-                : "translateX(15.37em) translateY(0)";
-          }
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          animateCount(entry.target.querySelector("h3"));
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.4 }
   );
-
-  // Initialize and observe elements
-  const init = () => {
-    setupInitialState();
-
-    // Observe timeline checkpoints
-    const checkpoints = document.querySelectorAll(".checkpoint");
-    checkpoints.forEach((checkpoint) => {
-      observer.observe(checkpoint);
-      if (window.innerWidth <= 1150) {
-        mobileObserver.observe(checkpoint);
+  articles.forEach((article) => observer.observe(article));
+  function animateCount(el) {
+    const target = +el.getAttribute("data-target");
+    const step = +el.getAttribute("data-step");
+    const format = el.getAttribute("data-format");
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
       }
-    });
+      el.textContent = formatNumber(current, format);
+    }, 80);
+  }
+  function formatNumber(num, format) {
+    if (format === "k") return Math.floor(num / 1000) + "K+";
+    if (format === "lakh")
+      return (num / 100000).toFixed(1).replace(".0", "") + " Lakh+";
+    return num;
+  }
+});
+// --- Dynamic Star Generation Script ---
+document.addEventListener("DOMContentLoaded", () => {
+  function generateStars(numberOfStars) {
+    let shadow = [];
+    for (let i = 0; i < numberOfStars; i++) {
+      const x = Math.floor(Math.random() * 2000);
+      const y = Math.floor(Math.random() * 2000);
+      shadow.push(`${x}px ${y}px #FFF`);
+    }
+    return shadow.join(", ");
+  }
 
-    // Observe gallery items
-    const galleryItems = document.querySelectorAll(".item");
-    galleryItems.forEach((item) => {
-      observer.observe(item);
-    });
+  // --- 🚀 CHANGE THESE NUMBERS TO ADD/REMOVE STARS ---
+  const smallStarsCount = 700;
+  const mediumStarsCount = 200;
+  const bigStarsCount = 100;
+  // ----------------------------------------------------
 
-    // Observe titles
-    const galleryTitle = document.querySelector(".section h1");
-    const timelineTitle = document.querySelector("h2.text-4xl");
+  const shadowsSmall = generateStars(smallStarsCount);
+  const shadowsMedium = generateStars(mediumStarsCount);
+  const shadowsBig = generateStars(bigStarsCount);
 
-    if (galleryTitle) observer.observe(galleryTitle);
-    if (timelineTitle) observer.observe(timelineTitle);
-  };
+  const starsSmall = document.getElementById("stars");
+  const starsMedium = document.getElementById("stars2");
+  const starsBig = document.getElementById("stars3");
 
-  // Handle window resize
-  let resizeTimeout;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      // Reset animations on resize
-      const checkpoints = document.querySelectorAll(".checkpoint");
-      checkpoints.forEach((checkpoint) => {
-        if (checkpoint.classList.contains("animated")) {
-          const index = Array.from(checkpoint.parentNode.children).indexOf(
-            checkpoint
-          );
-          if (window.innerWidth <= 1150) {
-            checkpoint.style.transform = "translateY(0)";
-          } else {
-            checkpoint.style.transform =
-              index % 2 === 0
-                ? "translateX(-15.37em) translateY(0)"
-                : "translateX(15.37em) translateY(0)";
-          }
-        }
-      });
-    }, 250);
-  });
+  starsSmall.style.boxShadow = shadowsSmall;
+  starsMedium.style.boxShadow = shadowsMedium;
+  starsBig.style.boxShadow = shadowsBig;
 
-  // Parallax effect for timeline (optional enhancement)
-  const addParallaxEffect = () => {
-    let ticking = false;
-
-    const updateParallax = () => {
-      const scrolled = window.pageYOffset;
-      const parallaxElements = document.querySelectorAll(".checkpoint-logo");
-
-      parallaxElements.forEach((element, index) => {
-        const rate = scrolled * -0.1;
-        element.style.transform += ` translateY(${rate}px)`;
-      });
-
-      ticking = false;
-    };
-
-    const requestParallax = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    };
-
-    // Uncomment the line below to enable parallax effect
-    // window.addEventListener('scroll', requestParallax);
-  };
-
-  // Initialize everything
-  init();
-  addParallaxEffect();
-
-  // Smooth reveal animation for elements already in viewport
-  setTimeout(() => {
-    const elementsInView = document.querySelectorAll(
-      ".checkpoint, .item, h1, h2"
-    );
-    elementsInView.forEach((element) => {
-      const rect = element.getBoundingClientRect();
-      const isInViewport = rect.top >= 0 && rect.top <= window.innerHeight;
-
-      if (isInViewport && !element.classList.contains("animated")) {
-        element.classList.add("animated");
-        animateElement(element);
-      }
-    });
-  }, 100);
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = `
+                #stars:after { box-shadow: ${shadowsSmall}; }
+                #stars2:after { box-shadow: ${shadowsMedium}; }
+                #stars3:after { box-shadow: ${shadowsBig}; }
+            `;
+  document.head.appendChild(styleSheet);
 });
