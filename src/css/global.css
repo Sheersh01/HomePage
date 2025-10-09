@@ -3,7 +3,7 @@
   font-family: "phi";
   src: url("../assets/fonts/Philosopher-Regular.ttf");
 }
-body {  background-image: url(../assets/bg.jpg);
+body {  background-image: url(../assets/main/bg.jpg);
           background-size: cover;
           background-position: center;
           background-attachment: fixed;
