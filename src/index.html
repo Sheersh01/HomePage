@@ -56,9 +56,17 @@
 
   <!-- Preload hero image for faster LCP -->
   <link rel="preload" as="image" href="https://i.ibb.co/5jwVb60/main-banner.webp" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <!-- Stylesheets -->
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" as="style" href="./css/style.css" />
+  
+  <!-- Critical Stylesheets -->
   <link rel="stylesheet" href="./css/style.css" />
+  
+  <!-- Defer non-critical CSS (Remix Icons) -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" /></noscript>
 
   <link rel="preload" href="/assets/Philosopher-Regular-mKq_-NVH.ttf" as="font" type="font/ttf" crossorigin />
 
